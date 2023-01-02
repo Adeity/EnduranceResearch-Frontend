@@ -1,5 +1,11 @@
-import '../styles/globals.css'
+import Layout from '../components/layout'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import 'bootstrap/dist/css/bootstrap.css'
+import '../styles/styles.css'
+import {Head} from "next/document";
+
+export default function MyApp({ Component, pageProps }) {
+    return (
+        <Component {...pageProps} />
+    )
 }

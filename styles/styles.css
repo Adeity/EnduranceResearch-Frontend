@@ -1,0 +1,36 @@
+
+html,
+body,
+div#__next{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div#__next {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    flex: 1;
+    background-color: #eee;
+}
+
+footer {
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
