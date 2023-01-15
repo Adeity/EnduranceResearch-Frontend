@@ -6,7 +6,6 @@ import CardList from "../components/CardList";
 export default function App({ Component, pageProps }) {
     return (
         <Layout title={"index"}>
-            <div> my content</div>
             <CardList items ={[
                 {
                     id: 1,

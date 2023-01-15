@@ -2,6 +2,11 @@ import Layout from "../../components/layout";
 
 import styles from './Form.module.css'
 import React from 'react';
+import MinutesInput from "../../components/inputs/MinutesInput";
+import MultipleChoiceInput from "../../components/inputs/MultipleChoiceInput";
+import MultipleChoiceWithInput from "../../components/inputs/MultipleChoiceInputWithInput";
+import HhMmInput from "../../components/inputs/HhMmInput";
+import { validate } from "../../components/inputs/validator/validator"
 
 
 function Psqi(props) {
@@ -16,47 +21,23 @@ function Psqi(props) {
         const currentQuestion = questions.questions[currentSlideNumber];
         if (currentQuestion.questionType === "minutes") {
             return (
-                <>
-                    <input id={currentQuestion.inputId} onChange={(e) => updateValueAndActualAnswer(e.target.value, e.target.value)} type="number" className="form-control"
-                           placeholder="Enter minutes" min="0" step={1} required={true}/>;
-                    <div className="invalid-feedback">
-                        Please choose a username.
-                    </div>
-                </>
-            )
-
+                <MinutesInput
+                    inputId={currentQuestion.inputId}/>)
         } else if (currentQuestion.questionType === "multipleChoice") {
             return (
-                currentQuestion.answers.map((answer, index) => {
-                    return (
-                        <div className="form-check" key={index}>
-                            <input className="form-check-input" onChange={(e) => updateValueAndActualAnswer(e.target.value, answer.label)} type="radio" name={currentQuestion.inputId} id={answer.id}
-                                   value={answer.value}/>
-                            <label className="form-check-label" htmlFor={answer.id}>{answer.label}</label>
-                        </div>
-                    )
-                })
+                <MultipleChoiceInput
+                    choices={currentQuestion.answers}/>
             )
+        } else if (currentQuestion.questionType === "multipleChoiceWithNote") {
+            return (
+                <MultipleChoiceWithInput />
+            )
+        } else if (currentQuestion.questionType === "hhmm") {
+            return <HhMmInput />
         }
-        return <span>no input</span>
+        return <div>no input</div>
     }
 
-    function validateMinutes() {
-        const answer = questions.questions[currentSlideNumber].actualAnswer
-        // Convert the input to a number
-        const number = Number(answer);
-
-        if (typeof number === 'number' && number > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    function validateMultipleChoice() {
-        const answer = questions.questions[currentSlideNumber].actualAnswer
-        const answerValue = questions.questions[currentSlideNumber].actualAnswerValue
-        return answer !== null && answerValue !== null;
-    }
 
     const questionsInit = {
         questions:
@@ -415,21 +396,11 @@ function Psqi(props) {
         event.preventDefault();
         document.getElementById("emptyForm").classList.add("d-none")
         const currentQuestion = questions.questions[currentSlideNumber];
+
         // validation
-        if (currentQuestion.questionType === 'minutes') {
-            const isValid = validateMinutes();
-            if (isValid === false) {
-                document.getElementById(currentQuestion.inputId).classList.add("is-invalid")
-                return;
-            } else {
-                document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
-                document.getElementById(currentQuestion.inputId).classList.add("is-valid")
-            }
-        } else if (currentQuestion.questionType === 'multipleChoice') {
-            if(validateMultipleChoice() === false) {
-                document.getElementById("emptyForm").classList.remove("d-none")
-                return;
-            }
+        const isValid = validate()
+        if (!isValid) {
+            return;
         }
 
         setTimeout(function () {
@@ -461,7 +432,7 @@ function Psqi(props) {
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>
                     {getCurrentInput()}
-                    <small id="emailHelp" className="form-text text-muted">Nic</small>
+                    <small id="emailHelp" className="form-text text-muted"></small>
                     <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                 </div>
                 <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>

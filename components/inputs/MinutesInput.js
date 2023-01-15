@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function MinutesInput(props){
+    function validate() {
+
+    }
     return (
         <>
             <input
@@ -8,7 +11,7 @@ export default function MinutesInput(props){
                 onChange={(e) => props.updateValueAndActualAnswer(e.target.value, e.target.value)}
                 type="number"
                 className="form-control"
-                placeholder="Enter minutes" min="0" step={1} required={true}/>;
+                placeholder="Enter minutes" min="0" step={1} required={true}/>
             <div className="invalid-feedback">
                 Please choose a username.
             </div>

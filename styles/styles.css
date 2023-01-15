@@ -12,24 +12,13 @@ div#__next {
     flex-direction: column;
 }
 
-header {
-    height: 60px;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 main {
     flex: 1;
-    background-color: #eee;
+    /*background-color: #eee;*/
 }
 
 footer {
-    height: 60px;
-    background-color: #333;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -18,6 +18,6 @@ export default function MultipleChoiceInput(props){
     )
 }
 
-export function validate(input) {
-
+export function validate(answer, answerValue) {
+    return answer !== null && answerValue !== null;
 }

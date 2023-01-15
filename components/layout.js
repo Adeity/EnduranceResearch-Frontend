@@ -12,7 +12,7 @@ export default function Layout({ children, title }) {
                 <title>{title}</title>
             </Head>
             <Navbar />
-            <main>{children}</main>
+            <main className={"container"}>{children}</main>
             <Footer />
         </>
     )
