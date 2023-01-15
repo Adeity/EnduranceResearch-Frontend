@@ -6,6 +6,7 @@ export default function MinutesInput(props){
     }
     return (
         <>
+            <div className={"form-text pb-2"}>Zadejte celé číslo znázorňující počet minut.</div>
             <input
                 id={props.inputId}
                 onChange={(e) => props.updateValueAndActualAnswer(e.target.value, e.target.value)}

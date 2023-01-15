@@ -9,7 +9,7 @@ export default function Layout({ children, title }) {
     return (
         <>
             <Head>
-                <title>{title}</title>
+                <title>{title} | Dotazníky Výzkumu Odolnosti</title>
             </Head>
             <Navbar />
             <main className={"container"}>{children}</main>

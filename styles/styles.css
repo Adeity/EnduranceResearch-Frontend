@@ -23,3 +23,11 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+#answer {
+    min-height: 10rem;
+}
+
+#answerCard{
+    width: 100%;
+}

@@ -427,21 +427,28 @@ function Psqi(props) {
     const currentQuestion = questions.questions[currentSlideNumber];
 
     return (
-        <Layout title={"psqi"}>
-            <form className={styles.customForm}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>
-                    {getCurrentInput()}
-                    <small id="emailHelp" className="form-text text-muted"></small>
-                    <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
-                </div>
-                <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
-                <div className={"row text-center mt-3"}>
-                    <div className={"col-12"}>Current
-                        slide: {currentSlideNumber + 1} / {questions.questions.length}</div>
-                    <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>
-                    <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>
-                </div>
+        <Layout title={"PSQI"}>
+            <form  className={styles.customForm}>
+                <div id={"answerCard"} className={"card"}>
+                    <div className={"card-body"}>
+                        <h5>{currentQuestion.label}</h5>
+                        <div id={"answer"} className="form-group">
+                            {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
+                            {getCurrentInput()}
+                            <small id="emailHelp" className="form-text text-muted"></small>
+                            <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
+                        </div>
+                        <div className={"d-flex justify-content-center"}>
+                            <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
+                        </div>
+                        <div className={"row text-center mt-3"}>
+                            <div className={"col-12"}>Current
+                                slide: {currentSlideNumber + 1} / {questions.questions.length}</div>
+                            <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>
+                            <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>
+                        </div>
+                    </div>
+                    </div>
             </form>
         </Layout>
     );
