@@ -10,11 +10,17 @@ export default function validate(questionType, inputId) {
             return true;
         }
     } else if (currentQuestion.questionType === 'multipleChoice') {
-        if(validateMultipleChoice() === false) {
+        if (validateMultipleChoice() === false) {
+            document.getElementById("emptyForm").classList.remove("d-none")
+            return false;
+        }
+    } else if (currentQuestion.questionType === 'multipleChoiceWithText') {
+        if (validateMultipleChoiceWithText() === false) {
             document.getElementById("emptyForm").classList.remove("d-none")
             return false;
         }
     }
+    return false;
 }
 
 function validateMinutes() {
@@ -29,5 +35,9 @@ function validateMinutes() {
 }
 
 function validateMultipleChoice() {
+    return true;
+}
 
+function validateMultipleChoiceWithText() {
+    return true;
 }
