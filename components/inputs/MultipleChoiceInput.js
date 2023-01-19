@@ -8,7 +8,8 @@ export default function MultipleChoiceInput(props){
                 props.choices.map((choice, index) => {
                     return (
                         <div className="form-check" key={index}>
-                            <input className="form-check-input"
+                            <input
+                                className="form-check-input"
                                    onChange={(e) => props.update(e.target.value, choice.label, choice.id)}
                                    type="radio"
                                    name=""

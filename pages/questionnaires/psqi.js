@@ -7,7 +7,6 @@ import MultipleChoiceInput from "../../components/inputs/MultipleChoiceInput";
 import MultipleChoiceInputWithText from "../../components/inputs/MultipleChoiceInputWithText";
 import HhMmInput from "../../components/inputs/HhMmInput";
 import { validate } from "../../components/inputs/validator/validator"
-import MyForm from "../../components/MyForm"
 
 function Psqi(props) {
     function updateValueAndActualAnswer(valueA, actualAnswer) {
@@ -25,8 +24,6 @@ function Psqi(props) {
         newState.questions[currentSlideNumber].actualAnswerValue = actualAnswerValue;
         newState.questions[currentSlideNumber].actualAnswer = actualAnswer;
         setQuestions(newState)
-        // newState.questions[currentSlideNumber].actualAnswerValue = valueA;
-        // newState.questions[currentSlideNumber].actualAnswer = actualAnswer;
     }
 
     function updateMultipleChoiceWithText(multipleChoiceValue, multipleChoiceActualAnswer, multipleChoiceId, text) {
@@ -52,6 +49,7 @@ function Psqi(props) {
             return (
                 <MinutesInput
                     inputId={currentQuestion.inputId}
+                    value={currentQuestion.actualAnswerValue}
                     updateValueAndActualAnswer={updateValueAndActualAnswer}
                 />)
         } else if (currentQuestion.questionType === "multipleChoice") {
@@ -74,6 +72,8 @@ function Psqi(props) {
         } else if (currentQuestion.questionType === "hhmm") {
             return <HhMmInput
                 updateValueAndActualAnswer={updateValueAndActualAnswer}
+                value={currentQuestion.actualAnswerValue}
+                inputId={currentQuestion.inputId}
             />
         }
     return <div>no input</div>
@@ -96,11 +96,10 @@ function Psqi(props) {
                 {
                     questionType: "hhmm",
                     inputType: "text",
-                    label: "V kolik hodin jste obvykle během posledního měsíce ráno vstával(a) z postele? (hh:mm)\n",
+                    label: "V kolik hodin jste obvykle během posledního měsíce ráno vstával(a) z postele? (hh:mm)",
                     code: "",
                     inputId: "gmtHhmm",
-                    answers: [
-                    ],
+                    answers: [],
                     actualAnswer: null,
                     actualAnswerValue: null
                 },
@@ -110,10 +109,9 @@ function Psqi(props) {
                     label: "(hh:mm) Kolik hodin za noc jste minulý měsíc obvykle opravdu spal(a)? (To se může lišit od počtu strávených v posteli.)",
                     code: "",
                     inputId: "hhMmTimeOfSleep",
-                    answers: [
-                    ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    answers: [],
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -147,8 +145,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -675,7 +673,7 @@ function Psqi(props) {
         const currentQuestion = questions.questions[currentSlideNumber];
 
         // validation
-        const isValid = validate()
+        const isValid = validate(currentQuestion)
         if (!isValid) {
             return;
         }

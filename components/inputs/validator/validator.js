@@ -1,6 +1,14 @@
-export default function validate(questionType, inputId) {
-    if (questionType === 'minutes') {
-        const isValid = validateMinutes();
+export function validate(question) {
+    const questionType = question.questionType
+    const inputId = question.inputId
+    if (questionType === 'minutes' || questionType === "hhmm") {
+        let isValid;
+        if (questionType ==='minutes') {
+            isValid = validateMinutes(question.actualAnswer)
+        }
+        else if (questionType === "hhmm") {
+            isValid = validateHhMm(question.actualAnswer)
+        }
         if (isValid === false) {
             document.getElementById(inputId).classList.add("is-invalid")
             return false;
@@ -23,8 +31,7 @@ export default function validate(questionType, inputId) {
     return false;
 }
 
-function validateMinutes() {
-    const answer = questions.questions[currentSlideNumber].actualAnswer
+function validateMinutes(answer) {
     // Convert the input to a number
     const number = Number(answer);
 
@@ -34,6 +41,24 @@ function validateMinutes() {
     return false;
 }
 
+function validateHhMm(answer) {
+    const answerArray = answer.split(":")
+    console.log(answerArray.length)
+    if (answerArray.length !== 2) {
+        return false;
+    }
+    const hh = answerArray[0]
+    const mm = answerArray[1]
+
+    const hhNumber = Number(hh);
+    const hhValid = typeof hhNumber === 'number' && hhNumber >= 0 && hhNumber < 24;
+
+    const mmNumber = Number(mm);
+    const mmValid = typeof mmNumber === 'number' && mmNumber >= 0 && mmNumber < 60;
+
+    return hhValid && mmValid
+}
+
 function validateMultipleChoice() {
     return true;
 }
@@ -41,3 +66,13 @@ function validateMultipleChoice() {
 function validateMultipleChoiceWithText() {
     return true;
 }
+
+function getValidityClassname(isValid) {
+    if (isValid === true) {
+        return "is-valid"
+    } else if (isValid === false) {
+        return "is-invalid"
+    }
+    return ""
+}
+
