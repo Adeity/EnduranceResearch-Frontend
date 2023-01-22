@@ -6,7 +6,7 @@ import MinutesInput from "../../components/inputs/MinutesInput";
 import MultipleChoiceInput from "../../components/inputs/MultipleChoiceInput";
 import MultipleChoiceInputWithText from "../../components/inputs/MultipleChoiceInputWithText";
 import HhMmInput from "../../components/inputs/HhMmInput";
-import { validate } from "../../components/inputs/validator/validator"
+import {validate} from "../../components/inputs/validator/validator"
 
 function Psqi(props) {
     function updateValueAndActualAnswer(valueA, actualAnswer) {
@@ -18,7 +18,7 @@ function Psqi(props) {
 
     function updateMultipleChoice(actualAnswerValue, actualAnswer, answerId) {
         const newState = {...questions}
-        newState.questions[currentSlideNumber].answers.forEach(e=>{
+        newState.questions[currentSlideNumber].answers.forEach(e => {
             e.checked = e.id === answerId;
         })
         newState.questions[currentSlideNumber].actualAnswerValue = actualAnswerValue;
@@ -28,7 +28,7 @@ function Psqi(props) {
 
     function updateMultipleChoiceWithText(multipleChoiceValue, multipleChoiceActualAnswer, multipleChoiceId, text) {
         const newState = {...questions}
-        newState.questions[currentSlideNumber].answers.forEach(e=>{
+        newState.questions[currentSlideNumber].answers.forEach(e => {
             e.checked = e.id === answerId;
         })
         newState.questions[currentSlideNumber].actualAnswerValue = actualAnswerValue;
@@ -76,7 +76,7 @@ function Psqi(props) {
                 inputId={currentQuestion.inputId}
             />
         }
-    return <div>no input</div>
+        return <div>no input</div>
     }
 
     const inTheLastString = "Jak často: "
@@ -118,7 +118,7 @@ function Psqi(props) {
                     inputType: "text",
                     label: inTheLastString + "Nemohl jste usnout do 30 min",
                     code: "",
-                    inputId: "7psqi1",
+                    inputId: "idsevenpsqione",
                     answers: [
                         {
                             id: "never7psqi1",
@@ -180,8 +180,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -250,8 +250,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -285,8 +285,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -320,8 +320,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -355,8 +355,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -390,8 +390,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -425,8 +425,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoiceWithText",
@@ -463,8 +463,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null,
+                    actualAnswer: "",
+                    actualAnswerValue: "",
                     textValue: ""
                 },
                 {
@@ -499,8 +499,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoiceWithText",
@@ -537,8 +537,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null,
+                    actualAnswer: "",
+                    actualAnswerValue: "",
                     textValue: ""
                 },
                 {
@@ -574,8 +574,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -610,8 +610,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -646,8 +646,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
             ]
     }
@@ -662,6 +662,7 @@ function Psqi(props) {
             setCurrentSlideNumber(currentSlideNumber - 1)
         }
     }
+
     function incrementCurrentSlideNumber() {
         if (currentSlideNumber !== questions.questions.length - 1) {
             setCurrentSlideNumber(currentSlideNumber + 1)
@@ -685,60 +686,73 @@ function Psqi(props) {
         }
 
         buttonIsEnabled.current = false;
-        setTimeout(function () {
-            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-            incrementCurrentSlideNumber()
-            buttonIsEnabled.current = true;
-        }, 1000);
-        // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-        // incrementCurrentSlideNumber()
 
-        setFormData({
-            ...formData,
-            [currentQuestion.code]: currentQuestion.actualAnswer,
-        });
-    }
+        const questionType = currentQuestion.questionType
+        if (questionType === "minutes" || questionType === "hhmm") {
+            setTimeout(function () {
+                document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+                incrementCurrentSlideNumber()
+                buttonIsEnabled.current = true;
+            }, 1000);
+        } else if (questionType === "multipleChoice") {
+            setTimeout(function () {
+                currentQuestion.answers.forEach(e => {
+                    document.getElementById(e.id).classList.remove("is-valid")
+                })
+                incrementCurrentSlideNumber()
+                buttonIsEnabled.current = true;
+            }, 1000)
+        }
 
-    function previousSlide(e) {
-        e.preventDefault()
-        decrementCurrentSlideNumber()
-    }
+    // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+    // incrementCurrentSlideNumber()
 
-    function nextSlide(e) {
-        e.preventDefault()
-        incrementCurrentSlideNumber()
-    }
+    setFormData({
+        ...formData,
+        [currentQuestion.code]: currentQuestion.actualAnswer,
+    });
+}
+
+function previousSlide(e) {
+    e.preventDefault()
+    decrementCurrentSlideNumber()
+}
+
+function nextSlide(e) {
+    e.preventDefault()
+    incrementCurrentSlideNumber()
+}
 
 
-    const currentQuestion = questions.questions[currentSlideNumber];
+const currentQuestion = questions.questions[currentSlideNumber];
 
-    return (
-        <Layout title={"PSQI"}>
-            {/*<MyForm />*/}
-            <form  className={styles.customForm}>
-                <div id={"answerCard"} className={"card"}>
-                    <div className={"card-body"}>
-                        <h5>{currentQuestion.label}</h5>
-                        <div id={"answer"} className="form-group">
-                            {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
-                            {getCurrentInput()}
-                            <small id="emailHelp" className="form-text text-muted"></small>
-                            <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
-                        </div>
-                        <div className={"d-flex justify-content-center"}>
-                            <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
-                        </div>
-                        <div className={"row text-center mt-3"}>
-                            <div className={"col-12"}>Current
-                                slide: {currentSlideNumber + 1} / {questions.questions.length}</div>
-                            <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>
-                            <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>
-                        </div>
+return (
+    <Layout title={"PSQI"}>
+        {/*<MyForm />*/}
+        <form className={styles.customForm}>
+            <div id={"answerCard"} className={"card"}>
+                <div className={"card-body"}>
+                    <h5>{currentQuestion.label}</h5>
+                    <div id={"answer"} className="form-group">
+                        {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
+                        {getCurrentInput()}
+                        <small id="emailHelp" className="form-text text-muted"></small>
+                        <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                     </div>
+                    <div className={"d-flex justify-content-center"}>
+                        <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
                     </div>
-            </form>
-        </Layout>
-    );
+                    <div className={"row text-center mt-3"}>
+                        <div className={"col-12"}>Current
+                            slide: {currentSlideNumber + 1} / {questions.questions.length}</div>
+                        <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>
+                        <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </Layout>
+);
 }
 
 export default Psqi

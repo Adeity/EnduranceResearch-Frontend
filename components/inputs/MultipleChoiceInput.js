@@ -3,7 +3,7 @@ import React from "react";
 export default function MultipleChoiceInput(props) {
     return (
         <>
-            <div className={"form-text pb-2"}>Vyberte jednu z možností.</div>
+            <div id={props.inputId} className={"form-text pb-2"}>Vyberte jednu z možností.</div>
             {
                 props.choices.map((choice, index) => {
                     return (

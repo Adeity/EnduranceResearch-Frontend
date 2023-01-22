@@ -1,6 +1,7 @@
 export function validate(question) {
     const questionType = question.questionType
     const inputId = question.inputId
+    debugger
     if (questionType === 'minutes' || questionType === "hhmm") {
         let isValid;
         if (questionType ==='minutes') {
@@ -17,16 +18,26 @@ export function validate(question) {
             document.getElementById(inputId).classList.add("is-valid")
             return true;
         }
-    } else if (currentQuestion.questionType === 'multipleChoice') {
-        if (validateMultipleChoice() === false) {
-            document.getElementById("emptyForm").classList.remove("d-none")
+    } else if (questionType === 'multipleChoice') {
+        debugger
+        if (validateMultipleChoice(question.actualAnswer, question.actualAnswerValue) === false) {
+            // document.getElementById("emptyForm").classList.remove("d-none")
+            question.answers.forEach(e=> {
+                document.getElementById(e.id).classList.add("is-invalid")
+            })
             return false;
         }
-    } else if (currentQuestion.questionType === 'multipleChoiceWithText') {
+        question.answers.forEach(e => {
+            document.getElementById(e.id).classList.remove("is-invalid")
+            document.getElementById(e.id).classList.add("is-valid")
+        })
+        return true;
+    } else if (questionType === 'multipleChoiceWithText') {
         if (validateMultipleChoiceWithText() === false) {
             document.getElementById("emptyForm").classList.remove("d-none")
             return false;
         }
+        return true;
     }
     return false;
 }
@@ -62,8 +73,8 @@ function validateHhMm(answer) {
     return hhValid && mmValid
 }
 
-function validateMultipleChoice() {
-    return true;
+function validateMultipleChoice(actualAnswer, actualAnswerValue) {
+    return actualAnswer !== "" && actualAnswerValue !== "";
 }
 
 function validateMultipleChoiceWithText() {
