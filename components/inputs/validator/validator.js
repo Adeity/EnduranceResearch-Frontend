@@ -42,6 +42,9 @@ function validateMinutes(answer) {
 }
 
 function validateHhMm(answer) {
+    if (answer === null) {
+        return false;
+    }
     const answerArray = answer.split(":")
     console.log(answerArray.length)
     if (answerArray.length !== 2) {

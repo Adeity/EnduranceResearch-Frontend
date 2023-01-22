@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MultipleChoiceInput(props){
+export default function MultipleChoiceInput(props) {
     return (
         <>
             <div className={"form-text pb-2"}>Vyberte jednu z možností.</div>
@@ -10,12 +10,12 @@ export default function MultipleChoiceInput(props){
                         <div className="form-check" key={index}>
                             <input
                                 className="form-check-input"
-                                   onChange={(e) => props.update(e.target.value, choice.label, choice.id)}
-                                   type="radio"
-                                   name=""
-                                   id={choice.id}
-                                   value={choice.value}
-                                   checked={choice.checked}
+                                onChange={(e) => props.update(e.target.value, choice.label, choice.id)}
+                                type="radio"
+                                name=""
+                                id={choice.id}
+                                value={choice.value}
+                                checked={choice.checked}
                             />
                             <label className="form-check-label" htmlFor={choice.id}>{choice.label}</label>
                         </div>

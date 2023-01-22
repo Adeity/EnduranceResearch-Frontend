@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
 
 import styles from './Form.module.css'
-import React from 'react';
+import React, {useRef} from 'react';
 import MinutesInput from "../../components/inputs/MinutesInput";
 import MultipleChoiceInput from "../../components/inputs/MultipleChoiceInput";
 import MultipleChoiceInputWithText from "../../components/inputs/MultipleChoiceInputWithText";
@@ -655,6 +655,7 @@ function Psqi(props) {
     const [questions, setQuestions] = React.useState(questionsInit);
     const [currentSlideNumber, setCurrentSlideNumber] = React.useState(0);
     const [formData, setFormData] = React.useState({});
+    const buttonIsEnabled = useRef(true);
 
     function decrementCurrentSlideNumber() {
         if (currentSlideNumber > 0) {
@@ -668,6 +669,11 @@ function Psqi(props) {
     }
 
     function handleSubmit(event) {
+        debugger
+        if (!buttonIsEnabled.current) {
+            event.preventDefault()
+            return;
+        }
         event.preventDefault();
         document.getElementById("emptyForm").classList.add("d-none")
         const currentQuestion = questions.questions[currentSlideNumber];
@@ -678,9 +684,14 @@ function Psqi(props) {
             return;
         }
 
+        buttonIsEnabled.current = false;
         setTimeout(function () {
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             incrementCurrentSlideNumber()
+            buttonIsEnabled.current = true;
         }, 1000);
+        // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+        // incrementCurrentSlideNumber()
 
         setFormData({
             ...formData,
