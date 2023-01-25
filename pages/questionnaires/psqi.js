@@ -752,25 +752,25 @@ return (
                         <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                     </div>
                 </div>
-                <div className={"card-footer"}>
-                    <div className={"d-flex justify-content-center mt-auto"}>
-                        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>
-                    </div>
+                {/*<div className={"card-footer"}>*/}
+                {/*    <div className={"d-flex justify-content-center mt-auto"}>*/}
+                {/*        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>*/}
+                {/*    </div>*/}
 
-                </div>
+                {/*</div>*/}
             </div>
-            {/*<div id={"fillerDiv"}>*/}
+            <div id={"fillerDiv"}>
 
-            {/*</div>*/}
-            {/*<div>*/}
-            {/*    <div className={"d-flex justify-content-center mt-auto"}>*/}
-            {/*        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>*/}
-            {/*    </div>*/}
-            {/*    /!*<div className={"row text-center mt-3"}>*!/*/}
-            {/*    /!*    <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>*!/*/}
-            {/*    /!*    <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>*!/*/}
-            {/*    /!*</div>*!/*/}
-            {/*</div>*/}
+            </div>
+            <div className={"pt-3"}>
+                <div className={"d-flex justify-content-center mt-auto"}>
+                    <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>
+                </div>
+                {/*<div className={"row text-center mt-3"}>*/}
+                {/*    <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
+                {/*    <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
+                {/*</div>*/}
+            </div>
         </form>
     </Layout>
 );
