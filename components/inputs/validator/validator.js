@@ -33,11 +33,28 @@ export function validate(question) {
         })
         return true;
     } else if (questionType === 'multipleChoiceWithText') {
-        if (validateMultipleChoiceWithText() === false) {
-            document.getElementById("emptyForm").classList.remove("d-none")
-            return false;
+        const text = validateMultipleChoiceWithTextText(question.textValue)
+        const mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+        const both = text && mChoice
+
+        if (text === false) {
+            document.getElementById(inputId).classList.add("is-invalid")
+        } else {
+            document.getElementById(inputId).classList.remove("is-invalid")
+            document.getElementById(inputId).classList.add("is-valid")
         }
-        return true;
+        if (mChoice === false) {
+            question.answers.forEach(e=> {
+                document.getElementById(e.id).classList.add("is-invalid")
+            })
+        } else {
+            question.answers.forEach(e=> {
+                document.getElementById(e.id).classList.remove("is-invalid")
+                document.getElementById(e.id).classList.add("is-valid")
+            })
+
+        }
+        return both
     }
     return false;
 }
@@ -77,8 +94,12 @@ function validateMultipleChoice(actualAnswer, actualAnswerValue) {
     return actualAnswer !== "" && actualAnswerValue !== "";
 }
 
-function validateMultipleChoiceWithText() {
-    return true;
+function validateMultipleChoiceWithTextText(text) {
+    return text.length > 0;
+}
+
+function validateMultipleChoiceWithTextMultipleChoice(actualAnswer, actualAnswerValue) {
+    return actualAnswer !== "" && actualAnswerValue !== "";
 }
 
 function getValidityClassname(isValid) {

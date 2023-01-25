@@ -67,6 +67,7 @@ function Psqi(props) {
                     text={currentQuestion.textValue}
                     firstDescription={currentQuestion.firstDescription}
                     secondDescription={currentQuestion.secondDescription}
+                    inputId={currentQuestion.inputId}
                 />
             )
         } else if (currentQuestion.questionType === "hhmm") {
@@ -430,10 +431,10 @@ function Psqi(props) {
                 },
                 {
                     questionType: "multipleChoiceWithText",
-                    inputType: "text",
+                    inputType: "text7psqi10",
                     label: "Prosím, popište jiné důvody, kvůli kterým jste se musel(a) vzbudit. a jak často v týdnu.",
-                    firstDescription: "Popište slovy",
-                    secondDescription: "Vyberte jednu z možností. Prosím.",
+                    firstDescription: "Důvody popište slovy. Jestliže žádné další důvody neexistují, zadejte \"nejsou\".",
+                    secondDescription: "Vyberte jednu z možností znázorňující, jak často jste se potýkal s problémy, které jste popsal v předchozim políčku.",
                     code: "",
                     inputId: "7psqi10",
                     answers: [
@@ -506,8 +507,8 @@ function Psqi(props) {
                     questionType: "multipleChoiceWithText",
                     inputType: "text",
                     label: "Kolikrát jste během posledního měsíce užil(a) léky nebo jiné přípravky, které vám pomáhají usnout a spát (na lékařský předpis nebo bez předpisu + jaké to byly?",
-                    firstDescription: "Popište slovy",
-                    secondDescription: "Vyberte jednu z možností. Prosím.",
+                    firstDescription: "Napište, jaké léky nebo jiné přípravky užíváte. Jestliže žádné neužíváte, zadejte \"nejsou\".",
+                    secondDescription: "Vyberte jednu z možností znázorňující, jak často užíváte léky či jiné přípravky, které jste popsal v předchozim políčku.",
                     code: "",
                     inputId: "psqi9",
                     answers: [
@@ -670,7 +671,6 @@ function Psqi(props) {
     }
 
     function handleSubmit(event) {
-        debugger
         if (!buttonIsEnabled.current) {
             event.preventDefault()
             return;
@@ -699,6 +699,15 @@ function Psqi(props) {
                 currentQuestion.answers.forEach(e => {
                     document.getElementById(e.id).classList.remove("is-valid")
                 })
+                incrementCurrentSlideNumber()
+                buttonIsEnabled.current = true;
+            }, 1000)
+        } else if (questionType === "multipleChoiceWithText") {
+            setTimeout(function () {
+                currentQuestion.answers.forEach(e => {
+                    document.getElementById(e.id).classList.remove("is-valid")
+                })
+                document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
                 incrementCurrentSlideNumber()
                 buttonIsEnabled.current = true;
             }, 1000)
@@ -731,6 +740,9 @@ return (
         {/*<MyForm />*/}
         <form className={styles.customForm}>
             <div id={"answerCard"} className={"card"}>
+                <div className={"card-header"}>
+                    <div className={"col-12 text-center"}>Otázka {currentSlideNumber + 1} / {questions.questions.length}</div>
+                </div>
                 <div className={"card-body"}>
                     <h5>{currentQuestion.label}</h5>
                     <div id={"answer"} className="form-group">
@@ -739,17 +751,26 @@ return (
                         <small id="emailHelp" className="form-text text-muted"></small>
                         <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                     </div>
-                    <div className={"d-flex justify-content-center"}>
-                        <button className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
+                </div>
+                <div className={"card-footer"}>
+                    <div className={"d-flex justify-content-center mt-auto"}>
+                        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>
                     </div>
-                    <div className={"row text-center mt-3"}>
-                        <div className={"col-12"}>Current
-                            slide: {currentSlideNumber + 1} / {questions.questions.length}</div>
-                        <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>
-                        <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>
-                    </div>
+
                 </div>
             </div>
+            {/*<div id={"fillerDiv"}>*/}
+
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*    <div className={"d-flex justify-content-center mt-auto"}>*/}
+            {/*        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>*/}
+            {/*    </div>*/}
+            {/*    /!*<div className={"row text-center mt-3"}>*!/*/}
+            {/*    /!*    <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>*!/*/}
+            {/*    /!*    <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>*!/*/}
+            {/*    /!*</div>*!/*/}
+            {/*</div>*/}
         </form>
     </Layout>
 );

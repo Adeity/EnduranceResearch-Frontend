@@ -9,14 +9,16 @@ export default function MultipleChoiceInputWithText(props){
                 onChange={(e) => props.updateText(e.target.value)}
                 type="text"
                 className="form-control"
-                placeholder="Např. pes" required={true}/>
-            <h5 className={"pt-3"}>A jak často?</h5>
+                placeholder="Popište slovy" required={true}/>
+            <div className="invalid-feedback">
+                Prosím, vyplňte toto políčko.
+            </div>
+            <h5 className={""}>A jak často?</h5>
             <div className={"form-text pb-2"}>{props.secondDescription}</div>
             {
                 props.choices.map((choice, index) => {
                     return (
                         <div className="form-check" key={index}>
-                            <label className="form-check-label" htmlFor={choice.id}>{choice.label}</label>
                             <input
                                 className="form-check-input"
                                    onChange={(e) => props.update(e.target.value, choice.label, choice.id)}
@@ -26,6 +28,7 @@ export default function MultipleChoiceInputWithText(props){
                                    value={choice.value}
                                    checked={choice.checked}
                             />
+                            <label className="form-check-label" htmlFor={choice.id}>{choice.label}</label>
                         </div>
                     )
             })
