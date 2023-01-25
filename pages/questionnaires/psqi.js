@@ -713,67 +713,73 @@ function Psqi(props) {
             }, 1000)
         }
 
-    // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-    // incrementCurrentSlideNumber()
+        // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+        // incrementCurrentSlideNumber()
 
-    setFormData({
-        ...formData,
-        [currentQuestion.code]: currentQuestion.actualAnswer,
-    });
-}
+        setFormData({
+            ...formData,
+            [currentQuestion.code]: currentQuestion.actualAnswer,
+        });
+    }
 
-function previousSlide(e) {
-    e.preventDefault()
-    decrementCurrentSlideNumber()
-}
+    function previousSlide(e) {
+        e.preventDefault()
+        decrementCurrentSlideNumber()
+    }
 
-function nextSlide(e) {
-    e.preventDefault()
-    incrementCurrentSlideNumber()
-}
+    function nextSlide(e) {
+        e.preventDefault()
+        incrementCurrentSlideNumber()
+    }
 
 
-const currentQuestion = questions.questions[currentSlideNumber];
+    const currentQuestion = questions.questions[currentSlideNumber];
+    const lastQuestion = currentSlideNumber === questions.questions.length - 1
+    const buttonText = lastQuestion ? "Dokončit" : "Další otázka"
+    const buttonClass = lastQuestion ? "btn btn-secondary" : "btn btn-outline-secondary"
 
-return (
-    <Layout title={"PSQI"}>
-        {/*<MyForm />*/}
-        <form className={styles.customForm}>
-            <div id={"answerCard"} className={"card"}>
-                <div className={"card-header"}>
-                    <div className={"col-12 text-center"}>Otázka {currentSlideNumber + 1} / {questions.questions.length}</div>
+    return (
+        <Layout title={"PSQI"}>
+            {/*<MyForm />*/}
+            <form className={styles.customForm}>
+                <div id={"answerCard"} className={"card"}>
+                    <div className={"card-header"}>
+                        <div
+                            className={"col-12 text-center"}>Otázka {currentSlideNumber + 1} / {questions.questions.length}</div>
+                    </div>
+                    <div className={"card-body"}>
+                        <h5>{currentQuestion.label}</h5>
+                        <div id={"answer"} className="form-group">
+                            {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
+                            {getCurrentInput()}
+                            <small id="emailHelp" className="form-text text-muted"></small>
+                            <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
+                        </div>
+                    </div>
+                    {/*<div className={"card-footer"}>*/}
+                    {/*    <div className={"d-flex justify-content-center mt-auto"}>*/}
+                    {/*        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>*/}
+                    {/*    </div>*/}
+
+                    {/*</div>*/}
                 </div>
-                <div className={"card-body"}>
-                    <h5>{currentQuestion.label}</h5>
-                    <div id={"answer"} className="form-group">
-                        {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
-                        {getCurrentInput()}
-                        <small id="emailHelp" className="form-text text-muted"></small>
-                        <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
+                <div id={"fillerDiv"}>
+
+                </div>
+                <div className={"pt-3"}>
+                    <div className={"d-flex justify-content-center mt-auto"}>
+                        {/*<button className={"btn btn-outline-secondary me-3"}*/}
+                        {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
+                        <button className={buttonClass} onClick={(e) => handleSubmit(e)}>{buttonText}</button>
+                        {/*<button className={"btn btn-outline-secondary ms-3"}*/}
+                        {/*        onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
+                    </div>
+                    <div className={"row text-center mt-3"}>
                     </div>
                 </div>
-                {/*<div className={"card-footer"}>*/}
-                {/*    <div className={"d-flex justify-content-center mt-auto"}>*/}
-                {/*        <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>*/}
-                {/*    </div>*/}
-
-                {/*</div>*/}
-            </div>
-            <div id={"fillerDiv"}>
-
-            </div>
-            <div className={"pt-3"}>
-                <div className={"d-flex justify-content-center mt-auto"}>
-                    <button className="btn btn-outline-secondary" onClick={(e) => handleSubmit(e)}>Další otázka</button>
-                </div>
-                {/*<div className={"row text-center mt-3"}>*/}
-                {/*    <button className={"btn btn-primary col-6"} onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
-                {/*    <button className={"btn btn-primary col-6"} onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
-                {/*</div>*/}
-            </div>
-        </form>
-    </Layout>
-);
+            </form>
+        </Layout>
+    );
 }
 
 export default Psqi
