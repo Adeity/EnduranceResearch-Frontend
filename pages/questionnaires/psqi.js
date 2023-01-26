@@ -62,7 +62,7 @@ function Psqi(props) {
         } else if (currentQuestion.questionType === "multipleChoiceWithText") {
             return (
                 <MultipleChoiceInputWithText
-                    update={updateMultipleChoice}
+                    updateMultipleChoice={updateMultipleChoice}
                     updateText={updateText}
                     choices={currentQuestion.answers}
                     text={currentQuestion.textValue}

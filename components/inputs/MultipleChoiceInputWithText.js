@@ -21,7 +21,7 @@ export default function MultipleChoiceInputWithText(props){
                         <div className="form-check" key={index}>
                             <input
                                 className="form-check-input"
-                                   onChange={(e) => props.update(e.target.value, choice.label, choice.id)}
+                                   onChange={(e) => props.updateMultipleChoice(e.target.value, choice.label, choice.id)}
                                    type="radio"
                                    name=""
                                    id={choice.id}
