@@ -1,62 +1,30 @@
+import {toggleHhMm, toggleMinutes, toggleMultipleChoice, toggleMultipleChoiceWithText} from "./validClassToggler";
+
 export function validate(question) {
     const questionType = question.questionType
     const inputId = question.inputId
-    debugger
-    if (questionType === 'minutes' || questionType === "hhmm") {
-        let isValid;
-        if (questionType ==='minutes') {
+    let isValid;
+    switch (questionType) {
+        case "minutes":
             isValid = validateMinutes(question.actualAnswer)
-        }
-        else if (questionType === "hhmm") {
+            toggleMinutes(isValid, inputId)
+            break;
+        case "hhmm":
             isValid = validateHhMm(question.actualAnswer)
-        }
-        if (isValid === false) {
-            document.getElementById(inputId).classList.add("is-invalid")
-            return false;
-        } else {
-            document.getElementById(inputId).classList.remove("is-invalid")
-            document.getElementById(inputId).classList.add("is-valid")
-            return true;
-        }
-    } else if (questionType === 'multipleChoice') {
-        debugger
-        if (validateMultipleChoice(question.actualAnswer, question.actualAnswerValue) === false) {
-            // document.getElementById("emptyForm").classList.remove("d-none")
-            question.answers.forEach(e=> {
-                document.getElementById(e.id).classList.add("is-invalid")
-            })
-            return false;
-        }
-        question.answers.forEach(e => {
-            document.getElementById(e.id).classList.remove("is-invalid")
-            document.getElementById(e.id).classList.add("is-valid")
-        })
-        return true;
-    } else if (questionType === 'multipleChoiceWithText') {
-        const text = validateMultipleChoiceWithTextText(question.textValue)
-        const mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
-        const both = text && mChoice
-
-        if (text === false) {
-            document.getElementById(inputId).classList.add("is-invalid")
-        } else {
-            document.getElementById(inputId).classList.remove("is-invalid")
-            document.getElementById(inputId).classList.add("is-valid")
-        }
-        if (mChoice === false) {
-            question.answers.forEach(e=> {
-                document.getElementById(e.id).classList.add("is-invalid")
-            })
-        } else {
-            question.answers.forEach(e=> {
-                document.getElementById(e.id).classList.remove("is-invalid")
-                document.getElementById(e.id).classList.add("is-valid")
-            })
-
-        }
-        return both
+            toggleHhMm(isValid, inputId)
+            break;
+        case "multipleChoice":
+            isValid = validateMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+            toggleMultipleChoice(isValid, question.answers.map(e => e.id))
+            break;
+        case "multipleChoiceWithText":
+            const text = validateMultipleChoiceWithTextText(question.textValue)
+            const mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+            isValid = text && mChoice
+            toggleMultipleChoiceWithText(mChoice, text, question.answers.map(e => e.id), question.inputId)
+            break;
     }
-    return false;
+    return isValid;
 }
 
 function validateMinutes(answer) {
