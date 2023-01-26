@@ -36,3 +36,31 @@ function mChoiceToggle(isValid, answersIds) {
         })
     }
 }
+
+export function removeAllValidityClasses(currentQuestion) {
+    const questionType = currentQuestion.questionType
+    switch (questionType) {
+        case "minutes":
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
+            break;
+        case "hhmm":
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
+            break;
+        case "multipleChoice":
+            currentQuestion.answers.forEach(e => {
+                document.getElementById(e.id).classList.remove("is-valid")
+                document.getElementById(e.id).classList.remove("is-invalid")
+            })
+            break;
+        case "multipleChoiceWithText":
+            currentQuestion.answers.forEach(e => {
+                document.getElementById(e.id).classList.remove("is-valid")
+                document.getElementById(e.id).classList.remove("is-invalid")
+            })
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
+            break;
+    }
+}

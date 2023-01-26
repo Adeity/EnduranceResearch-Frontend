@@ -7,6 +7,7 @@ import MultipleChoiceInput from "../../components/inputs/MultipleChoiceInput";
 import MultipleChoiceInputWithText from "../../components/inputs/MultipleChoiceInputWithText";
 import HhMmInput from "../../components/inputs/HhMmInput";
 import {validate} from "../../components/inputs/validator/validator"
+import {removeAllValidityClasses} from "../../components/inputs/validator/validClassToggler";
 
 function Psqi(props) {
     function updateValueAndActualAnswer(valueA, actualAnswer) {
@@ -216,8 +217,8 @@ function Psqi(props) {
                             checked: false
                         },
                     ],
-                    actualAnswer: null,
-                    actualAnswerValue: null
+                    actualAnswer: "",
+                    actualAnswerValue: ""
                 },
                 {
                     questionType: "multipleChoice",
@@ -677,7 +678,6 @@ function Psqi(props) {
         }
 
         const currentQuestion = questions.questions[currentSlideNumber];
-        const questionType = currentQuestion.questionType
 
         // validation
         const isValid = validate(currentQuestion)
@@ -692,25 +692,7 @@ function Psqi(props) {
         buttonIsEnabled.current = false;
 
         setTimeout(function () {
-            switch (questionType) {
-                case "minutes":
-                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-                    break;
-                case "hhmm":
-                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-                    break;
-                case "multipleChoice":
-                    currentQuestion.answers.forEach(e => {
-                        document.getElementById(e.id).classList.remove("is-valid")
-                    })
-                    break;
-                case "multipleChoiceWithText":
-                    currentQuestion.answers.forEach(e => {
-                        document.getElementById(e.id).classList.remove("is-valid")
-                    })
-                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-                    break;
-            }
+            removeAllValidityClasses(currentQuestion)
             incrementCurrentSlideNumber()
             buttonIsEnabled.current = true;
         }, 1000)
@@ -718,11 +700,13 @@ function Psqi(props) {
 
     function previousSlide(e) {
         e.preventDefault()
+        removeAllValidityClasses(currentQuestion)
         decrementCurrentSlideNumber()
     }
 
     function nextSlide(e) {
         e.preventDefault()
+        removeAllValidityClasses(currentQuestion)
         incrementCurrentSlideNumber()
     }
 
@@ -774,13 +758,6 @@ function Psqi(props) {
             </form>
         </Layout>
     );
-}
-
-class submitHandler {
-    constructor(props) {
-    }
-
-
 }
 
 export default Psqi
