@@ -671,13 +671,13 @@ function Psqi(props) {
     }
 
     function handleSubmit(event) {
+        event.preventDefault();
         if (!buttonIsEnabled.current) {
-            event.preventDefault()
             return;
         }
-        event.preventDefault();
-        document.getElementById("emptyForm").classList.add("d-none")
+
         const currentQuestion = questions.questions[currentSlideNumber];
+        const questionType = currentQuestion.questionType
 
         // validation
         const isValid = validate(currentQuestion)
@@ -685,41 +685,35 @@ function Psqi(props) {
             return;
         }
 
-        buttonIsEnabled.current = false;
-
-        const questionType = currentQuestion.questionType
-        if (questionType === "minutes" || questionType === "hhmm") {
-            setTimeout(function () {
-                document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-                incrementCurrentSlideNumber()
-                buttonIsEnabled.current = true;
-            }, 1000);
-        } else if (questionType === "multipleChoice") {
-            setTimeout(function () {
-                currentQuestion.answers.forEach(e => {
-                    document.getElementById(e.id).classList.remove("is-valid")
-                })
-                incrementCurrentSlideNumber()
-                buttonIsEnabled.current = true;
-            }, 1000)
-        } else if (questionType === "multipleChoiceWithText") {
-            setTimeout(function () {
-                currentQuestion.answers.forEach(e => {
-                    document.getElementById(e.id).classList.remove("is-valid")
-                })
-                document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-                incrementCurrentSlideNumber()
-                buttonIsEnabled.current = true;
-            }, 1000)
-        }
-
-        // document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
-        // incrementCurrentSlideNumber()
-
         setFormData({
             ...formData,
-            [currentQuestion.code]: currentQuestion.actualAnswer,
-        });
+            [currentQuestion.code]: currentQuestion.actualAnswer});
+
+        buttonIsEnabled.current = false;
+
+        setTimeout(function () {
+            switch (questionType) {
+                case "minutes":
+                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+                    break;
+                case "hhmm":
+                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+                    break;
+                case "multipleChoice":
+                    currentQuestion.answers.forEach(e => {
+                        document.getElementById(e.id).classList.remove("is-valid")
+                    })
+                    break;
+                case "multipleChoiceWithText":
+                    currentQuestion.answers.forEach(e => {
+                        document.getElementById(e.id).classList.remove("is-valid")
+                    })
+                    document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+                    break;
+            }
+            incrementCurrentSlideNumber()
+            buttonIsEnabled.current = true;
+        }, 1000)
     }
 
     function previousSlide(e) {
@@ -768,11 +762,11 @@ function Psqi(props) {
                 </div>
                 <div className={"pt-3"}>
                     <div className={"d-flex justify-content-center mt-auto"}>
-                        {/*<button className={"btn btn-outline-secondary me-3"}*/}
-                        {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
+                        <button className={"btn btn-outline-secondary me-3"}
+                                onClick={(e) => previousSlide(e)}>{"<-"}</button>
                         <button className={buttonClass} onClick={(e) => handleSubmit(e)}>{buttonText}</button>
-                        {/*<button className={"btn btn-outline-secondary ms-3"}*/}
-                        {/*        onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
+                        <button className={"btn btn-outline-secondary ms-3"}
+                                onClick={(e) => nextSlide(e)}>{"->"}</button>
                     </div>
                     <div className={"row text-center mt-3"}>
                     </div>
@@ -780,6 +774,13 @@ function Psqi(props) {
             </form>
         </Layout>
     );
+}
+
+class submitHandler {
+    constructor(props) {
+    }
+
+
 }
 
 export default Psqi
