@@ -653,6 +653,42 @@ const demo = {
     ]
 }
 
+const id = {
+    id: [
+        {
+            questionType: "hhmm",
+            inputType: "text",
+            label: "identifikuj se 1",
+            code: "",
+            inputId: "gmtHhmm",
+            answers: [],
+            actualAnswer: "",
+            actualAnswerValue: ""
+        },
+    ]
+}
+
+export function mapQuestionnareCodeToName(code) {
+    switch (code) {
+        case 'psqi':
+            return "PSQI"
+        case 'mctq':
+            return "MCTQ"
+        case 'meq':
+            return "MEQ"
+        case 'pss':
+            return "Škála vnímaného stresu"
+        case 'dzs':
+            return "Dotazník životní spokojenosti"
+        case 'demo':
+            return "Demografický dotazník"
+        case 'id':
+            return "Identifikační část"
+        default:
+            break;
+    }
+}
+
 export function getJointQuestions(params) {
     const {error, isArray, valid} = parametersAreValid(params);
     if (valid !== true) {
@@ -679,6 +715,7 @@ function getJointQuestionsLul(params, isArray) {
     let dzsBool = false
     let demoBool = false
     const res = {}
+    Object.assign(res, id)
     if (isArray) {
         for (let i = 0; i < params.length; i++) {
             let e = params[i]

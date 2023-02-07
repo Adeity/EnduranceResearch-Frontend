@@ -9,6 +9,7 @@ import HhMmInput from "./inputs/HhMmInput";
 import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import TextInput from "./inputs/TextInput";
+import {mapQuestionnareCodeToName} from "./questionsKeeper";
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
@@ -160,19 +161,31 @@ function QuestionnareComponent(props) {
     const buttonText = lastQuestion ? "Dokončit" : "Další otázka"
     const buttonClass = lastQuestion ? "btn btn-secondary" : "btn btn-outline-secondary"
 
-    let keysInfoText = []
-    allQuestionKeys.current.forEach(e => {
-        if (e === currentQuestionKey) {
-            keysInfoText.push(<span><b>{e} ({questionsMap[e].length} otázek)</b>, </span>)
+    function getOtazekSklonovani(number) {
+        if (number === 1) {
+            return "otázka"
+        } else if (number > 1 && number < 5) {
+            return "otázky"
         } else {
-            keysInfoText.push(<span>{e} ({questionsMap[e].length} otázek), </span>)
+            return "otázek"
         }
-    })
+    }
+
+    let keysInfoText = []
+    for (let i = 0; i < allQuestionKeys.current.length; i++){
+        const e = allQuestionKeys.current[i];
+        const comma = i === allQuestionKeys.current.length - 1 ? "" : ", "
+        if (e === currentQuestionKey) {
+            keysInfoText.push(<span><b>{mapQuestionnareCodeToName(e)} ({questionsMap[e].length} {getOtazekSklonovani(questionsMap[e].length)})</b>{comma}</span>)
+        } else {
+            keysInfoText.push(<span>{mapQuestionnareCodeToName(e)} ({questionsMap[e].length} {getOtazekSklonovani(questionsMap[e].length)}){comma}</span>)
+        }
+    }
 
     return (
         <Layout title={"PSQI"}>
             <form className={styles.customForm}>
-                <span>Dotazníky k vyplnění: <span>{keysInfoText}</span></span>
+                <span className={"pb-2"}>{keysInfoText}</span>
                 <div id={"answerCard"} className={"card"}>
                     <div className={"card-header"}>
                         <div
