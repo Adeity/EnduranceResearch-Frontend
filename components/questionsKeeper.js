@@ -695,13 +695,17 @@ export function getJointQuestions(params) {
         return {
             valid: false,
             jointQuestions: null,
+            totalNumberOfQuestions: 0,
             error: error
         }
     }
 
+    const {totalNumberOfQuestions, jointQuestions} = getJointQuestionsLul(params, isArray)
+
     return {
         valid: true,
-        jointQuestions: getJointQuestionsLul(params, isArray),
+        jointQuestions: jointQuestions,
+        totalNumberOfQuestions: totalNumberOfQuestions,
         error: error
     }
 }
@@ -812,13 +816,19 @@ function getJointQuestionsLul(params, isArray) {
                 break
         }
     }
-    return res;
+    let totalNumberOfQuestions = 0;
+    Object.keys(res).forEach(e => {
+        totalNumberOfQuestions += res[e].length})
+    return {
+        jointQuestions: res,
+        totalNumberOfQuestions: totalNumberOfQuestions
+    };
 }
 
 const qs = ['psqi', 'mctq', 'meq', 'pss', 'dzs', 'demo']
 
 function parametersAreValid(params) {
-    console.log("all params: ", params)
+    ("all params: ", params)
     let valid = true;
     let isArray = Array.isArray(params)
     let error = null;
@@ -832,9 +842,7 @@ function parametersAreValid(params) {
     if (isArray) {
         for (let i = 0; i < params.length; i++) {
             const e = params[i];
-            console.log("in array element e: ", e)
             if (!qs.includes(e)) {
-                console.log("shit here i am")
                 valid = false
                 return {
                     valid: false,

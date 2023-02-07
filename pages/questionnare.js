@@ -8,19 +8,17 @@ import QuestionnareComponent from "../components/questionnareComponent";
 function Questionnare(props) {
     const router = useRouter()
     const questionnairesArray = router.query.q
-    const {valid, jointQuestions, error: errorMessage} = getJointQuestions(questionnairesArray)
-    console.log("valid: ", valid, "jointQs: ", jointQuestions, "errorMessage: ", errorMessage)
+    const {totalNumberOfQuestions, valid, jointQuestions, error: errorMessage} = getJointQuestions(questionnairesArray)
     if (valid !== true) {
         return (
             <QuestionnaresList errorMessage={errorMessage}/>
         )
     }
 
-    console.log("joint questions: ", jointQuestions)
-
     return (
         <QuestionnareComponent
-        questions = {jointQuestions}/>
+            questions={jointQuestions}
+            totalNumberOfQuestions={totalNumberOfQuestions}/>
         // <p>lol
         // </p>
     )

@@ -6,10 +6,11 @@ import Head from 'next/head';
 
 
 export default function Layout({ children, title }) {
+    const text = `${title} | Dotazníky Výzkumu Odolnosti`
     return (
         <>
             <Head>
-                <title>{title} | Dotazníky Výzkumu Odolnosti</title>
+                <title>{text}</title>
             </Head>
             <Navbar />
             <main className={"container"}>{children}</main>
