@@ -10,6 +10,7 @@ import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import TextInput from "./inputs/TextInput";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
+import IdentifyingInput from "./inputs/IdentifyingInput";
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
@@ -112,6 +113,28 @@ function QuestionnareComponent(props) {
         setCurrentQuestionsMap(newState)
     }
 
+    function updateHasResearchNumber(hasResearchNumber) {
+        console.log("has research number: ",hasResearchNumber)
+        const newState = {...questionsMap}
+        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        currentQuestion.hasResearchNumber = hasResearchNumber
+        setCurrentQuestionsMap(newState)
+    }
+
+    function updateResearchNumber(researchNumber) {
+        const newState = {...questionsMap}
+        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        currentQuestion.researchNumberInput = researchNumber
+        setCurrentQuestionsMap(newState)
+    }
+
+    function updateAlternativeIdentifier(identifier) {
+        const newState = {...questionsMap}
+        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        currentQuestion.alternativeIdentifierInput = identifier
+        setCurrentQuestionsMap(newState)
+    }
+
     function updateText(text) {
         const newState = {...questionsMap}
         const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
@@ -168,17 +191,19 @@ function QuestionnareComponent(props) {
                 value={currentQuestion.actualAnswerValue}
                 inputId={currentQuestion.inputId}
             />
-        } else if (currentQuestion.questionType === "idPrimary") {
-            return <TextInput
+        } else if (currentQuestion.questionType === "identifying") {
+            return <IdentifyingInput
                 updateValueAndActualAnswer={updateValueAndActualAnswer}
+                update={updateMultipleChoice}
+                updateHasResearchNumber={updateHasResearchNumber}
                 value={currentQuestion.actualAnswerValue}
                 inputId={currentQuestion.inputId}
-            />
-        } else if (currentQuestion.questionType === "idSecondary") {
-            return <TextInput
-                updateValueAndActualAnswer={updateValueAndActualAnswer}
-                value={currentQuestion.actualAnswerValue}
-                inputId={currentQuestion.inputId}
+                choices={currentQuestion.answers}
+                hasResearchNumber={currentQuestion.hasResearchNumber}
+                updateResearchNumber={updateResearchNumber}
+                updateAlternativeIdentifier={updateAlternativeIdentifier}
+                researchNumber={currentQuestion.researchNumberInput}
+                alternativeIdentifier={currentQuestion.alternativeIdentifierInput}
             />
         }
         return <div>no input</div>

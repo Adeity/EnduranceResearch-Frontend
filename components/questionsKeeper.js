@@ -656,14 +656,30 @@ const demo = {
 const id = {
     id: [
         {
-            questionType: "hhmm",
+            questionType: "identifying",
             inputType: "text",
-            label: "identifikuj se 1",
+            label: "Jste účastníkem Výzkumu Odolnosti a obdrželi jste výzkumné číslo?",
             code: "",
             inputId: "gmtHhmm",
-            answers: [],
+            answers: [
+                {
+                    id: "identifyingHasResearchNumberYes",
+                    label: "Ano",
+                    value: true,
+                    checked: false
+                },
+                {
+                    id: "identifyingHasResearchNumberNo",
+                    label: "Ne",
+                    value: false,
+                    checked: false
+                },
+            ],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualAnswerValue: "",
+            researchNumberInput: "",
+            alternativeIdentifierInput: "",
+            hasResearchNumber: null,
         },
     ]
 }

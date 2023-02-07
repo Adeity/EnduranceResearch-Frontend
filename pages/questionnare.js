@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import QuestionnaresList from "../components/QuestionnaresList";
 import {getJointQuestions} from "../components/questionsKeeper";
-import QuestionnareComponent from "../components/questionnareComponent";
+import QuestionnareComponent from "../components/QuestionnareComponent";
 
 
 function Questionnare(props) {
