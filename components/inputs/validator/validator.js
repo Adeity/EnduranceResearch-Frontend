@@ -1,9 +1,16 @@
-import {toggleHhMm, toggleMinutes, toggleMultipleChoice, toggleMultipleChoiceWithText} from "./validClassToggler";
+import {
+    inputIdToggle,
+    toggleHhMm,
+    toggleMinutes,
+    toggleMultipleChoice,
+    toggleMultipleChoiceWithText
+} from "./validClassToggler";
 
 export function validate(question) {
     const questionType = question.questionType
     const inputId = question.inputId
     let isValid;
+    let mChoice;
     switch (questionType) {
         case "minutes":
             isValid = validateMinutes(question.actualAnswer)
@@ -18,10 +25,24 @@ export function validate(question) {
             toggleMultipleChoice(isValid, question.answers.map(e => e.id))
             break;
         case "multipleChoiceWithText":
-            const text = validateMultipleChoiceWithTextText(question.textValue)
-            const mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+            const text = validateNotEmptyTExt(question.textValue)
+            mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
             isValid = text && mChoice
             toggleMultipleChoiceWithText(mChoice, text, question.answers.map(e => e.id), question.inputId)
+            break;
+        case "identifying":
+            const hasResearchNumberIsFilled = question.hasResearchNumber !== null
+            toggleMultipleChoice(hasResearchNumberIsFilled, question.answers.map(e => e.id))
+            if (!hasResearchNumberIsFilled) {
+                isValid = false;
+                break;
+            }
+            if (question.hasResearchNumber === 'true') {
+                isValid = validateResearchNumber(question.researchNumberInput)
+            } else if (question.hasResearchNumber === 'false') {
+                isValid = validateNotEmptyTExt(question.alternativeIdentifierInput)
+            }
+            inputIdToggle(isValid, question.inputId)
             break;
     }
     return isValid;
@@ -37,12 +58,34 @@ function validateMinutes(answer) {
     return false;
 }
 
+function validateResearchNumber(researchNumber) {
+    const split = researchNumber.split("_")
+    if (split.length !== 2) {
+        return false;
+    }
+    const l = validatePartOfResearchNumber(split[0])
+    const r = validatePartOfResearchNumber(split[1])
+    return l && r;
+}
+
+function validatePartOfResearchNumber(part) {
+    if (part.length !== 3) {
+        return false;
+    }
+    for (let i = 0; i < part.length; i++) {
+        const c = part[i]
+        if (!c.match(/^[a-zA-Z0-9]+$/i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function validateHhMm(answer) {
     if (answer === null) {
         return false;
     }
     const answerArray = answer.split(":")
-    console.log(answerArray.length)
     if (answerArray.length !== 2) {
         return false;
     }
@@ -62,7 +105,7 @@ function validateMultipleChoice(actualAnswer, actualAnswerValue) {
     return actualAnswer !== "" && actualAnswerValue !== "";
 }
 
-function validateMultipleChoiceWithTextText(text) {
+function validateNotEmptyTExt(text) {
     return text.length > 0;
 }
 

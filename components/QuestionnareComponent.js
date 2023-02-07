@@ -11,6 +11,7 @@ import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import TextInput from "./inputs/TextInput";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
+import {act} from "react-dom/test-utils";
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
@@ -96,7 +97,7 @@ function QuestionnareComponent(props) {
     }
     function updateValueAndActualAnswer(valueA, actualAnswer) {
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
         currentQuestion.actualAnswerValue = valueA;
         currentQuestion.actualAnswer = actualAnswer;
         setCurrentQuestionsMap(newState)
@@ -104,7 +105,7 @@ function QuestionnareComponent(props) {
 
     function updateMultipleChoice(actualAnswerValue, actualAnswer, answerId) {
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
         currentQuestion.answers.forEach(e => {
             e.checked = e.id === answerId;
         })
@@ -114,30 +115,30 @@ function QuestionnareComponent(props) {
     }
 
     function updateHasResearchNumber(hasResearchNumber) {
-        console.log("has research number: ",hasResearchNumber)
+        removeAllValidityClasses(getCurrentQuestion())
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
         currentQuestion.hasResearchNumber = hasResearchNumber
         setCurrentQuestionsMap(newState)
     }
 
     function updateResearchNumber(researchNumber) {
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
-        currentQuestion.researchNumberInput = researchNumber
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        currentQuestion.researchNumberInput = researchNumber.toUpperCase()
         setCurrentQuestionsMap(newState)
     }
 
     function updateAlternativeIdentifier(identifier) {
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
         currentQuestion.alternativeIdentifierInput = identifier
         setCurrentQuestionsMap(newState)
     }
 
     function updateText(text) {
         const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideGlobal]
+        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
         currentQuestion.textValue = text;
         setCurrentQuestionsMap(newState)
     }
@@ -204,6 +205,8 @@ function QuestionnareComponent(props) {
                 updateAlternativeIdentifier={updateAlternativeIdentifier}
                 researchNumber={currentQuestion.researchNumberInput}
                 alternativeIdentifier={currentQuestion.alternativeIdentifierInput}
+                researchNumberInputId={currentQuestion.researchNumberInputId}
+                alternativeIdentifierInputId={currentQuestion.alternativeIdentifierInputId}
             />
         }
         return <div>no input</div>

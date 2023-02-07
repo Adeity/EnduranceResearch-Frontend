@@ -15,7 +15,7 @@ export function toggleMultipleChoiceWithText(isMChoiceValid, isTextValid, answer
     inputIdToggle(isTextValid, textId)
 }
 
-function inputIdToggle(isValid, inputId) {
+export function inputIdToggle(isValid, inputId) {
     if (isValid === false) {
         document.getElementById(inputId).classList.add("is-invalid")
     } else {
@@ -62,5 +62,12 @@ export function removeAllValidityClasses(currentQuestion) {
             document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
             break;
+        case "identifying":
+            currentQuestion.answers.forEach(e => {
+                document.getElementById(e.id).classList.remove("is-valid")
+                document.getElementById(e.id).classList.remove("is-invalid")
+            })
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
     }
 }

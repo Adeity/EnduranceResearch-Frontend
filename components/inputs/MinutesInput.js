@@ -10,7 +10,7 @@ export default function MinutesInput(props){
                 type="number"
                 className="form-control"
                 value={props.value}
-                placeholder="Enter minutes" required={true}/>
+                placeholder="Zadejte počet minut" required={true}/>
             <div className="invalid-feedback">
                 Prosím zadejte celočiselnou hodnotu.
             </div>

@@ -43,3 +43,7 @@ footer {
     display: block;
     color: transparent;
 }
+
+.placeholder.no-circle {
+    cursor: inherit;
+}

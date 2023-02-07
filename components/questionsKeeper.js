@@ -660,7 +660,7 @@ const id = {
             inputType: "text",
             label: "Jste účastníkem Výzkumu Odolnosti a obdrželi jste výzkumné číslo?",
             code: "",
-            inputId: "gmtHhmm",
+            inputId: "identifyingText",
             answers: [
                 {
                     id: "identifyingHasResearchNumberYes",
