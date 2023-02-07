@@ -5,7 +5,7 @@ const CardList = (props) => {
     return (
         <div className="row">
             {props.items.map((item, index) => {
-                const href = "questionnaires/" + item.code
+                const href = "/questionnare?q=" + item.code
                 return (
                     <div className="col-md-4 col-sm-6 mb-3" key={index}>
                         <div className="card">
