@@ -3,6 +3,7 @@ import Link from "next/link";
 import QuestionnaresList from "../components/QuestionnaresList";
 import {getJointQuestions} from "../components/questionsKeeper";
 import QuestionnareComponent from "../components/QuestionnareComponent";
+import Layout from "../components/layout";
 
 
 function Questionnare(props) {
@@ -11,7 +12,10 @@ function Questionnare(props) {
     const {totalNumberOfQuestions, valid, jointQuestions, error: errorMessage} = getJointQuestions(questionnairesArray)
     if (valid !== true) {
         return (
-            <QuestionnaresList errorMessage={errorMessage}/>
+            <Layout title={"chyba"}>
+                <span className={"text-danger"}>{errorMessage}</span>
+            </Layout>
+            // <QuestionnaresList errorMessage={errorMessage}/>
         )
     }
 

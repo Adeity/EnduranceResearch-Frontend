@@ -16,7 +16,7 @@ export default function Navbar() {
             {/*<a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">*/}
             {/*    Výzkum Odolnosti Dotazníky*/}
             {/*</a>*/}
-            <h3 className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"}>Dotazníky
+            <h3 className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"}>Dotazníky
                 Výzkumu Odolnosti</h3>
 
             <ul className="nav nav-pills">

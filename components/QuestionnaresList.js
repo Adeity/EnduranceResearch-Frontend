@@ -4,7 +4,6 @@ import CardList from "./CardList";
 function QuestionnaresList(props) {
     return (
         <Layout title={"index"}>
-            <span className={"text-danger"}>{props.errorMessage}</span>
             <CardList items ={[
                 {
                     id: 1,
