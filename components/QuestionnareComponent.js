@@ -1,3 +1,4 @@
+"use client"
 import Layout from "./layout";
 
 import styles from '../pages/Form.module.css'
@@ -246,7 +247,6 @@ function QuestionnareComponent(props) {
     }
 
     return (
-        <Layout title={"Dotazník"}>
             <form className={styles.customForm}>
                 <small className={"pb-2"}>{keysInfoText}</small>
                 <div id={"answerCard"} className={"card"}>
@@ -278,7 +278,6 @@ function QuestionnareComponent(props) {
                     </div>
                 </div>
             </form>
-        </Layout>
     );
 }
 
