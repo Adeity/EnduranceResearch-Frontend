@@ -113,11 +113,10 @@ function QuestionnareComponent(props) {
         removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         incrementCurrentSlideNumber()
     }
-    function updateValueAndActualAnswer(valueA, actualAnswer) {
+    function updateAnswer(answer) {
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
-        currentQuestion.actualAnswerValue = valueA;
-        currentQuestion.actualAnswer = actualAnswer;
+        currentQuestion.answer = answer;
         setCurrentQuestionnareMap(newState)
     }
 
@@ -127,8 +126,8 @@ function QuestionnareComponent(props) {
         currentQuestion.answers.forEach(e => {
             e.checked = e.id === answerId;
         })
-        currentQuestion.actualAnswerValue = actualAnswerValue;
-        currentQuestion.actualAnswer = actualAnswer;
+        currentQuestion.answerValue = actualAnswerValue;
+        currentQuestion.answerLabel = actualAnswer;
         setCurrentQuestionnareMap(newState)
     }
 
@@ -183,8 +182,8 @@ function QuestionnareComponent(props) {
             return (
                 <MinutesInput
                     inputId={currentQuestion.inputId}
-                    value={currentQuestion.actualAnswerValue}
-                    updateValueAndActualAnswer={updateValueAndActualAnswer}
+                    value={currentQuestion.answer}
+                    updateAnswer={updateAnswer}
                 />)
         } else if (currentQuestion.questionType === "multipleChoice") {
             return (
@@ -206,21 +205,20 @@ function QuestionnareComponent(props) {
             )
         } else if (currentQuestion.questionType === "hhmm") {
             return <HhMmInput
-                updateValueAndActualAnswer={updateValueAndActualAnswer}
-                value={currentQuestion.actualAnswerValue}
+                updateAnswer={updateAnswer}
+                value={currentQuestion.answer}
                 inputId={currentQuestion.inputId}
             />
         } else if (currentQuestion.questionType === "identifying") {
             return <IdentifyingInput
-                updateValueAndActualAnswer={updateValueAndActualAnswer}
-                update={updateMultipleChoice}
+                updateMultipleChoice={updateMultipleChoice}
                 updateHasResearchNumber={updateHasResearchNumber}
+                updateResearchNumber={updateResearchNumber}
+                updateAlternativeIdentifier={updateAlternativeIdentifier}
                 value={currentQuestion.actualAnswerValue}
                 inputId={currentQuestion.inputId}
                 choices={currentQuestion.answers}
                 hasResearchNumber={currentQuestion.hasResearchNumber}
-                updateResearchNumber={updateResearchNumber}
-                updateAlternativeIdentifier={updateAlternativeIdentifier}
                 researchNumber={currentQuestion.researchNumberInput}
                 alternativeIdentifier={currentQuestion.alternativeIdentifierInput}
                 researchNumberInputId={currentQuestion.researchNumberInputId}

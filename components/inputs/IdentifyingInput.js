@@ -34,7 +34,7 @@ export default function IdentifyingInput(props){
                             <input
                                 className="form-check-input"
                                 onChange={(e) => {
-                                    props.update(e.target.value, choice.label, choice.id)
+                                    props.updateMultipleChoice(e.target.value, choice.label, choice.id)
                                     props.updateHasResearchNumber(e.target.value)
                                 }}
                                 type="radio"

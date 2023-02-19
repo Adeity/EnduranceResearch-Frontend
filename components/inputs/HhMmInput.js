@@ -6,7 +6,7 @@ export default function HhMmInput(props){
             <div className={"form-text pb-2"}>Zadejte čas ve formátu HH:MM. Použijte 24 hodinový formát času.</div>
             <input
                 id={props.inputId}
-                onChange={(e) => props.updateValueAndActualAnswer(e.target.value, e.target.value)}
+                onChange={(e) => props.updateAnswer(e.target.value)}
                 type="text"
                 className="form-control"
                 value={props.value}

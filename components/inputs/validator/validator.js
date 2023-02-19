@@ -13,20 +13,20 @@ export function validate(question) {
     let mChoice;
     switch (questionType) {
         case "minutes":
-            isValid = validateMinutes(question.actualAnswer)
+            isValid = validateMinutes(question.answer)
             toggleMinutes(isValid, inputId)
             break;
         case "hhmm":
-            isValid = validateHhMm(question.actualAnswer)
+            isValid = validateHhMm(question.answer)
             toggleHhMm(isValid, inputId)
             break;
         case "multipleChoice":
-            isValid = validateMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+            isValid = validateMultipleChoice(question.answerLabel, question.answerValue)
             toggleMultipleChoice(isValid, question.answers.map(e => e.id))
             break;
         case "multipleChoiceWithText":
             const text = validateNotEmptyTExt(question.textValue)
-            mChoice = validateMultipleChoiceWithTextMultipleChoice(question.actualAnswer, question.actualAnswerValue)
+            mChoice = validateMultipleChoiceWithTextMultipleChoice(question.answerLabel, question.answerValue)
             isValid = text && mChoice
             toggleMultipleChoiceWithText(mChoice, text, question.answers.map(e => e.id), question.inputId)
             break;
