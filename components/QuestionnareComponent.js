@@ -18,17 +18,19 @@ function QuestionnareComponent(props) {
         } else {
             return
         }
-        const currentQuestionSetLength = getCurrentQuestionnareLength()
+        const currentQuestionSetLength = getCurrentQuestionnareLength(questionnareMap)
         currentSlideLocal.current--
         if (currentSlideLocal.current < 0) {
             previousQuestionnare()
+        } else {
+            previousQuestion()
         }
 
     }
 
     function incrementCurrentSlideNumber() {
         const totalNumberOfQuestions = getTotalNumberOfQuestions()
-        const currentQuestionnareLength = getCurrentQuestionnareLength()
+        const currentQuestionnareLength = getCurrentQuestionnareLength(questionnareMap)
         if (currentSlideGlobal.current !== totalNumberOfQuestions - 1) {
             currentSlideGlobal.current++
         } else {
@@ -49,6 +51,13 @@ function QuestionnareComponent(props) {
         setCurrentQuestionKey(newQuestionKey)
     }
 
+    function previousQuestion() {
+        const index = allQuestionsKeys.current.indexOf(currentQuestionKey)
+        const newQuestionKey = allQuestionsKeys.current[index - 1];
+
+        setCurrentQuestionKey(newQuestionKey)
+    }
+
     function nextQuestionnare() {
         currentSlideLocal.current = 0;
         const index = allQuestionnareKeys.current.indexOf(currentQuestionnareKey)
@@ -62,9 +71,12 @@ function QuestionnareComponent(props) {
 
     function previousQuestionnare() {
         const index = allQuestionnareKeys.current.indexOf(currentQuestionnareKey)
-        const newQuestionKey = allQuestionnareKeys.current[index - 1]
-        currentSlideLocal.current = questionnareMap[newQuestionKey].length - 1;
-        setCurrentQuestionnareKey(newQuestionKey)
+        const newQuestionnareKey = allQuestionnareKeys.current[index - 1]
+        currentSlideLocal.current = Object.keys(questionnareMap[newQuestionnareKey]).length - 1;
+        const newQuestionKey = Object.keys(questionnareMap[newQuestionnareKey]).slice(-1)[0]
+        allQuestionsKeys.current = Object.keys(questionnareMap[newQuestionnareKey])
+        setCurrentQuestionKey(newQuestionKey)
+        setCurrentQuestionnareKey(newQuestionnareKey)
     }
 
     function handleSubmit(event) {
@@ -73,18 +85,13 @@ function QuestionnareComponent(props) {
             return;
         }
 
-        const currentQuestion = getCurrentQuestion();
+        const currentQuestion = getCurrentQuestion(questionnareMap);
 
         // validation
         const isValid = validate(currentQuestion)
         if (!isValid) {
             return;
         }
-
-        setFormData({
-            ...formData,
-            [currentQuestion.code]: currentQuestion.actualAnswer
-        });
 
         buttonIsEnabled.current = false;
 
@@ -97,18 +104,18 @@ function QuestionnareComponent(props) {
 
     function previousSlide(e) {
         e.preventDefault()
-        removeAllValidityClasses(getCurrentQuestion())
+        removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         decrementCurrentSlideNumber()
     }
 
     function nextSlide(e) {
         e.preventDefault()
-        removeAllValidityClasses(getCurrentQuestion())
+        removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         incrementCurrentSlideNumber()
     }
     function updateValueAndActualAnswer(valueA, actualAnswer) {
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.actualAnswerValue = valueA;
         currentQuestion.actualAnswer = actualAnswer;
         setCurrentQuestionnareMap(newState)
@@ -116,7 +123,7 @@ function QuestionnareComponent(props) {
 
     function updateMultipleChoice(actualAnswerValue, actualAnswer, answerId) {
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.answers.forEach(e => {
             e.checked = e.id === answerId;
         })
@@ -126,46 +133,44 @@ function QuestionnareComponent(props) {
     }
 
     function updateHasResearchNumber(hasResearchNumber) {
-        removeAllValidityClasses(getCurrentQuestion())
+        removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.hasResearchNumber = hasResearchNumber
         setCurrentQuestionnareMap(newState)
     }
 
     function updateResearchNumber(researchNumber) {
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.researchNumberInput = researchNumber.toUpperCase()
         setCurrentQuestionnareMap(newState)
     }
 
     function updateAlternativeIdentifier(identifier) {
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.alternativeIdentifierInput = identifier
         setCurrentQuestionnareMap(newState)
     }
 
     function updateText(text) {
         const newState = {...questionnareMap}
-        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
+        const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.textValue = text;
         setCurrentQuestionnareMap(newState)
     }
 
-    function getCurrentQuestion() {
-        
-        
-        return getCurrentQuestionnare()[currentQuestionKey]
+    function getCurrentQuestion(questionnareMap) {
+        return getCurrentQuestionnare(questionnareMap)[currentQuestionKey]
     }
 
-    function getCurrentQuestionnare() {
+    function getCurrentQuestionnare(questionnareMap) {
         return questionnareMap[currentQuestionnareKey]
     }
 
-    function getCurrentQuestionnareLength() {
-        return Object.keys(getCurrentQuestionnare()).length
+    function getCurrentQuestionnareLength(questionnareMap) {
+        return Object.keys(getCurrentQuestionnare(questionnareMap)).length
     }
 
     function getTotalNumberOfQuestions() {
@@ -173,7 +178,7 @@ function QuestionnareComponent(props) {
     }
 
     function getCurrentInput() {
-        const currentQuestion = getCurrentQuestion();
+        const currentQuestion = getCurrentQuestion(questionnareMap);
         if (currentQuestion.questionType === "minutes") {
             return (
                 <MinutesInput
@@ -239,8 +244,6 @@ function QuestionnareComponent(props) {
     const currentSlideGlobal = useRef(0);
     const currentSlideLocal = useRef(0)
 
-    const [formData, setFormData] = React.useState({});
-
     const buttonIsEnabled = useRef(true);
     const lastQuestion = currentSlideGlobal.current === props.totalNumberOfQuestions - 1
 
@@ -270,7 +273,7 @@ function QuestionnareComponent(props) {
                             className={"col-12 text-center"}>Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
                     </div>
                     <div className={"card-body"}>
-                        <h5>{getCurrentQuestion().label}</h5>
+                        <h5>{getCurrentQuestion(questionnareMap).label}</h5>
                         <div id={"answer"} className="form-group">
                             {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
                             {getCurrentInput()}
