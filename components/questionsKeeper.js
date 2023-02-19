@@ -1,42 +1,44 @@
 const inTheLastString = "Jak často: "
 export const psqi = {
     psqi:
-        [
-            {
+        {
+            q1: {
+                questionType: "hhmm",
+                label: "V kolik hodin jste obvykle během posledního měsíce večer ulehl(a) do postele? (hh:mm)",
+                inputId: "psqigmtHhmm",
+                answer: ""
+            },
+            q2: {
                 questionType: "minutes",
-                inputType: "text",
                 label: "Jak dlouho (v minutách) vám obvykle každý večer během posledního měsíce trvalo než jste usnul(a)?",
-                code: "",
-                inputId: "asleepTimeMinutes",
+                inputId: "psqiasleepTimeMinutes",
                 answers: [],
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q3: {
                 questionType: "hhmm",
-                inputType: "text",
                 label: "V kolik hodin jste obvykle během posledního měsíce ráno vstával(a) z postele? (hh:mm)",
-                code: "",
-                inputId: "gmtHhmm",
+                code: "q3",
+                inputId: "psqihhMmTimeOfSleep",
                 answers: [],
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q4: {
                 questionType: "hhmm",
-                inputType: "text",
                 label: "(hh:mm) Kolik hodin za noc jste minulý měsíc obvykle opravdu spal(a)? (To se může lišit od počtu strávených v posteli.)",
-                code: "",
-                inputId: "hhMmTimeOfSleep",
+                code: "q3",
+                inputId: "psqihhMmTimeOfSleep",
                 answers: [],
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5a: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Nemohl jste usnout do 30 min",
-                code: "",
+                code: "q4",
                 inputId: "idsevenpsqione",
                 answers: [
                     {
@@ -67,9 +69,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5b: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Vzbudil(a) jste se uprostřed noci nebo brzy ráno.",
                 code: "",
                 inputId: "7psqi2",
@@ -102,9 +104,8 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5c: {
                 questionType: "multipleChoice",
-                inputType: "text",
                 label: inTheLastString + "Musel(a) jste vstávat a jít na záchod.",
                 code: "",
                 inputId: "7psqi3",
@@ -137,9 +138,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5d: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Nemohl(a) jste dobře dýchat.",
                 code: "",
                 inputId: "7psqi4",
@@ -172,9 +173,8 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5e: {
                 questionType: "multipleChoice",
-                inputType: "text",
                 label: inTheLastString + "Hlasitě jste kašlal(a) nebo chrápal(a).",
                 code: "",
                 inputId: "7psqi5",
@@ -207,9 +207,8 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5f: {
                 questionType: "multipleChoice",
-                inputType: "text",
                 label: inTheLastString + "Bylo Vám příliš chladno.",
                 code: "",
                 inputId: "7psqi6",
@@ -242,9 +241,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5g: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Bylo Vám příliš horko.",
                 code: "",
                 inputId: "7psqi7",
@@ -277,9 +276,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5h: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Měl(a) jste špatné sny",
                 code: "",
                 inputId: "7psqi8",
@@ -312,9 +311,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5i: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: inTheLastString + "Měl(a) jste bolesti.",
                 code: "",
                 inputId: "7psqi9",
@@ -347,9 +346,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q5j: {
                 questionType: "multipleChoiceWithText",
-                inputType: "text7psqi10",
+
                 label: "Prosím, popište jiné důvody, kvůli kterým jste se musel(a) vzbudit. a jak často v týdnu.",
                 firstDescription: "Důvody popište slovy. Jestliže žádné další důvody neexistují, zadejte \"nejsou\".",
                 secondDescription: "Vyberte jednu z možností znázorňující, jak často jste se potýkal s problémy, které jste popsal v předchozim políčku.",
@@ -386,9 +385,9 @@ export const psqi = {
                 actualAnswerValue: "",
                 textValue: ""
             },
-            {
+            q6: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: "Jak byste celkově ohodnotil(a) kvalitu svého spánku během posledního měsíce?",
                 code: "",
                 inputId: "psqi8",
@@ -421,9 +420,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q7: {
                 questionType: "multipleChoiceWithText",
-                inputType: "text",
+
                 label: "Kolikrát jste během posledního měsíce užil(a) léky nebo jiné přípravky, které vám pomáhají usnout a spát (na lékařský předpis nebo bez předpisu + jaké to byly?",
                 firstDescription: "Napište, jaké léky nebo jiné přípravky užíváte. Jestliže žádné neužíváte, zadejte \"nejsou\".",
                 secondDescription: "Vyberte jednu z možností znázorňující, jak často užíváte léky či jiné přípravky, které jste popsal v předchozim políčku.",
@@ -460,9 +459,9 @@ export const psqi = {
                 actualAnswerValue: "",
                 textValue: ""
             },
-            {
+            q8: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: "Jak často jste se během minulého měsíce cítil(a) ospalý/á při řízení auta, při jídle nebo při jiné společenské činnosti?",
                 code: "",
                 inputId: "psqi10",
@@ -496,9 +495,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q9: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: "Jak těžké bylo pro vás během posledního měsíce udržet si dostatek elánu pro dokončení činností?",
                 code: "",
                 inputId: "psqi11",
@@ -532,9 +531,9 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-            {
+            q10: {
                 questionType: "multipleChoice",
-                inputType: "text",
+
                 label: "Spí ve vašem bytě nebo ve vaší posteli ještě někdo jiný?",
                 code: "",
                 inputId: "psqi12",
@@ -568,14 +567,50 @@ export const psqi = {
                 actualAnswer: "",
                 actualAnswerValue: ""
             },
-        ]
+            freeDaysGnt: {
+                questionType: "hhmm",
+                label: "O volných dnech chodím spát v (hh:mm)",
+                code: "",
+                inputId: "psqiFdGnt",
+                answers: [],
+                actualAnswer: "",
+                actualAnswerValue: ""
+            },
+            freeDaysGmt: {
+                questionType: "hhmm",
+                label: "O volných dnech vstávám v (hh:mm)",
+                code: "",
+                inputId: "psqiFdGmt",
+                answers: [],
+                actualAnswer: "",
+                actualAnswerValue: ""
+            },
+            workDaysGnt: {
+                questionType: "hhmm",
+                label: "O pracovních dnech chodím spát v (hh:mm)",
+                code: "",
+                inputId: "psqiWdGnt",
+                answers: [],
+                actualAnswer: "",
+                actualAnswerValue: ""
+            },
+            workDaysGmt: {
+                questionType: "hhmm",
+                label: "O pracovních dnech vstávám v (hh:mm)",
+                code: "",
+                inputId: "psqiWdGmt",
+                answers: [],
+                actualAnswer: "",
+                actualAnswerValue: ""
+            },
+        }
 }
 
 export const mctq = {
     mctq: [
         {
             questionType: "minutes",
-            inputType: "text",
+
             label: "jak dlohou v minutach mctq 1",
             code: "",
             inputId: "asleepTimeMinutes",
@@ -585,7 +620,7 @@ export const mctq = {
         },
         {
             questionType: "hhmm",
-            inputType: "text",
+
             label: "jak dlohou v minutach mctq 2",
             code: "",
             inputId: "gmtHhmm",
@@ -600,7 +635,7 @@ const meq = {
     meq: [
         {
             questionType: "hhmm",
-            inputType: "text",
+
             label: "meq 1",
             code: "",
             inputId: "gmtHhmm",
@@ -614,7 +649,7 @@ const pss = {
     pss: [
         {
             questionType: "hhmm",
-            inputType: "text",
+
             label: "pss 1",
             code: "",
             inputId: "gmtHhmm",
@@ -628,7 +663,7 @@ const dzs = {
     dzs: [
         {
             questionType: "hhmm",
-            inputType: "text",
+
             label: "dzs 1",
             code: "",
             inputId: "gmtHhmm",
@@ -642,7 +677,7 @@ const demo = {
     demo: [
         {
             questionType: "hhmm",
-            inputType: "text",
+
             label: "demo 1",
             code: "",
             inputId: "gmtHhmm",
@@ -657,7 +692,7 @@ const id = {
     id: [
         {
             questionType: "identifying",
-            inputType: "text",
+
             label: "Jste účastníkem Výzkumu Odolnosti a obdrželi jste výzkumné číslo?",
             code: "",
             inputId: "identifyingText",
@@ -834,7 +869,8 @@ function getJointQuestionsLul(params, isArray) {
     }
     let totalNumberOfQuestions = 0;
     Object.keys(res).forEach(e => {
-        totalNumberOfQuestions += res[e].length})
+        totalNumberOfQuestions += res[e].length
+    })
     return {
         jointQuestions: res,
         totalNumberOfQuestions: totalNumberOfQuestions
@@ -844,7 +880,6 @@ function getJointQuestionsLul(params, isArray) {
 const qs = ['psqi', 'mctq', 'meq', 'pss', 'dzs', 'demo']
 
 function parametersAreValid(params) {
-    ("all params: ", params)
     let valid = true;
     let isArray = Array.isArray(params)
     let error = null;
