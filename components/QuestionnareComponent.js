@@ -1,5 +1,4 @@
 "use client"
-import Layout from "./layout";
 
 import styles from '../pages/Form.module.css'
 import React, {useRef} from 'react';
@@ -9,52 +8,63 @@ import MultipleChoiceInputWithText from "./inputs/MultipleChoiceInputWithText";
 import HhMmInput from "./inputs/HhMmInput";
 import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
-import TextInput from "./inputs/TextInput";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
-import {act} from "react-dom/test-utils";
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
-        if (currentSlideGlobal > 0) {
-            setCurrentSlideGlobal(currentSlideGlobal - 1)
+        if (currentSlideGlobal.current > 0) {
+            currentSlideGlobal.current--
         } else {
             return
         }
-        const currentQuestionSetLength = getCurrentQuestionSetLength()
+        const currentQuestionSetLength = getCurrentQuestionnareLength()
         currentSlideLocal.current--
         if (currentSlideLocal.current < 0) {
-            previousQuestionSet()
+            previousQuestionnare()
         }
 
     }
 
     function incrementCurrentSlideNumber() {
         const totalNumberOfQuestions = getTotalNumberOfQuestions()
-        const currentQuestionSetLength = getCurrentQuestionSetLength()
-        if (currentSlideGlobal !== totalNumberOfQuestions - 1) {
-            setCurrentSlideGlobal(currentSlideGlobal + 1)
+        const currentQuestionnareLength = getCurrentQuestionnareLength()
+        if (currentSlideGlobal.current !== totalNumberOfQuestions - 1) {
+            currentSlideGlobal.current++
         } else {
             return
         }
         currentSlideLocal.current++
-        if (currentSlideLocal.current === currentQuestionSetLength) {
-            nextQuestionSet()
+        if (currentSlideLocal.current === currentQuestionnareLength) {
+            nextQuestionnare()
+        } else {
+            nextQuestion()
         }
     }
 
-    function nextQuestionSet() {
-        currentSlideLocal.current = 0;
-        const index = allQuestionKeys.current.indexOf(currentQuestionKey)
-        const newQuestionKey = allQuestionKeys.current[index + 1]
+    function nextQuestion() {
+        const index = allQuestionsKeys.current.indexOf(currentQuestionKey)
+        const newQuestionKey = allQuestionsKeys.current[index + 1];
+        
         setCurrentQuestionKey(newQuestionKey)
     }
 
-    function previousQuestionSet() {
-        const index = allQuestionKeys.current.indexOf(currentQuestionKey)
-        const newQuestionKey = allQuestionKeys.current[index - 1]
-        currentSlideLocal.current = questionsMap[newQuestionKey].length - 1;
+    function nextQuestionnare() {
+        currentSlideLocal.current = 0;
+        const index = allQuestionnareKeys.current.indexOf(currentQuestionnareKey)
+        const newQuestionnareKey = allQuestionnareKeys.current[index + 1]
+        const newQuestionKey = Object.keys(questionnareMap[newQuestionnareKey])[0]
+        
+        allQuestionsKeys.current = Object.keys(questionnareMap[newQuestionnareKey])
+        setCurrentQuestionnareKey(newQuestionnareKey)
         setCurrentQuestionKey(newQuestionKey)
+    }
+
+    function previousQuestionnare() {
+        const index = allQuestionnareKeys.current.indexOf(currentQuestionnareKey)
+        const newQuestionKey = allQuestionnareKeys.current[index - 1]
+        currentSlideLocal.current = questionnareMap[newQuestionKey].length - 1;
+        setCurrentQuestionnareKey(newQuestionKey)
     }
 
     function handleSubmit(event) {
@@ -97,63 +107,65 @@ function QuestionnareComponent(props) {
         incrementCurrentSlideNumber()
     }
     function updateValueAndActualAnswer(valueA, actualAnswer) {
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.actualAnswerValue = valueA;
         currentQuestion.actualAnswer = actualAnswer;
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function updateMultipleChoice(actualAnswerValue, actualAnswer, answerId) {
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.answers.forEach(e => {
             e.checked = e.id === answerId;
         })
         currentQuestion.actualAnswerValue = actualAnswerValue;
         currentQuestion.actualAnswer = actualAnswer;
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function updateHasResearchNumber(hasResearchNumber) {
         removeAllValidityClasses(getCurrentQuestion())
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.hasResearchNumber = hasResearchNumber
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function updateResearchNumber(researchNumber) {
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.researchNumberInput = researchNumber.toUpperCase()
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function updateAlternativeIdentifier(identifier) {
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.alternativeIdentifierInput = identifier
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function updateText(text) {
-        const newState = {...questionsMap}
-        const currentQuestion = newState[currentQuestionKey][currentSlideLocal.current]
+        const newState = {...questionnareMap}
+        const currentQuestion = newState[currentQuestionnareKey][currentSlideLocal.current]
         currentQuestion.textValue = text;
-        setCurrentQuestionsMap(newState)
+        setCurrentQuestionnareMap(newState)
     }
 
     function getCurrentQuestion() {
-        return getCurrentQuestionSet()[currentSlideLocal.current]
+        
+        
+        return getCurrentQuestionnare()[currentQuestionKey]
     }
 
-    function getCurrentQuestionSet() {
-        return questionsMap[currentQuestionKey]
+    function getCurrentQuestionnare() {
+        return questionnareMap[currentQuestionnareKey]
     }
 
-    function getCurrentQuestionSetLength() {
-        return getCurrentQuestionSet().length
+    function getCurrentQuestionnareLength() {
+        return Object.keys(getCurrentQuestionnare()).length
     }
 
     function getTotalNumberOfQuestions() {
@@ -213,38 +225,41 @@ function QuestionnareComponent(props) {
         return <div>no input</div>
     }
 
-    const allQuestionKeys = useRef(Object.keys(props.questions))
-    const currentQuestionKeyIndex = useRef(0)
-    const [currentQuestionKey, setCurrentQuestionKey] = React.useState(Object.keys(props.questions)[0])
-    const [questionsMap, setCurrentQuestionsMap] = React.useState(props.questions)
-    const [currentSlideGlobal, setCurrentSlideGlobal] = React.useState(0);
-    const currentSlideLocal = useRef(0)
-    const [formData, setFormData] = React.useState({});
-    const buttonIsEnabled = useRef(true);
-    const lastQuestion = currentSlideGlobal === props.totalNumberOfQuestions - 1
-    const buttonText = lastQuestion ? "Dokončit" : "Další otázka" // tahle proměnná je wack
-    const buttonClass = lastQuestion ? "btn btn-secondary" : "btn btn-outline-secondary" // tahle proměnná je fakt cool
+    const allQuestionnareKeys = useRef(Object.keys(props.questionnares))
 
-    function getOtazekSklonovani(number) { // TODO: nebuď prase a přesuň to na nějaký hezčí místo lul.
-        if (number === 1) { // pokud je číslo jedna
-            return "otázka" // tento řádek vrací otázka string
-        } else if (number > 1 && number < 5) { // pokud je číslo větší než 1 a menší než 5
-            return "otázky" // tento řádek vrací otázky string
-        } else { // jinak
-            return "otázek" // tento řádek vrací otázek string
-        }
-    }
+    const [currentQuestionnareKey, setCurrentQuestionnareKey] = React.useState(allQuestionnareKeys.current[0])
+    const allQuestionsKeys = useRef(Object.keys(props.questionnares[currentQuestionnareKey]))
+    const [currentQuestionKey, setCurrentQuestionKey] = React.useState(allQuestionsKeys.current[0])
+
+    // return
+
+    const [questionnareMap, setCurrentQuestionnareMap] = React.useState(props.questionnares)
+
+    // const [currentSlideGlobal, setCurrentSlideGlobal] = React.useState(0);
+    const currentSlideGlobal = useRef(0);
+    const currentSlideLocal = useRef(0)
+
+    const [formData, setFormData] = React.useState({});
+
+    const buttonIsEnabled = useRef(true);
+    const lastQuestion = currentSlideGlobal.current === props.totalNumberOfQuestions - 1
+
+    const buttonText = lastQuestion ? "Dokončit" : "Další otázka"
+    const buttonClass = lastQuestion ? "btn btn-secondary" : "btn btn-outline-secondary"
+
 
     let keysInfoText = []
-    for (let i = 0; i < allQuestionKeys.current.length; i++){
-        const e = allQuestionKeys.current[i];
-        const comma = i === allQuestionKeys.current.length - 1 ? "" : ", "
-        if (e === currentQuestionKey) {
-            keysInfoText.push(<span key={i}><b>{mapQuestionnareCodeToName(e)} ({questionsMap[e].length} {getOtazekSklonovani(questionsMap[e].length)})</b>{comma}</span>)
+    for (let i = 0; i < allQuestionnareKeys.current.length; i++){
+        const e = allQuestionnareKeys.current[i];
+        const length = Object.keys(questionnareMap[e]).length
+        const comma = i === allQuestionnareKeys.current.length - 1 ? "" : ", "
+        if (e === currentQuestionnareKey) {
+            keysInfoText.push(<span key={i}><b>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)})</b>{comma}</span>)
         } else {
-            keysInfoText.push(<span key={i}>{mapQuestionnareCodeToName(e)} ({questionsMap[e].length} {getOtazekSklonovani(questionsMap[e].length)}){comma}</span>)
+            keysInfoText.push(<span key={i}>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)}){comma}</span>)
         }
     }
+
 
     return (
             <form className={styles.customForm}>
@@ -252,7 +267,7 @@ function QuestionnareComponent(props) {
                 <div id={"answerCard"} className={"card"}>
                     <div className={"card-header"}>
                         <div
-                            className={"col-12 text-center"}>Otázka {currentSlideGlobal + 1} / {props.totalNumberOfQuestions}</div>
+                            className={"col-12 text-center"}>Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
                     </div>
                     <div className={"card-body"}>
                         <h5>{getCurrentQuestion().label}</h5>
@@ -279,6 +294,16 @@ function QuestionnareComponent(props) {
                 </div>
             </form>
     );
+}
+
+function getOtazekSklonovani(number) { // TODO: nebuď prase a přesuň to na nějaký hezčí místo lul.
+    if (number === 1) { // pokud je číslo jedna
+        return "otázka" // tento řádek vrací otázka string
+    } else if (number > 1 && number < 5) { // pokud je číslo větší než 1 a menší než 5
+        return "otázky" // tento řádek vrací otázky string
+    } else { // jinak
+        return "otázek" // tento řádek vrací otázek string
+    }
 }
 
 export default QuestionnareComponent

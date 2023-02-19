@@ -689,12 +689,10 @@ const demo = {
 }
 
 const id = {
-    id: [
-        {
+    id: {
+        id: {
             questionType: "identifying",
-
             label: "Jste účastníkem Výzkumu Odolnosti a obdrželi jste výzkumné číslo?",
-            code: "",
             inputId: "identifyingText",
             answers: [
                 {
@@ -716,7 +714,7 @@ const id = {
             alternativeIdentifierInput: "",
             hasResearchNumber: null,
         },
-    ]
+    }
 }
 
 export function mapQuestionnareCodeToName(code) {
@@ -869,7 +867,7 @@ function getJointQuestionsLul(params, isArray) {
     }
     let totalNumberOfQuestions = 0;
     Object.keys(res).forEach(e => {
-        totalNumberOfQuestions += res[e].length
+        totalNumberOfQuestions += Object.keys(res[e]).length
     })
     return {
         jointQuestions: res,
