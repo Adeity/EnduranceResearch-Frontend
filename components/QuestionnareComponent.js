@@ -10,14 +10,14 @@ import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
-import {processQuestionnareData} from "./processor"
+import {processQuestionnareData} from "./dataProcessor/processor"
 
-// function submitQuestionnare(questionnareMap) {
-//     Object.keys(questionnareMap).forEach(e => {
-//         processQuestionnareData(e)
-//     })
-//     console.log(questionnareMap)
-// }
+function submitQuestionnare(questionnareMap) {
+    const res = {}
+    Object.entries(questionnareMap).forEach(([key, value]) => {
+        res[key] = processQuestionnareData(key, value)
+    })
+}
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
@@ -87,7 +87,12 @@ function QuestionnareComponent(props) {
         setCurrentQuestionnareKey(newQuestionnareKey)
     }
 
-    function handleSubmit(event) {
+    function submit(e) {
+        e.preventDefault()
+        submitQuestionnare(questionnareMap)
+    }
+
+    function handleNextButtonClick(event) {
         event.preventDefault();
         if (!buttonIsEnabled.current) {
             return;
@@ -128,13 +133,13 @@ function QuestionnareComponent(props) {
         setCurrentQuestionnareMap(newState)
     }
 
-    function updateMultipleChoice(actualAnswerValue, actualAnswer, answerId) {
+    function updateMultipleChoice(actualanswer, actualAnswer, answerId) {
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
         currentQuestion.answers.forEach(e => {
             e.checked = e.id === answerId;
         })
-        currentQuestion.answerValue = actualAnswerValue;
+        currentQuestion.answer = actualanswer;
         currentQuestion.answerLabel = actualAnswer;
         setCurrentQuestionnareMap(newState)
     }
@@ -223,7 +228,7 @@ function QuestionnareComponent(props) {
                 updateHasResearchNumber={updateHasResearchNumber}
                 updateResearchNumber={updateResearchNumber}
                 updateAlternativeIdentifier={updateAlternativeIdentifier}
-                value={currentQuestion.actualAnswerValue}
+                value={currentQuestion.actualanswer}
                 inputId={currentQuestion.inputId}
                 choices={currentQuestion.answers}
                 hasResearchNumber={currentQuestion.hasResearchNumber}
@@ -294,7 +299,8 @@ function QuestionnareComponent(props) {
                     <div className={"d-flex justify-content-center mt-auto"}>
                         <button className={"btn btn-outline-secondary me-3"}
                                 onClick={(e) => previousSlide(e)}>{"<-"}</button>
-                        <button className={buttonClass} onClick={(e) => handleSubmit(e)}>{buttonText}</button>
+                        <button className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
+                        <button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>
                         <button className={"btn btn-outline-secondary ms-3"}
                                 onClick={(e) => nextSlide(e)}>{"->"}</button>
                     </div>

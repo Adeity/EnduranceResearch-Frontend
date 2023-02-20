@@ -1,3 +1,7 @@
+/**
+ * U multiple choice slouzi 'answer' jako 'answer', cili ciselna hodnota
+ */
+
 const inTheLastString = "Jak často: "
 export const psqi = {
     psqi:
@@ -57,7 +61,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5b: {
                 questionType: "multipleChoice",
@@ -92,7 +96,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5c: {
                 questionType: "multipleChoice",
@@ -126,7 +130,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5d: {
                 questionType: "multipleChoice",
@@ -159,7 +163,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5e: {
                 questionType: "multipleChoice",
@@ -193,7 +197,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5f: {
                 questionType: "multipleChoice",
@@ -227,7 +231,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5g: {
                 questionType: "multipleChoice",
@@ -262,7 +266,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5h: {
                 questionType: "multipleChoice",
@@ -297,7 +301,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5i: {
                 questionType: "multipleChoice",
@@ -332,7 +336,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q5j: {
                 questionType: "multipleChoiceWithText",
@@ -367,7 +371,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: "",
+                answer: "",
                 textValue: ""
             },
             q6: {
@@ -403,7 +407,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: ""
+                answer: ""
             },
             q7: {
                 questionType: "multipleChoiceWithText",
@@ -441,7 +445,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: "",
+                answer: "",
                 textValue: ""
             },
             q8: {
@@ -477,7 +481,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: "",
+                answer: "",
             },
             q9: {
                 questionType: "multipleChoice",
@@ -512,7 +516,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: "",
+                answer: "",
             },
             q10: {
                 questionType: "multipleChoice",
@@ -547,7 +551,7 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answerValue: "",
+                answer: "",
             },
             freeDaysGnt: {
                 questionType: "hhmm",
@@ -586,7 +590,7 @@ export const mctq = {
             inputId: "asleepTimeMinutes",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
         {
             questionType: "hhmm",
@@ -596,7 +600,7 @@ export const mctq = {
             inputId: "gmtHhmm",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
     ]
 }
@@ -611,7 +615,7 @@ const meq = {
             inputId: "gmtHhmm",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
     ]
 }
@@ -625,7 +629,7 @@ const pss = {
             inputId: "gmtHhmm",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
     ]
 }
@@ -639,7 +643,7 @@ const dzs = {
             inputId: "gmtHhmm",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
     ]
 }
@@ -653,7 +657,7 @@ const demo = {
             inputId: "gmtHhmm",
             answers: [],
             actualAnswer: "",
-            actualAnswerValue: ""
+            actualanswer: ""
         },
     ]
 }
