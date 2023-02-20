@@ -1,6 +1,6 @@
 "use client"
 
-import styles from '../pages/Form.module.css'
+import styles from './Form.module.css'
 import React, {useRef} from 'react';
 import MinutesInput from "./inputs/MinutesInput";
 import MultipleChoiceInput from "./inputs/MultipleChoiceInput";
@@ -10,6 +10,14 @@ import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
+import {processQuestionnareData} from "./processor"
+
+// function submitQuestionnare(questionnareMap) {
+//     Object.keys(questionnareMap).forEach(e => {
+//         processQuestionnareData(e)
+//     })
+//     console.log(questionnareMap)
+// }
 
 function QuestionnareComponent(props) {
     function decrementCurrentSlideNumber() {
@@ -297,13 +305,13 @@ function QuestionnareComponent(props) {
     );
 }
 
-function getOtazekSklonovani(number) { // TODO: nebuď prase a přesuň to na nějaký hezčí místo lul.
-    if (number === 1) { // pokud je číslo jedna
-        return "otázka" // tento řádek vrací otázka string
-    } else if (number > 1 && number < 5) { // pokud je číslo větší než 1 a menší než 5
-        return "otázky" // tento řádek vrací otázky string
-    } else { // jinak
-        return "otázek" // tento řádek vrací otázek string
+function getOtazekSklonovani(number) {
+    if (number === 1) {
+        return "otázka"
+    } else if (number > 1 && number < 5) {
+        return "otázky"
+    } else {
+        return "otázek"
     }
 }
 

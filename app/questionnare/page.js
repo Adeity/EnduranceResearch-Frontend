@@ -1,4 +1,3 @@
-// import {useRouter} from "next/router";
 import {getJointQuestions} from "../../components/questionsKeeper";
 import QuestionnareComponent from "../../components/QuestionnareComponent";
 

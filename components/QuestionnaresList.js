@@ -1,9 +1,7 @@
-import Layout from "./layout";
 import CardList from "./CardList";
 
 function QuestionnaresList(props) {
     return (
-        <Layout title={"index"}>
             <CardList items ={[
                 {
                     id: 1,
@@ -41,7 +39,6 @@ function QuestionnaresList(props) {
                 },
             ]
             }/>
-        </Layout>
     )
 }
 
