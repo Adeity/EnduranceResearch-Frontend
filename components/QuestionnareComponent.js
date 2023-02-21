@@ -11,12 +11,18 @@ import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
 import {processQuestionnareData} from "./dataProcessor/processor"
+import HoursInput from "./inputs/HoursInput";
 
 function submitQuestionnare(questionnareMap) {
     const res = {}
     Object.entries(questionnareMap).forEach(([key, value]) => {
         res[key] = processQuestionnareData(key, value)
     })
+    res['identifying'] = {}
+    res['identifying'].hasResearchNumber = questionnareMap.id.id.hasResearchNumber
+    res['identifying'].researchNumber = questionnareMap.id.id.researchNumberInput
+    res['identifying'].alternativeIdentifier = questionnareMap.id.alternativeIdentifierInput
+    console.log(res)
 }
 
 function QuestionnareComponent(props) {
@@ -55,7 +61,7 @@ function QuestionnareComponent(props) {
     function nextQuestion() {
         const index = allQuestionsKeys.current.indexOf(currentQuestionKey)
         const newQuestionKey = allQuestionsKeys.current[index + 1];
-        
+
         setCurrentQuestionKey(newQuestionKey)
     }
 
@@ -71,7 +77,7 @@ function QuestionnareComponent(props) {
         const index = allQuestionnareKeys.current.indexOf(currentQuestionnareKey)
         const newQuestionnareKey = allQuestionnareKeys.current[index + 1]
         const newQuestionKey = Object.keys(questionnareMap[newQuestionnareKey])[0]
-        
+
         allQuestionsKeys.current = Object.keys(questionnareMap[newQuestionnareKey])
         setCurrentQuestionnareKey(newQuestionnareKey)
         setCurrentQuestionKey(newQuestionKey)
@@ -126,6 +132,7 @@ function QuestionnareComponent(props) {
         removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         incrementCurrentSlideNumber()
     }
+
     function updateAnswer(answer) {
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
@@ -237,6 +244,11 @@ function QuestionnareComponent(props) {
                 researchNumberInputId={currentQuestion.researchNumberInputId}
                 alternativeIdentifierInputId={currentQuestion.alternativeIdentifierInputId}
             />
+        } else if (currentQuestion.questionType === "hours") {
+            return <HoursInput
+                inputId={currentQuestion.inputId}
+                value={currentQuestion.answer}
+                updateAnswer={updateAnswer}/>
         }
         return <div>no input</div>
     }
@@ -263,51 +275,53 @@ function QuestionnareComponent(props) {
 
 
     let keysInfoText = []
-    for (let i = 0; i < allQuestionnareKeys.current.length; i++){
+    for (let i = 0; i < allQuestionnareKeys.current.length; i++) {
         const e = allQuestionnareKeys.current[i];
         const length = Object.keys(questionnareMap[e]).length
         const comma = i === allQuestionnareKeys.current.length - 1 ? "" : ", "
         if (e === currentQuestionnareKey) {
-            keysInfoText.push(<span key={i}><b>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)})</b>{comma}</span>)
+            keysInfoText.push(<span
+                key={i}><b>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)})</b>{comma}</span>)
         } else {
-            keysInfoText.push(<span key={i}>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)}){comma}</span>)
+            keysInfoText.push(<span
+                key={i}>{mapQuestionnareCodeToName(e)} ({length} {getOtazekSklonovani(length)}){comma}</span>)
         }
     }
 
 
     return (
-            <form className={styles.customForm}>
-                <small className={"pb-2"}>{keysInfoText}</small>
-                <div id={"answerCard"} className={"card"}>
-                    <div className={"card-header"}>
-                        <div
-                            className={"col-12 text-center"}>Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
-                    </div>
-                    <div className={"card-body"}>
-                        <h5>{getCurrentQuestion(questionnareMap).label}</h5>
-                        <div id={"answer"} className="form-group">
-                            {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
-                            {getCurrentInput()}
-                            <small id="emailHelp" className="form-text text-muted"></small>
-                            <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
-                        </div>
+        <form className={styles.customForm}>
+            <small className={"pb-2"}>{keysInfoText}</small>
+            <div id={"answerCard"} className={"card"}>
+                <div className={"card-header"}>
+                    <div
+                        className={"col-12 text-center"}>Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
+                </div>
+                <div className={"card-body"}>
+                    <h5>{getCurrentQuestion(questionnareMap).label}</h5>
+                    <div id={"answer"} className="form-group">
+                        {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
+                        {getCurrentInput()}
+                        <small id="emailHelp" className="form-text text-muted"></small>
+                        <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                     </div>
                 </div>
-                <div id={"fillerDiv"}>
+            </div>
+            <div id={"fillerDiv"}>
+            </div>
+            <div className={"pt-3"}>
+                <div className={"d-flex justify-content-center mt-auto"}>
+                    <button className={"btn btn-outline-secondary me-3"}
+                            onClick={(e) => previousSlide(e)}>{"<-"}</button>
+                    <button className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
+                    <button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>
+                    <button className={"btn btn-outline-secondary ms-3"}
+                            onClick={(e) => nextSlide(e)}>{"->"}</button>
                 </div>
-                <div className={"pt-3"}>
-                    <div className={"d-flex justify-content-center mt-auto"}>
-                        <button className={"btn btn-outline-secondary me-3"}
-                                onClick={(e) => previousSlide(e)}>{"<-"}</button>
-                        <button className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
-                        <button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>
-                        <button className={"btn btn-outline-secondary ms-3"}
-                                onClick={(e) => nextSlide(e)}>{"->"}</button>
-                    </div>
-                    <div className={"row text-center mt-3"}>
-                    </div>
+                <div className={"row text-center mt-3"}>
                 </div>
-            </form>
+            </div>
+        </form>
     );
 }
 

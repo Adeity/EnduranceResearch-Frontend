@@ -10,25 +10,41 @@ export const psqi = {
                 questionType: "hhmm",
                 label: "V kolik hodin jste obvykle během posledního měsíce večer ulehl(a) do postele? (hh:mm)",
                 inputId: "psqigmtHhmm",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 101
+                },
+                code: "psqiq1"
             },
             q2: {
                 questionType: "minutes",
                 label: "Jak dlouho (v minutách) vám obvykle každý večer během posledního měsíce trvalo než jste usnul(a)?",
                 inputId: "psqiasleepTimeMinutes",
                 answer: "",
+                question: {
+                    id: 102
+                },
+                code: "psqiq2"
             },
             q3: {
                 questionType: "hhmm",
                 label: "V kolik hodin jste obvykle během posledního měsíce ráno vstával(a) z postele? (hh:mm)",
                 inputId: "psqihhMmGmtoo",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 103
+                },
+                code: "psqiq3"
             },
             q4: {
-                questionType: "hhmm",
-                label: "(hh:mm) Kolik hodin za noc jste minulý měsíc obvykle opravdu spal(a)? (To se může lišit od počtu strávených v posteli.)",
-                inputId: "psqihhMmTimeOfSleep",
-                answer: ""
+                questionType: "hours",
+                label: "Kolik hodin za noc jste minulý měsíc obvykle opravdu spal(a)? (To se může lišit od počtu strávených v posteli.)",
+                inputId: "psqiActualHoursOfOfSleep",
+                answer: "",
+                question: {
+                    id: 104
+                },
+                code: "psqiq4"
             },
             q5a: {
                 questionType: "multipleChoice",
@@ -61,7 +77,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 105
+                },
+                code: "psqiq5a"
             },
             q5b: {
                 questionType: "multipleChoice",
@@ -96,7 +116,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 106
+                },
+                code: "psqiq5b"
             },
             q5c: {
                 questionType: "multipleChoice",
@@ -130,7 +154,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 107
+                },
+                code: "psqiq5c"
             },
             q5d: {
                 questionType: "multipleChoice",
@@ -163,7 +191,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 108
+                },
+                code: "psqiq5d"
             },
             q5e: {
                 questionType: "multipleChoice",
@@ -197,7 +229,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 109
+                },
+                code: "psqiq5e"
             },
             q5f: {
                 questionType: "multipleChoice",
@@ -231,7 +267,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 110
+                },
+                code: "psqiq5f"
             },
             q5g: {
                 questionType: "multipleChoice",
@@ -266,7 +306,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 111
+                },
+                code: "psqiq5g"
             },
             q5h: {
                 questionType: "multipleChoice",
@@ -301,7 +345,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 112
+                },
+                code: "psqiq5h"
             },
             q5i: {
                 questionType: "multipleChoice",
@@ -336,7 +384,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 113
+                },
+                code: "psqiq5i"
             },
             q5j: {
                 questionType: "multipleChoiceWithText",
@@ -372,7 +424,11 @@ export const psqi = {
                 ],
                 answerLabel: "",
                 answer: "",
-                textValue: ""
+                textValue: "",
+                question: {
+                    id: 114
+                },
+                code: "psqiq5j"
             },
             q6: {
                 questionType: "multipleChoice",
@@ -407,7 +463,11 @@ export const psqi = {
                     },
                 ],
                 answerLabel: "",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 115
+                },
+                code: "psqiq6"
             },
             q7: {
                 questionType: "multipleChoiceWithText",
@@ -446,7 +506,11 @@ export const psqi = {
                 ],
                 answerLabel: "",
                 answer: "",
-                textValue: ""
+                textValue: "",
+                question: {
+                    id: 116
+                },
+                code: "psqiq7"
             },
             q8: {
                 questionType: "multipleChoice",
@@ -482,6 +546,10 @@ export const psqi = {
                 ],
                 answerLabel: "",
                 answer: "",
+                question: {
+                    id: 117
+                },
+                code: "psqiq8"
             },
             q9: {
                 questionType: "multipleChoice",
@@ -517,6 +585,10 @@ export const psqi = {
                 ],
                 answerLabel: "",
                 answer: "",
+                question: {
+                    id: 118
+                },
+                code: "psqiq9"
             },
             q10: {
                 questionType: "multipleChoice",
@@ -552,30 +624,50 @@ export const psqi = {
                 ],
                 answerLabel: "",
                 answer: "",
+                question: {
+                    id: 119
+                },
+                code: "psqiq10"
             },
             freeDaysGnt: {
                 questionType: "hhmm",
                 label: "O volných dnech chodím spát v (hh:mm)",
                 inputId: "psqiFdGnt",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 120
+                },
+                code: "psqiFreeDaysGnt"
             },
             freeDaysGmt: {
                 questionType: "hhmm",
                 label: "O volných dnech vstávám v (hh:mm)",
                 inputId: "psqiFdGmt",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 121
+                },
+                code: "psqiFreeDaysGmt"
             },
             workDaysGnt: {
                 questionType: "hhmm",
                 label: "O pracovních dnech chodím spát v (hh:mm)",
                 inputId: "psqiWdGnt",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 122
+                },
+                code: "psqiWorkDaysGnt"
             },
             workDaysGmt: {
                 questionType: "hhmm",
                 label: "O pracovních dnech vstávám v (hh:mm)",
                 inputId: "psqiWdGmt",
-                answer: ""
+                answer: "",
+                question: {
+                    id: 123
+                },
+                code: "psqiWorkDaysGmt"
             },
         }
 }

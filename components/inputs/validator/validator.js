@@ -12,6 +12,10 @@ export function validate(question) {
     let isValid;
     let mChoice;
     switch (questionType) {
+        case "hours":
+            isValid = validateHours(question.answer)
+            toggleMinutes(isValid, inputId)
+            break;
         case "minutes":
             isValid = validateMinutes(question.answer)
             toggleMinutes(isValid, inputId)
@@ -48,11 +52,21 @@ export function validate(question) {
     return isValid;
 }
 
-function validateMinutes(answer) {
+function validateHours(answer) {
     // Convert the input to a number
     const number = Number(answer);
 
     if (typeof number === 'number' && number > 0) {
+        return true;
+    }
+    return false;
+}
+
+function validateMinutes(answer) {
+    // Convert the input to a number
+    const number = Number(answer);
+
+    if (typeof number === 'number' && number > 0 && Number.isInteger(number)) {
         return true;
     }
     return false;

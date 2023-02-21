@@ -1,36 +1,30 @@
 export function processQuestionnareData(questionnareType, questionnareData) {
     const res = {
-        answers: [
-            {
-                questionCode: "",
-                answer: ""
-            }
-        ],
-        computationVariables: {
-
+        answers: [],
+        computationVariables: {}
+    }
+    function getVerbalAnwer(u) { // premenit undefined
+        switch (u.questionType) {
+            case "multipleChoice":
+                return u.answerLabel
+            case "multipleChoiceWithText":
+                return `${u.answerLabel}|${u.textValue}`
+            case "identifying":
+                return `${u.hasResearchNumber}|${u.researchNumberInput}|${u.alternativeIdentifierInput}`
+            default:
+                return u.answer
         }
     }
     Object.entries(questionnareData).forEach(([key, value]) => {
         res.computationVariables[key] = value.answer
-        res.answers.push({
-            questionCode: value.code,
-            answer: ""
-        })
+        res.answers.push(
+            {
+                question: value.question,
+                answer: getVerbalAnwer(value)
+            }
+        )
     })
-    switch (questionnareType) {
-        case 'psqi':
-            res.computationVariables = processPsqiData(questionnareData)
-            break;
-        case 'meq':
-            break;
-        case 'mctq':
-            break;
-        case 'id':
-            break;
-        case 'demo':
-            break;
-    }
-    return "eu"
+    return res
 }
 
 function processPsqiData(questionnareData) {
