@@ -711,18 +711,447 @@ const meq = {
     ]
 }
 const pss = {
-    pss: [
-        {
-            questionType: "hhmm",
-
-            label: "pss 1",
-
-            inputId: "gmtHhmm",
-            answers: [],
-            actualAnswer: "",
-            actualanswer: ""
+    pss: {
+        q1: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci byl/a rozrušen/a něčím neočekávaným?",
+            inputId: "pssQ0Input",
+            answers: [
+                {
+                    id: "pss0mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss0mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss0mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss0mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss0mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 300
+            },
         },
-    ]
+
+
+        q2: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posdlením měsíci měl/a pocit, že nemáte kontrolu nad důležitými věcmi ve svém životě?",
+            inputId: "pssQ1Input",
+            answers: [
+                {
+                    id: "pss1mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss1mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss1mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss1mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss1mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 301
+            },
+        },
+
+
+        q3: {
+            questionType: "multipleChoice",
+            label: "Jak často jste se v posledním měsíci cítil/a nervózní a ve stresu?",
+            inputId: "pssQ2Input",
+            answers: [
+                {
+                    id: "pss2mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss2mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss2mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss2mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss2mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 302
+            },
+        },
+
+
+        q4: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci věřil/a, že dokážete sebejistě zvládat své osobní problémy?",
+            inputId: "pssQ3Input",
+            answers: [
+                {
+                    id: "pss3mch0",
+                    label: "Nikdy",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "pss3mch1",
+                    label: "Téměř nikdy",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss3mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss3mch3",
+                    label: "Poměrně často",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss3mch4",
+                    label: "Velmi často",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 303
+            },
+        },
+
+
+        q5: {
+            questionType: "multipleChoice",
+            label: "Jak často Vam v posledním měsíci přišlo, že jdou věci podle plánu?",
+            inputId: "pssQ4Input",
+            answers: [
+                {
+                    id: "pss4mch0",
+                    label: "Nikdy",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "pss4mch1",
+                    label: "Téměř nikdy",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss4mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss4mch3",
+                    label: "Poměrně často",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss4mch4",
+                    label: "Velmi často",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 304
+            },
+        },
+
+
+        q6: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci zjistil/a, že nezvládáte všechny věci, které musíte udělat?",
+            inputId: "pssQ5Input",
+            answers: [
+                {
+                    id: "pss5mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss5mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss5mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss5mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss5mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 305
+            },
+        },
+
+
+        q7: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci cítil/a, že dokážete kontrolovat nepříjemné situace ve svém životě?",
+            inputId: "pssQ6Input",
+            answers: [
+                {
+                    id: "pss6mch0",
+                    label: "Nikdy",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "pss6mch1",
+                    label: "Téměř nikdy",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss6mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss6mch3",
+                    label: "Poměrně často",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss6mch4",
+                    label: "Velmi často",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 306
+            },
+        },
+
+
+        q8: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci cítil/a, že máte věci pod kontrolou?",
+            inputId: "pssQ7Input",
+            answers: [
+                {
+                    id: "pss7mch0",
+                    label: "Nikdy",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "pss7mch1",
+                    label: "Téměř nikdy",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss7mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss7mch3",
+                    label: "Poměrně často",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss7mch4",
+                    label: "Velmi často",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 307
+            },
+        },
+
+
+        q9: {
+            questionType: "multipleChoice",
+            label: "Jak často jste byl/a v posledním měsíci rozzlobený/á kvůli věcem, které jste nemohl/a ovlivnit?",
+            inputId: "pssQ8Input",
+            answers: [
+                {
+                    id: "pss8mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss8mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss8mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss8mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss8mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 308
+            },
+        },
+
+
+        q10: {
+            questionType: "multipleChoice",
+            label: "Jak často jste v posledním měsíci cítil/a, že se potíže hromadí tak moc, že je nedokážete zvládnout?",
+            inputId: "pssQ9Input",
+            answers: [
+                {
+                    id: "pss9mch0",
+                    label: "Nikdy",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "pss9mch1",
+                    label: "Téměř nikdy",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "pss9mch2",
+                    label: "Občas",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "pss9mch3",
+                    label: "Poměrně často",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "pss9mch4",
+                    label: "Velmi často",
+                    value: 4,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 309
+            },
+        },
+
+    }
 }
 
 
