@@ -238,7 +238,6 @@ export const psqi = {
             q5f: {
                 questionType: "multipleChoice",
                 label: inTheLastString + "Bylo Vám příliš chladno.",
-
                 inputId: "7psqi6",
                 answers: [
                     {
@@ -725,19 +724,3951 @@ const pss = {
         },
     ]
 }
+
+
 const dzs = {
-    dzs: [
+    dzs:
         {
-            questionType: "hhmm",
+            healthQ0: {
+                questionType: "multipleChoice",
+                label: "Se svým tělesným zdravotním stavem jsem...",
+                inputId: "dzshealthQ0",
+                answers: [
+                    {
+                        id: "dzshealthQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 200
+                },
+            },
 
-            label: "dzs 1",
 
-            inputId: "gmtHhmm",
-            answers: [],
-            actualAnswer: "",
-            actualanswer: ""
-        },
-    ]
+            healthQ1: {
+                questionType: "multipleChoice",
+                label: "Se svou duševní kondicí jsem...",
+                inputId: "dzshealthQ1",
+                answers: [
+                    {
+                        id: "dzshealthQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 201
+                },
+            },
+
+
+            healthQ2: {
+                questionType: "multipleChoice",
+                label: "Se svou tělesnou kondicí jsem...",
+                inputId: "dzshealthQ2",
+                answers: [
+                    {
+                        id: "dzshealthQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 202
+                },
+            },
+
+
+            healthQ3: {
+                questionType: "multipleChoice",
+                label: "Se svou duševní výkonností jsem...",
+                inputId: "dzshealthQ3",
+                answers: [
+                    {
+                        id: "dzshealthQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 203
+                },
+            },
+
+
+            healthQ4: {
+                questionType: "multipleChoice",
+                label: "Se svou obranyschopností proti nemoci jsem...",
+                inputId: "dzshealthQ4",
+                answers: [
+                    {
+                        id: "dzshealthQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 204
+                },
+            },
+
+
+            healthQ5: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak často mám bolesti, jsem...",
+                inputId: "dzshealthQ5",
+                answers: [
+                    {
+                        id: "dzshealthQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 205
+                },
+            },
+
+
+            healthQ6: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak často jsem až dosud byl(a) nemocný(á), jsem...",
+                inputId: "dzshealthQ6",
+                answers: [
+                    {
+                        id: "dzshealthQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshealthQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 206
+                },
+            },
+
+
+            workQ0: {
+                questionType: "multipleChoice",
+                label: "Se svým postavením na pracovišti jsem...",
+                inputId: "dzsworkQ0",
+                answers: [
+                    {
+                        id: "dzsworkQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 207
+                },
+            },
+
+
+            workQ1: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak jistá je moje budoucnost v zaměstnání, jsem...",
+                inputId: "dzsworkQ1",
+                answers: [
+                    {
+                        id: "dzsworkQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 208
+                },
+            },
+
+
+            workQ2: {
+                questionType: "multipleChoice",
+                label: "S úspěchy, které mám v zaměstnání, jsem...",
+                inputId: "dzsworkQ2",
+                answers: [
+                    {
+                        id: "dzsworkQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 209
+                },
+            },
+
+
+            workQ3: {
+                questionType: "multipleChoice",
+                label: "S možnostmi postupu, které mám v zaměstnání, jsem...",
+                inputId: "dzsworkQ3",
+                answers: [
+                    {
+                        id: "dzsworkQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 210
+                },
+            },
+
+
+            workQ4: {
+                questionType: "multipleChoice",
+                label: "S atmosférou na pracovišti jsem...",
+                inputId: "dzsworkQ4",
+                answers: [
+                    {
+                        id: "dzsworkQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 211
+                },
+            },
+
+
+            workQ5: {
+                questionType: "multipleChoice",
+                label: "Co se týká mých pracovních povinností a zátěže, jsem...",
+                inputId: "dzsworkQ5",
+                answers: [
+                    {
+                        id: "dzsworkQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 212
+                },
+            },
+
+
+            workQ6: {
+                questionType: "multipleChoice",
+                label: "S pestrostí, kterou mi nabízí mé zaměstnání, jsem...",
+                inputId: "dzsworkQ6",
+                answers: [
+                    {
+                        id: "dzsworkQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsworkQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 213
+                },
+            },
+
+
+            financesQ0: {
+                questionType: "multipleChoice",
+                label: "Se svým příjmem/platem jsem...",
+                inputId: "dzsfinancesQ0",
+                answers: [
+                    {
+                        id: "dzsfinancesQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 214
+                },
+            },
+
+
+            financesQ1: {
+                questionType: "multipleChoice",
+                label: "S tím, co vlastním, jsem...",
+                inputId: "dzsfinancesQ1",
+                answers: [
+                    {
+                        id: "dzsfinancesQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 215
+                },
+            },
+
+
+            financesQ2: {
+                questionType: "multipleChoice",
+                label: "Se svým životním standardem jsem...",
+                inputId: "dzsfinancesQ2",
+                answers: [
+                    {
+                        id: "dzsfinancesQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 216
+                },
+            },
+
+
+            financesQ3: {
+                questionType: "multipleChoice",
+                label: "S hmotným zajištěním své existence jsem...",
+                inputId: "dzsfinancesQ3",
+                answers: [
+                    {
+                        id: "dzsfinancesQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 217
+                },
+            },
+
+
+            financesQ4: {
+                questionType: "multipleChoice",
+                label: "Se svými budoucími možnostmi výdělku jsem...",
+                inputId: "dzsfinancesQ4",
+                answers: [
+                    {
+                        id: "dzsfinancesQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 218
+                },
+            },
+
+
+            financesQ5: {
+                questionType: "multipleChoice",
+                label: "S možnostmi, které mohu vzhledem ke své finanční situaci nabídnout své rodině jsem...",
+                inputId: "dzsfinancesQ5",
+                answers: [
+                    {
+                        id: "dzsfinancesQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 219
+                },
+            },
+
+
+            financesQ6: {
+                questionType: "multipleChoice",
+                label: "Se svým budoucím očekávaným (finančním) zajištěním ve stáří jsem...",
+                inputId: "dzsfinancesQ6",
+                answers: [
+                    {
+                        id: "dzsfinancesQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfinancesQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 220
+                },
+            },
+
+
+            freeTimeQ0: {
+                questionType: "multipleChoice",
+                label: "S délkou své každoroční dovolené jsem...",
+                inputId: "dzsfreeTimeQ0",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 221
+                },
+            },
+
+
+            freeTimeQ1: {
+                questionType: "multipleChoice",
+                label: "S množstvím svého volného času po práci a o víkendech jsem...",
+                inputId: "dzsfreeTimeQ1",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 222
+                },
+            },
+
+
+            freeTimeQ2: {
+                questionType: "multipleChoice",
+                label: "S kvalitou odpočinku, který mi přináší dovolená, jsem...",
+                inputId: "dzsfreeTimeQ2",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 223
+                },
+            },
+
+
+            freeTimeQ3: {
+                questionType: "multipleChoice",
+                label: "S kvalitou odpočinku, který mi přináší volný čas po práci a víkendy, jsem...",
+                inputId: "dzsfreeTimeQ3",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 224
+                },
+            },
+
+
+            freeTimeQ4: {
+                questionType: "multipleChoice",
+                label: "S množstvím času, které mám k dispozici pro své koníčky, jsem...",
+                inputId: "dzsfreeTimeQ4",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 225
+                },
+            },
+
+
+            freeTimeQ5: {
+                questionType: "multipleChoice",
+                label: "S časem, který mohu věnovat blízkým osobám jsem...",
+                inputId: "dzsfreeTimeQ5",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 226
+                },
+            },
+
+
+            freeTimeQ6: {
+                questionType: "multipleChoice",
+                label: "S pestrostí svého volného času jsem...",
+                inputId: "dzsfreeTimeQ6",
+                answers: [
+                    {
+                        id: "dzsfreeTimeQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfreeTimeQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 227
+                },
+            },
+
+            hasPartner: {
+                questionType: "dzsYesNoSkip",
+                label: "Máte v současné době stálého partnera/partnerku?",
+                inputId: "dzsDoYouHaveAPartner",
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 290
+                },
+            },
+            partnershipQ0: {
+                questionType: "multipleChoice",
+                label: "S požadavky, které na mne klade mé manželství/partnerství, jsem...",
+                inputId: "dzspartnershipQ0",
+                answers: [
+                    {
+                        id: "dzspartnershipQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 228
+                },
+            },
+
+
+            partnershipQ1: {
+                questionType: "multipleChoice",
+                label: "S našimi společnými aktivitami jsem...",
+                inputId: "dzspartnershipQ1",
+                answers: [
+                    {
+                        id: "dzspartnershipQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 229
+                },
+            },
+
+
+            partnershipQ2: {
+                questionType: "multipleChoice",
+                label: "S upřímností a otevřeností svého partnera/partnerky jsem...",
+                inputId: "dzspartnershipQ2",
+                answers: [
+                    {
+                        id: "dzspartnershipQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 230
+                },
+            },
+
+
+            partnershipQ3: {
+                questionType: "multipleChoice",
+                label: "S pochopením, která má pro mne můj partner/partnerka, jsem..",
+                inputId: "dzspartnershipQ3",
+                answers: [
+                    {
+                        id: "dzspartnershipQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 231
+                },
+            },
+
+
+            partnershipQ4: {
+                questionType: "multipleChoice",
+                label: "S něžností a náklonností, kterou mi můj partner/partnerka projevuje jsem...",
+                inputId: "dzspartnershipQ4",
+                answers: [
+                    {
+                        id: "dzspartnershipQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 232
+                },
+            },
+
+
+            partnershipQ5: {
+                questionType: "multipleChoice",
+                label: "S bezpečím, které mi poskytne můj partner/partnerka, jsem...",
+                inputId: "dzspartnershipQ5",
+                answers: [
+                    {
+                        id: "dzspartnershipQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 233
+                },
+            },
+
+
+            partnershipQ6: {
+                questionType: "multipleChoice",
+                label: "S ochotou pomoci, kterou mi projevuje můj partner/partnerka, jsem...",
+                inputId: "dzspartnershipQ6",
+                answers: [
+                    {
+                        id: "dzspartnershipQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspartnershipQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 234
+                },
+            },
+
+
+            hasKids: {
+                questionType: "dzsYesNoSkip",
+                label: "Máte vlastní děti?",
+                inputId: "dzsDoYouHaveKids",
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 291
+                },
+            },
+            childrenQ0: {
+                questionType: "multipleChoice",
+                label: "když myslím na to, jak s dětmi vzájemně vycházíme, jsem...",
+                inputId: "dzschildrenQ0",
+                answers: [
+                    {
+                        id: "dzschildrenQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 235
+                },
+            },
+
+
+            childrenQ1: {
+                questionType: "multipleChoice",
+                label: "Když myslím na úspěchy svých dětí ve škole a zaměstnání, jsem...",
+                inputId: "dzschildrenQ1",
+                answers: [
+                    {
+                        id: "dzschildrenQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 236
+                },
+            },
+
+
+            childrenQ2: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, kolik radosti mám ze svých dětí, jsem...",
+                inputId: "dzschildrenQ2",
+                answers: [
+                    {
+                        id: "dzschildrenQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 237
+                },
+            },
+
+
+            childrenQ3: {
+                questionType: "multipleChoice",
+                label: "Když myslím na námahu a výdaje, které mě mé děti stály, jsem...",
+                inputId: "dzschildrenQ3",
+                answers: [
+                    {
+                        id: "dzschildrenQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 238
+                },
+            },
+
+
+            childrenQ4: {
+                questionType: "multipleChoice",
+                label: "S vlivem, který mám na své děti, jsem...",
+                inputId: "dzschildrenQ4",
+                answers: [
+                    {
+                        id: "dzschildrenQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 239
+                },
+            },
+
+
+            childrenQ5: {
+                questionType: "multipleChoice",
+                label: "S uznáním, kterého se mi od mých dětí dostává jsem...",
+                inputId: "dzschildrenQ5",
+                answers: [
+                    {
+                        id: "dzschildrenQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 240
+                },
+            },
+
+
+            childrenQ6: {
+                questionType: "multipleChoice",
+                label: "S našimi společnými aktivitami jsem...",
+                inputId: "dzschildrenQ6",
+                answers: [
+                    {
+                        id: "dzschildrenQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzschildrenQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 241
+                },
+            },
+
+
+            personalityQ0: {
+                questionType: "multipleChoice",
+                label: "Se svými schopnostmi a dovednostmi jsem...",
+                inputId: "dzspersonalityQ0",
+                answers: [
+                    {
+                        id: "dzspersonalityQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 242
+                },
+            },
+
+
+            personalityQ1: {
+                questionType: "multipleChoice",
+                label: "Se způsobem, jak jsem až doposud žil, jsem...",
+                inputId: "dzspersonalityQ1",
+                answers: [
+                    {
+                        id: "dzspersonalityQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 243
+                },
+            },
+
+
+            personalityQ2: {
+                questionType: "multipleChoice",
+                label: "Se svým vnějším vzhledem jsem...",
+                inputId: "dzspersonalityQ2",
+                answers: [
+                    {
+                        id: "dzspersonalityQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 244
+                },
+            },
+
+
+            personalityQ3: {
+                questionType: "multipleChoice",
+                label: "Se svým sebevědomím a sebejistotou jsem...",
+                inputId: "dzspersonalityQ3",
+                answers: [
+                    {
+                        id: "dzspersonalityQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 245
+                },
+            },
+
+
+            personalityQ4: {
+                questionType: "multipleChoice",
+                label: "Se svým charakterem (povahou) jsem...",
+                inputId: "dzspersonalityQ4",
+                answers: [
+                    {
+                        id: "dzspersonalityQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 246
+                },
+            },
+
+
+            personalityQ5: {
+                questionType: "multipleChoice",
+                label: "Se svou vitalitou (tzn. s radostí ze života a životní energií) jsem...",
+                inputId: "dzspersonalityQ5",
+                answers: [
+                    {
+                        id: "dzspersonalityQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 247
+                },
+            },
+
+
+            personalityQ6: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak vycházím s ostatními lidmi, jsem...",
+                inputId: "dzspersonalityQ6",
+                answers: [
+                    {
+                        id: "dzspersonalityQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzspersonalityQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 248
+                },
+            },
+
+
+            sexualityQ0: {
+                questionType: "multipleChoice",
+                label: "Se svou tělesnou přitažlivostí jsem...",
+                inputId: "dzssexualityQ0",
+                answers: [
+                    {
+                        id: "dzssexualityQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 249
+                },
+            },
+
+
+            sexualityQ1: {
+                questionType: "multipleChoice",
+                label: "Se svou sexuální výkonností jsem...",
+                inputId: "dzssexualityQ1",
+                answers: [
+                    {
+                        id: "dzssexualityQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 250
+                },
+            },
+
+
+            sexualityQ2: {
+                questionType: "multipleChoice",
+                label: "S častostí svých sexuálních kontaktů jsem...",
+                inputId: "dzssexualityQ2",
+                answers: [
+                    {
+                        id: "dzssexualityQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 251
+                },
+            },
+
+
+            sexualityQ3: {
+                questionType: "multipleChoice",
+                label: "S tím, jak často se mi můj partner/má partnerka tělesně věnuje (dotýká se mne, hladí mne), jsem...",
+                inputId: "dzssexualityQ3",
+                answers: [
+                    {
+                        id: "dzssexualityQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 252
+                },
+            },
+
+
+            sexualityQ4: {
+                questionType: "multipleChoice",
+                label: "Se svými sexuálními reakcemi jsem...",
+                inputId: "dzssexualityQ4",
+                answers: [
+                    {
+                        id: "dzssexualityQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 253
+                },
+            },
+
+
+            sexualityQ5: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak otevřeně mohu mluvit o sexuální oblasti, jsem...",
+                inputId: "dzssexualityQ5",
+                answers: [
+                    {
+                        id: "dzssexualityQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 254
+                },
+            },
+
+
+            sexualityQ6: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak se k sobě s partnerem hodíme, jsem...",
+                inputId: "dzssexualityQ6",
+                answers: [
+                    {
+                        id: "dzssexualityQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzssexualityQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 255
+                },
+            },
+
+
+            friendsQ0: {
+                questionType: "multipleChoice",
+                label: "Když myslím na okruh svých přátel a známých, jsem...",
+                inputId: "dzsfriendsQ0",
+                answers: [
+                    {
+                        id: "dzsfriendsQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 256
+                },
+            },
+
+
+            friendsQ1: {
+                questionType: "multipleChoice",
+                label: "S kontakty se svými příbuznými jsem...",
+                inputId: "dzsfriendsQ1",
+                answers: [
+                    {
+                        id: "dzsfriendsQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 257
+                },
+            },
+
+
+            friendsQ2: {
+                questionType: "multipleChoice",
+                label: "S kontaktem se svými sousedy jsem...",
+                inputId: "dzsfriendsQ2",
+                answers: [
+                    {
+                        id: "dzsfriendsQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 258
+                },
+            },
+
+
+            friendsQ3: {
+                questionType: "multipleChoice",
+                label: "S pomocí a podporou, kterou mi poskytují přátelé a známí, jsem...",
+                inputId: "dzsfriendsQ3",
+                answers: [
+                    {
+                        id: "dzsfriendsQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 259
+                },
+            },
+
+
+            friendsQ4: {
+                questionType: "multipleChoice",
+                label: "Se svým veřejnými a spolkovými aktivitami jsem...",
+                inputId: "dzsfriendsQ4",
+                answers: [
+                    {
+                        id: "dzsfriendsQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 260
+                },
+            },
+
+
+            friendsQ5: {
+                questionType: "multipleChoice",
+                label: "Se svou společenskou angažovaností jsem...",
+                inputId: "dzsfriendsQ5",
+                answers: [
+                    {
+                        id: "dzsfriendsQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 261
+                },
+            },
+
+
+            friendsQ6: {
+                questionType: "multipleChoice",
+                label: "Když myslím na to, jak často se dostanu mezi lidi, jsem...",
+                inputId: "dzsfriendsQ6",
+                answers: [
+                    {
+                        id: "dzsfriendsQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzsfriendsQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 262
+                },
+            },
+
+
+            habitationQ0: {
+                questionType: "multipleChoice",
+                label: "S velikostí svého bytu jsem...",
+                inputId: "dzshabitationQ0",
+                answers: [
+                    {
+                        id: "dzshabitationQ0mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ0mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 263
+                },
+            },
+
+
+            habitationQ1: {
+                questionType: "multipleChoice",
+                label: "Se stavem svého bytu jsem...",
+                inputId: "dzshabitationQ1",
+                answers: [
+                    {
+                        id: "dzshabitationQ1mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ1mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 264
+                },
+            },
+
+
+            habitationQ2: {
+                questionType: "multipleChoice",
+                label: "S výdaji za svůj byt (nájem, příp. splátky) jsem...",
+                inputId: "dzshabitationQ2",
+                answers: [
+                    {
+                        id: "dzshabitationQ2mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ2mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 265
+                },
+            },
+
+
+            habitationQ3: {
+                questionType: "multipleChoice",
+                label: "S polohou svého bytu jsem...",
+                inputId: "dzshabitationQ3",
+                answers: [
+                    {
+                        id: "dzshabitationQ3mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ3mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 266
+                },
+            },
+
+
+            habitationQ4: {
+                questionType: "multipleChoice",
+                label: "S dosažitelností dopravních prostředků jsem...",
+                inputId: "dzshabitationQ4",
+                answers: [
+                    {
+                        id: "dzshabitationQ4mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ4mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 267
+                },
+            },
+
+
+            habitationQ5: {
+                questionType: "multipleChoice",
+                label: "Když myslím na míru zátěže hlukem ve vlastním bytě...",
+                inputId: "dzshabitationQ5",
+                answers: [
+                    {
+                        id: "dzshabitationQ5mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ5mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 268
+                },
+            },
+
+
+            habitationQ6: {
+                questionType: "multipleChoice",
+                label: "Se standardem svého bytu jsem...",
+                inputId: "dzshabitationQ6",
+                answers: [
+                    {
+                        id: "dzshabitationQ6mch1",
+                        label: "velmi nespokojen(a)",
+                        value: 1,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch2",
+                        label: "nespokojen(a)",
+                        value: 2,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch3",
+                        label: "spíše nespokojen(a)",
+                        value: 3,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch4",
+                        label: "ani spokojen(a) ani nespokojen(a)",
+                        value: 4,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch5",
+                        label: "spíše spokojen(a)",
+                        value: 5,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch6",
+                        label: "spokojen(a)",
+                        value: 6,
+                        checked: false
+                    },
+                    {
+                        id: "dzshabitationQ6mch7",
+                        label: "velmi spokojen(a)",
+                        value: 7,
+                        checked: false
+                    },
+                ],
+                answerLabel: "",
+                answer: "",
+                question: {
+                    id: 269
+                },
+            },
+
+        }
+
 }
 const demo = {
     demo: [
