@@ -21,7 +21,7 @@ function submitQuestionnare(questionnareMap) {
     res['identifying'] = {}
     res['identifying'].hasResearchNumber = questionnareMap.id.id.hasResearchNumber
     res['identifying'].researchNumber = questionnareMap.id.id.researchNumberInput
-    res['identifying'].alternativeIdentifier = questionnareMap.id.alternativeIdentifierInput
+    res['identifying'].alternativeIdentifier = questionnareMap.id.id.alternativeIdentifierInput
     console.log(res)
 }
 
@@ -32,7 +32,6 @@ function QuestionnareComponent(props) {
         } else {
             return
         }
-        const currentQuestionSetLength = getCurrentQuestionnareLength(questionnareMap)
         currentSlideLocal.current--
         if (currentSlideLocal.current < 0) {
             previousQuestionnare()

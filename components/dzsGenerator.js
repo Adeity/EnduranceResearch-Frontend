@@ -160,5 +160,30 @@ function getInsertDzs() {
     })
     console.log(a)
 }
-getDzsQuestions()
+
+function getJavaAttributes() {
+    let a = ''
+    druhyOtazek.forEach(e => {
+        for (let i = 0; i < 7; i++) {
+            a += `private Integer ${e}Q${i};\n`
+        }
+    })
+    console.log(a)
+}
+
+function getSumOfEeachPartInJava() {
+    let a = ''
+    druhyOtazek.forEach(e => {
+        for (let i = 0; i < 7; i++) {
+            const druhSUpperCasem = `${e.charAt(0).toUpperCase()}${e.slice(1)}`
+            a += `v.get${druhSUpperCasem}Q${i}() +`
+        }
+        a = a.slice(0, -1)
+        a += '\n'
+    })
+    console.log(a)
+}
+// getJavaAttributes()
+getSumOfEeachPartInJava()
+// getDzsQuestions()
 // getInsertDzs()
