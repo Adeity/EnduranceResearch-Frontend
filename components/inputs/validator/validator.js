@@ -28,6 +28,10 @@ export function validate(question) {
             isValid = validateMultipleChoice(question.answerLabel, question.answerValue)
             toggleMultipleChoice(isValid, question.answers.map(e => e.id))
             break;
+        case "dzsYesNoSkip":
+            isValid = validateMultipleChoice(question.answerLabel, question.answerValue)
+            toggleMultipleChoice(isValid, question.answers.map(e => e.id))
+            break;
         case "multipleChoiceWithText":
             const text = validateNotEmptyTExt(question.textValue)
             mChoice = validateMultipleChoiceWithTextMultipleChoice(question.answerLabel, question.answerValue)

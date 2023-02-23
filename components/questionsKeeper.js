@@ -2300,8 +2300,23 @@ const dzs = {
                 questionType: "dzsYesNoSkip",
                 label: "Máte v současné době stálého partnera/partnerku?",
                 inputId: "dzsDoYouHaveAPartner",
+                additionalDescription: "Pokud zadáte \"Ne\", bude přeskočeno následujících 7 otázek.",
                 answerLabel: "",
                 answer: "",
+                answers: [
+                    {
+                        id: "dzshasPartnerYes",
+                        label: "Ano",
+                        value: true,
+                        checked: false
+                    },
+                    {
+                        id: "dzsHasPartnerNo",
+                        label: "Ne",
+                        value: false,
+                        checked: false
+                    }
+                ],
                 question: {
                     id: 290
                 },
@@ -2704,6 +2719,21 @@ const dzs = {
                 inputId: "dzsDoYouHaveKids",
                 answerLabel: "",
                 answer: "",
+                additionalDescription: "Pokud zadáte \"Ne\", bude přeskočeno následujících 7 otázek.",
+                answers: [
+                    {
+                        id: "dzshasKidsYes",
+                        label: "Ano",
+                        value: true,
+                        checked: false
+                    },
+                    {
+                        id: "dzsHasKidsNo",
+                        label: "Ne",
+                        value: false,
+                        checked: false
+                    }
+                ],
                 question: {
                     id: 291
                 },

@@ -42,6 +42,20 @@ function QuestionnareComponent(props) {
 
     }
 
+    function incrementYesNoSkip(answer) {
+        if (answer === "true") {
+            incrementCurrentSlideNumber();
+        } else {
+            currentSlideGlobal.current += 8
+            currentSlideLocal.current += 8
+
+            const index = allQuestionsKeys.current.indexOf(currentQuestionKey)
+            const newQuestionKey = allQuestionsKeys.current[index + 8];
+
+            setCurrentQuestionKey(newQuestionKey)
+        }
+    }
+
     function incrementCurrentSlideNumber() {
         const totalNumberOfQuestions = getTotalNumberOfQuestions()
         const currentQuestionnareLength = getCurrentQuestionnareLength(questionnareMap)
@@ -116,7 +130,11 @@ function QuestionnareComponent(props) {
 
         setTimeout(function () {
             removeAllValidityClasses(currentQuestion)
-            incrementCurrentSlideNumber()
+            if (currentQuestion.questionType === "dzsYesNoSkip") {
+                incrementYesNoSkip(currentQuestion.answer)
+            } else {
+                incrementCurrentSlideNumber()
+            }
             buttonIsEnabled.current = true;
         }, 1000)
     }
@@ -205,10 +223,11 @@ function QuestionnareComponent(props) {
                     value={currentQuestion.answer}
                     updateAnswer={updateAnswer}
                 />)
-        } else if (currentQuestion.questionType === "multipleChoice") {
+        } else if (currentQuestion.questionType === "multipleChoice" || currentQuestion.questionType === "dzsYesNoSkip") {
             return (
                 <MultipleChoiceInput
                     update={updateMultipleChoice}
+                    additionalDescription={currentQuestion.additionalDescription}
                     choices={currentQuestion.answers}/>
             )
         } else if (currentQuestion.questionType === "multipleChoiceWithText") {

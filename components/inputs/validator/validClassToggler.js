@@ -54,6 +54,12 @@ export function removeAllValidityClasses(currentQuestion) {
                 document.getElementById(e.id).classList.remove("is-invalid")
             })
             break;
+        case "dzsYesNoSkip":
+            currentQuestion.answers.forEach(e => {
+                document.getElementById(e.id).classList.remove("is-valid")
+                document.getElementById(e.id).classList.remove("is-invalid")
+            })
+            break;
         case "multipleChoiceWithText":
             currentQuestion.answers.forEach(e => {
                 document.getElementById(e.id).classList.remove("is-valid")
