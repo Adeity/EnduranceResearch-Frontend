@@ -12,6 +12,12 @@ export function validate(question) {
     let isValid;
     let mChoice;
     switch (questionType) {
+        case "hourRangeInput":
+            isValid = validateHhMm(question.answer)
+            console.log("answer: ", question.answer)
+            console.log("is valid: ",isValid)
+            toggleMinutes(isValid, inputId)
+            break;
         case "hours":
             isValid = validateHours(question.answer)
             toggleMinutes(isValid, inputId)

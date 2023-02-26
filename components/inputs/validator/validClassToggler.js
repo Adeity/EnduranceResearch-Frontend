@@ -40,6 +40,14 @@ function mChoiceToggle(isValid, answersIds) {
 export function removeAllValidityClasses(currentQuestion) {
     const questionType = currentQuestion.questionType
     switch (questionType) {
+        case "hourRangeInput":
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
+            break;
+        case "hours":
+            document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
+            document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
+            break;
         case "minutes":
             document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")

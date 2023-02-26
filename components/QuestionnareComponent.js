@@ -12,6 +12,7 @@ import {mapQuestionnareCodeToName} from "./questionsKeeper";
 import IdentifyingInput from "./inputs/IdentifyingInput";
 import {processQuestionnareData} from "./dataProcessor/processor"
 import HoursInput from "./inputs/HoursInput";
+import HourRangeInput from "./inputs/HourRangeInput";
 
 function submitQuestionnare(questionnareMap) {
     const res = {}
@@ -267,6 +268,12 @@ function QuestionnareComponent(props) {
                 inputId={currentQuestion.inputId}
                 value={currentQuestion.answer}
                 updateAnswer={updateAnswer}/>
+        } else if (currentQuestion.questionType === "hourRangeInput") {
+            return <HourRangeInput
+                    min={currentQuestion.minHour}
+                    totalHours={currentQuestion.numberOfHours}
+                    inputId={currentQuestion.inputId}
+                    update={updateAnswer}/>
         }
         return <div>no input</div>
     }

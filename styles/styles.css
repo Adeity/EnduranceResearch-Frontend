@@ -37,6 +37,9 @@ footer {
 #fillerDiv{
     flex: 1 1;
 }
+.form-range.is-valid ~ .invalid-feedback {
+    display: none;
+}
 
 .is-invalid ~ .invalid-feedback {
    color: #dc3545;;

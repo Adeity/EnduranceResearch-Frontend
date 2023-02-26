@@ -752,6 +752,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 403
             },
@@ -787,6 +789,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 404
             },
@@ -821,6 +825,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 405
             },
@@ -855,6 +861,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 406
             },
@@ -889,6 +897,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 407
             },
@@ -924,6 +934,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 408
             },
@@ -960,6 +972,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 409
             },
@@ -1007,6 +1021,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 411
             },
@@ -1041,6 +1057,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 412
             },
@@ -1077,6 +1095,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 413
             },
@@ -1111,6 +1131,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 414
             },
@@ -1145,6 +1167,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 415
             },
@@ -1179,6 +1203,8 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 416
             },
@@ -1189,7 +1215,7 @@ const meq = {
             inputId: "meqQ17InputId",
             answer: "",
             question: {
-                id: 117
+                id: 417
             },
         },
         q18: {
@@ -1198,7 +1224,7 @@ const meq = {
             inputId: "meqQ18InputId",
             answer: "",
             question: {
-                id: 118
+                id: 418
             },
         },
         q19: {
@@ -1231,12 +1257,23 @@ const meq = {
                     checked: false
                 },
             ],
+            answerLabel: "",
+            answer: "",
             question: {
                 id: 419
             },
         },
     }
 }
+
+console.log("insert into question (id, code, label)")
+console.log("values")
+let counter = 1;
+Object.keys(meq.meq).forEach(key => {
+    const value = meq.meq[key]
+    console.log(`(${value.question.id}, \'meqQ${counter}\', \'${value.label}\'),`)
+    counter++
+})
 
 const pss = {
     pss: {
