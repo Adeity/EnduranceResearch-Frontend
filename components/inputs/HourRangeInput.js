@@ -9,7 +9,7 @@ function HourRangeInput(props) {
 
     const [value, setValue] = useState(min1Seconds);
 
-    function calculateReadableValue() {
+    function calculateReadableValue(value) {
         const seconds = value % 86400
         const hours = Math.floor((seconds) / 3600)
         const minutes = (seconds % 3600) / 60
@@ -19,17 +19,17 @@ function HourRangeInput(props) {
         return hoursString + ":" + minutesSTring
     }
 
-    const readableValue = calculateReadableValue()
-
     function handleChange(e) {
         setValue(e.target.value)
-        props.update(readableValue)
+        props.update(calculateReadableValue(e.target.value))
     }
 
     return (
         <>
-            <label htmlFor="customRange3" className="form-label">{readableValue}</label>
-            <input id={props.inputId} type="range" value={value} onChange={(e) => handleChange(e)} className="form-range" min={min1Seconds} max={max1Seconds} step="900" />
+            <div className={"form-text pb-2"}>Nastavte posuvník tak, aby hodnota odpovídala Vaší chtěné odpovědi.</div>
+            <input className={"form-control w-3rem"} placeholder={"Posuvníkem nastavte."} type={"text"} disabled={true} value={props.value !== "" ? props.value : "Posuvníkem nastavte."}/>
+            {/*<label htmlFor="customRange3" className="form-label">{props.value}</label>*/}
+            <input id={props.inputId} type="range" placeholder={"Posuvníkem nastavte."} value={value} onChange={(e) => handleChange(e)} className="form-range" min={min1Seconds} max={max1Seconds} step="900" />
             <div className="valid-feedback">
                 Vpořádku.
             </div>

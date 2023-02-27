@@ -5,6 +5,8 @@ export function processQuestionnareData(questionnareType, questionnareData) {
     }
     function getVerbalAnwer(u) { // premenit undefined
         switch (u.questionType) {
+            case "twoChoiceWithText":
+                return `${u.answerLabel}|${u.optionOneInput}|${u.optionTwoInput}`
             case "multipleChoice":
                 return u.answerLabel
             case "multipleChoiceWithText":
@@ -28,7 +30,6 @@ export function processQuestionnareData(questionnareType, questionnareData) {
 }
 
 function processPsqiData(questionnareData) {
-    console.log("to process:",questionnareData)
     const res = {}
     res['q1'] = questionnareData.q1.answer
     res['q2'] = questionnareData.q2.answer

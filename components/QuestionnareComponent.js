@@ -9,7 +9,7 @@ import HhMmInput from "./inputs/HhMmInput";
 import {validate} from "./inputs/validator/validator"
 import {removeAllValidityClasses} from "./inputs/validator/validClassToggler";
 import {mapQuestionnareCodeToName} from "./questionsKeeper";
-import IdentifyingInput from "./inputs/IdentifyingInput";
+import TwoChoiceWithTextInput from "./inputs/TwoChoiceWithTextInput";
 import {processQuestionnareData} from "./dataProcessor/processor"
 import HoursInput from "./inputs/HoursInput";
 import HourRangeInput from "./inputs/HourRangeInput";
@@ -20,9 +20,9 @@ function submitQuestionnare(questionnareMap) {
         res[key] = processQuestionnareData(key, value)
     })
     res['identifying'] = {}
-    res['identifying'].hasResearchNumber = questionnareMap.id.id.hasResearchNumber
-    res['identifying'].researchNumber = questionnareMap.id.id.researchNumberInput
-    res['identifying'].alternativeIdentifier = questionnareMap.id.id.alternativeIdentifierInput
+    res['identifying'].hasResearchNumber = questionnareMap.id.id.isOptionOne
+    res['identifying'].researchNumber = questionnareMap.id.id.optionOneInput
+    res['identifying'].alternativeIdentifier = questionnareMap.id.id.optionTwoInput
     console.log(res)
 }
 
@@ -169,25 +169,29 @@ function QuestionnareComponent(props) {
         setCurrentQuestionnareMap(newState)
     }
 
-    function updateHasResearchNumber(hasResearchNumber) {
+    function updateIsOptionOne(optionOne) {
         removeAllValidityClasses(getCurrentQuestion(questionnareMap))
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
-        currentQuestion.hasResearchNumber = hasResearchNumber
+        currentQuestion.isOptionOne = optionOne
         setCurrentQuestionnareMap(newState)
     }
 
-    function updateResearchNumber(researchNumber) {
+    function updateOptionOneInput(optionOne, upperCase) {
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
-        currentQuestion.researchNumberInput = researchNumber.toUpperCase()
+        if (upperCase) {
+            currentQuestion.optionOneInput = optionOne.toUpperCase()
+        } else {
+            currentQuestion.optionOneInput = optionOne
+        }
         setCurrentQuestionnareMap(newState)
     }
 
-    function updateAlternativeIdentifier(identifier) {
+    function updateOptionTwoInput(optionTwo) {
         const newState = {...questionnareMap}
         const currentQuestion = getCurrentQuestion(newState)
-        currentQuestion.alternativeIdentifierInput = identifier
+        currentQuestion.optionTwoInput = optionTwo
         setCurrentQuestionnareMap(newState)
     }
 
@@ -248,20 +252,26 @@ function QuestionnareComponent(props) {
                 value={currentQuestion.answer}
                 inputId={currentQuestion.inputId}
             />
-        } else if (currentQuestion.questionType === "identifying") {
-            return <IdentifyingInput
+        } else if (currentQuestion.questionType === "twoChoiceWithText") {
+            return <TwoChoiceWithTextInput
                 updateMultipleChoice={updateMultipleChoice}
-                updateHasResearchNumber={updateHasResearchNumber}
-                updateResearchNumber={updateResearchNumber}
-                updateAlternativeIdentifier={updateAlternativeIdentifier}
-                value={currentQuestion.actualanswer}
+                updateHasResearchNumber={updateIsOptionOne}
+                updateOptionOne={updateOptionOneInput}
+                updateOptionTwo={updateOptionTwoInput}
+                upperCase={currentQuestion.optionOneUppercase}
                 inputId={currentQuestion.inputId}
                 choices={currentQuestion.answers}
-                hasResearchNumber={currentQuestion.hasResearchNumber}
-                researchNumber={currentQuestion.researchNumberInput}
-                alternativeIdentifier={currentQuestion.alternativeIdentifierInput}
-                researchNumberInputId={currentQuestion.researchNumberInputId}
-                alternativeIdentifierInputId={currentQuestion.alternativeIdentifierInputId}
+                isOptionOne={currentQuestion.isOptionOne}
+                optionOneInput={currentQuestion.optionOneInput}
+                optionTwoInput={currentQuestion.optionTwoInput}
+                optionOneLabel={currentQuestion.optionOneLabel}
+                optionOneLabelHint={currentQuestion.optionOneLabelHint}
+                optionOnePlaceholder={currentQuestion.optionOnePlaceholder}
+                optionTwoLabel={currentQuestion.optionTwoLabel}
+                optionTwoLabelHint={currentQuestion.optionTwoLabelHint}
+                optionTwoPlaceholder={currentQuestion.optionTwoPlaceholder}
+                optionOneInvalidFeedback={currentQuestion.optionOneInvalidFeedback}
+                optionTwoInvalidFeedback={currentQuestion.optionTwoInvalidFeedback}
             />
         } else if (currentQuestion.questionType === "hours") {
             return <HoursInput
@@ -273,6 +283,7 @@ function QuestionnareComponent(props) {
                     min={currentQuestion.minHour}
                     totalHours={currentQuestion.numberOfHours}
                     inputId={currentQuestion.inputId}
+                    value={currentQuestion.answer}
                     update={updateAnswer}/>
         }
         return <div>no input</div>

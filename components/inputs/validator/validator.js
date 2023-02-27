@@ -14,8 +14,6 @@ export function validate(question) {
     switch (questionType) {
         case "hourRangeInput":
             isValid = validateHhMm(question.answer)
-            console.log("answer: ", question.answer)
-            console.log("is valid: ",isValid)
             toggleMinutes(isValid, inputId)
             break;
         case "hours":
@@ -44,17 +42,17 @@ export function validate(question) {
             isValid = text && mChoice
             toggleMultipleChoiceWithText(mChoice, text, question.answers.map(e => e.id), question.inputId)
             break;
-        case "identifying":
-            const hasResearchNumberIsFilled = question.hasResearchNumber !== null
-            toggleMultipleChoice(hasResearchNumberIsFilled, question.answers.map(e => e.id))
-            if (!hasResearchNumberIsFilled) {
+        case "twoChoiceWithText":
+            const hasIsOptionOneFilled = question.isOptionOne !== null
+            toggleMultipleChoice(hasIsOptionOneFilled, question.answers.map(e => e.id))
+            if (!hasIsOptionOneFilled) {
                 isValid = false;
                 break;
             }
-            if (question.hasResearchNumber === 'true') {
-                isValid = validateResearchNumber(question.researchNumberInput)
-            } else if (question.hasResearchNumber === 'false') {
-                isValid = validateNotEmptyTExt(question.alternativeIdentifierInput)
+            if (question.isOptionOne === 'true') {
+                isValid = new RegExp(question.optionOneRegex).test(question.optionOneInput)
+            } else if (question.isOptionOne === 'false') {
+                isValid = new RegExp(question.optionTwoRegex).test(question.optionTwoInput)
             }
             inputIdToggle(isValid, question.inputId)
             break;

@@ -1,27 +1,27 @@
-export default function IdentifyingInput(props){
+export default function TwoChoiceWithTextInput(props){
     let text;
     let instructionText;
-    let identifierUpdateFunction;
-    let textInputValue = props.researchNumber;
+    let optionTextUpdateFunction;
+    let textInputValue = props.optionOneInput;
     let textInputPlaceholder;
     let textInputInvalidFeedback;
     let inputId = props.inputId;
-    if (props.hasResearchNumber === 'true') {
-        text = "Zadejte své výzkumné číslo."
-        instructionText = "Je ve formátu šešti alfanumerických znaků oddělených podtržítkem. Např. A2C_3PY."
-        identifierUpdateFunction = props.updateResearchNumber
-        textInputValue = props.researchNumber
-        textInputPlaceholder = "Zadejte své výzkumné číslo."
-        textInputInvalidFeedback = `Zadaný vstup není ve správném formátu výzkumného čísla.`
-    } else if (props.hasResearchNumber === 'false') {
-        text = "Identifikujte se alternativním způsobem."
-        instructionText = "Zadejte např. své jméno, nebo email. Pokud si přejete zůstat anonymní, zadejte vymyšlenou přezdívku."
-        identifierUpdateFunction = props.updateAlternativeIdentifier
-        textInputValue = props.alternativeIdentifier
-        textInputPlaceholder = "Zadejte alternativní identifikátor."
-        textInputInvalidFeedback = `Zadejte neprázdný vstup.`
+    if (props.isOptionOne === 'true') {
+        text = props.optionOneLabel
+        instructionText = props.optionOneLabelHint
+        optionTextUpdateFunction = props.updateOptionOne
+        textInputValue = props.optionOneInput
+        textInputPlaceholder = props.optionOnePlaceholder
+        textInputInvalidFeedback = props.optionOneInvalidFeedback
+    } else if (props.isOptionOne === 'false') {
+        text = props.optionTwoLabel
+        instructionText = props.optionTwoLabelHint
+        optionTextUpdateFunction = props.updateOptionTwo
+        textInputValue = props.optionTwoInput
+        textInputPlaceholder = props.optionTwoPlaceholder
+        textInputInvalidFeedback = props.optionTwoInvalidFeedback
     }
-    const disabled = props.hasResearchNumber === null
+    const disabled = props.isOptionOne === null
     const a = disabled ? <h5 className={"placeholder no-circle w-100 mt-3"}>...</h5> : <h5 className={"mt-3"}>{text}</h5>
     const b = disabled ? <div className={"placeholder no-circle form-text w-100 mb-2"}>...</div> : <div className={"form-text mb-2"}>{instructionText}</div>
     return (
@@ -52,7 +52,7 @@ export default function IdentifyingInput(props){
             {b}
             <input
                 id={inputId}
-                onChange={(e) => identifierUpdateFunction(e.target.value)}
+                onChange={(e) => optionTextUpdateFunction(e.target.value, props.upperCase)}
                 type="text"
                 disabled={disabled}
                 className="form-control"

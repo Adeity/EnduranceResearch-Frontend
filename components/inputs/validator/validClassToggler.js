@@ -76,7 +76,7 @@ export function removeAllValidityClasses(currentQuestion) {
             document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
             break;
-        case "identifying":
+        case "twoChoiceWithText":
             currentQuestion.answers.forEach(e => {
                 document.getElementById(e.id).classList.remove("is-valid")
                 document.getElementById(e.id).classList.remove("is-invalid")

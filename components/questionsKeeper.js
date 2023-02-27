@@ -1266,14 +1266,14 @@ const meq = {
     }
 }
 
-console.log("insert into question (id, code, label)")
-console.log("values")
-let counter = 1;
-Object.keys(meq.meq).forEach(key => {
-    const value = meq.meq[key]
-    console.log(`(${value.question.id}, \'meqQ${counter}\', \'${value.label}\'),`)
-    counter++
-})
+// console.log("insert into question (id, code, label)")
+// console.log("values")
+// let counter = 1;
+// Object.keys(meq.meq).forEach(key => {
+//     const value = meq.meq[key]
+//     console.log(`(${value.question.id}, \'meqQ${counter}\', \'${value.label}\'),`)
+//     counter++
+// })
 
 const pss = {
     pss: {
@@ -5695,24 +5695,42 @@ const dzs = {
 
 }
 const demo = {
-    demo: [
-        {
-            questionType: "hhmm",
-
-            label: "demo 1",
-
-            inputId: "gmtHhmm",
-            answers: [],
-            actualAnswer: "",
-            actualanswer: ""
+    demo: {
+        age: {
+            questionType: "wholeNumber",
         },
-    ]
+        gender: {
+            answers: [
+                {
+                    id: "demoGenderMan",
+                    label: "Muž",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoGenderWoman",
+                    label: "Žena",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoGenderOther",
+                    label: "Jiné",
+                    value: 0,
+                    checked: false
+                },
+            ]
+        },
+        profession: {
+
+        }
+    }
 }
 
 const id = {
     id: {
         id: {
-            questionType: "identifying",
+            questionType: "twoChoiceWithText",
             label: "Jste účastníkem Výzkumu Odolnosti a obdrželi jste výzkumné číslo?",
             inputId: "identifyingText",
             answers: [
@@ -5729,9 +5747,21 @@ const id = {
                     checked: false
                 },
             ],
-            researchNumberInput: "",
-            alternativeIdentifierInput: "",
-            hasResearchNumber: null,
+            optionOneUppercase: true,
+            optionOneLabel: "Zadejte své výzkumné číslo",
+            optionOneLabelHint: "Je ve formátu šešti alfanumerických znaků oddělených podtržítkem. Např. A2C_3PY.",
+            optionOnePlaceholder: "Zadejte své výzkumné číslo.",
+            optionOneRegex: "[A-Z0-9]{3}_[A-Z0-9]{3}",
+            optionOneInvalidFeedback: "Zadaný vstup není ve správném formátu výzkumného čísla.",
+            optionTwoLabel: "Identifikujte se alternativním způsobem.",
+            optionTwoLabelHint: "Zadejte např. své jméno, nebo email. Pokud si přejete zůstat anonymní, zadejte vymyšlenou přezdívku.",
+            optionTwoPlaceholder: "Zadejte alternativní identifiktátor.",
+            optionTwoInvalidFeedback: "Zadejte neprázdný vstup.",
+            optionTwoRegex: ".+",
+            optionOneInput: "",
+            optionTwoInput: "",
+            textValue: "",
+            isOptionOne: null,
         },
     }
 }
