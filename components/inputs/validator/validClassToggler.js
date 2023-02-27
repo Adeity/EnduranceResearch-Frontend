@@ -44,6 +44,7 @@ export function removeAllValidityClasses(currentQuestion) {
             document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")
             break;
+        case "wholeNumber":
         case "hours":
             document.getElementById(currentQuestion.inputId).classList.remove("is-valid")
             document.getElementById(currentQuestion.inputId).classList.remove("is-invalid")

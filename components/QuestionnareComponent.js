@@ -13,6 +13,7 @@ import TwoChoiceWithTextInput from "./inputs/TwoChoiceWithTextInput";
 import {processQuestionnareData} from "./dataProcessor/processor"
 import HoursInput from "./inputs/HoursInput";
 import HourRangeInput from "./inputs/HourRangeInput";
+import WholeNumberInput from "./inputs/WholeNumberInput";
 
 function submitQuestionnare(questionnareMap) {
     const res = {}
@@ -285,6 +286,13 @@ function QuestionnareComponent(props) {
                     inputId={currentQuestion.inputId}
                     value={currentQuestion.answer}
                     update={updateAnswer}/>
+        } else if (currentQuestion.questionType === "wholeNumber") {
+            return <WholeNumberInput
+                inputId={currentQuestion.inputId}
+                value={currentQuestion.answer}
+                updateAnswer={updateAnswer}
+                description={currentQuestion.description}
+                placeholder={currentQuestion.placeholder}/>
         }
         return <div>no input</div>
     }

@@ -24,6 +24,10 @@ export function validate(question) {
             isValid = validateMinutes(question.answer)
             toggleMinutes(isValid, inputId)
             break;
+        case "wholeNumber":
+            isValid = validateMinutes(question.answer)
+            toggleMinutes(isValid, inputId)
+            break;
         case "hhmm":
             isValid = validateHhMm(question.answer)
             toggleHhMm(isValid, inputId)

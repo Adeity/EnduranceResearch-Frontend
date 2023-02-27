@@ -1266,14 +1266,7 @@ const meq = {
     }
 }
 
-// console.log("insert into question (id, code, label)")
-// console.log("values")
-// let counter = 1;
-// Object.keys(meq.meq).forEach(key => {
-//     const value = meq.meq[key]
-//     console.log(`(${value.question.id}, \'meqQ${counter}\', \'${value.label}\'),`)
-//     counter++
-// })
+
 
 const pss = {
     pss: {
@@ -5698,8 +5691,24 @@ const demo = {
     demo: {
         age: {
             questionType: "wholeNumber",
+            label: "Zadejte prosím svůj věk.",
+            description: "Zadejte celé číslo znázorňující Váš věk.",
+            placeholder: "Např. 25",
+            inputId: "demoAge",
+            answer: "",
+            question: {
+                id: 501
+            },
         },
         gender: {
+            questionType: "multipleChoice",
+            label: "Jaké je vaše pohlaví?",
+            inputId: "demoGender",
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 502
+            },
             answers: [
                 {
                     id: "demoGenderMan",
@@ -5722,7 +5731,129 @@ const demo = {
             ]
         },
         profession: {
-
+            questionType: "twoChoiceWithText",
+            label: "Jste převážně student, nebo převážně pracující?",
+            inputId: "identifyingText",
+            answers: [
+                {
+                    id: "demoProfessionStudent",
+                    label: "Student",
+                    value: true,
+                    checked: false
+                },
+                {
+                    id: "demoProfessionWorking",
+                    label: "Pracující",
+                    value: false,
+                    checked: false
+                },
+            ],
+            optionOneUppercase: false,
+            optionOneLabel: "Napišťe ročník, obor a školu.",
+            optionOneLabelHint: "Zadejte ročník, obor a školu.",
+            optionOnePlaceholder: "Např. 2., medicína, Univerzita Karlova",
+            optionOneRegex: ".+",
+            optionOneInvalidFeedback: "Zadejte neprázdný vstup",
+            optionTwoLabel: "Napišťe profesi.",
+            optionTwoLabelHint: "Zadejte svou profesi.",
+            optionTwoPlaceholder: "Např. lékař.",
+            optionTwoInvalidFeedback: "Zadejte neprázdný vstup.",
+            optionTwoRegex: ".+",
+            optionOneInput: "",
+            optionTwoInput: "",
+            textValue: "",
+            isOptionOne: null,
+            question: {
+                id: 503
+            },
+        },
+        school: {
+            questionType: "multipleChoice",
+            label: "Jaké je vaše nejvyšší dosažené vzdělání?",
+            inputId: "demoSchool",
+            answerLabel: "",
+            answer: "",
+            answers: [
+                {
+                    id: "demoSchoolElementary",
+                    label: "Základní",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoSchoolHigh",
+                    label: "Střední",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoSchoolUni",
+                    label: "Vysokoškolské",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            question: {
+                id: 504
+            },
+        },
+        height: {
+            questionType: "wholeNumber",
+            label: "Zadejte prosím svou výšku v centimentrech.",
+            description: "Zadejte celé číslo znázorňující Vaši výšku v centimentrech.",
+            placeholder: "Např. 175",
+            inputId: "demoHeight",
+            answer: "",
+            question: {
+                id: 505
+            },
+        },
+        weight: {
+            questionType: "wholeNumber",
+            label: "Zadejte prosím svou váhu v kilogramech.",
+            description: "Zadejte celé číslo znázorňující Vaši váhu v kilogramech.",
+            placeholder: "Např. 75",
+            inputId: "demoWeight",
+            answer: "",
+            question: {
+                id: 506
+            },
+        },
+        maritalStatus: {
+            questionType: "multipleChoice",
+            label: "Jaký je Váš rodinný stav?",
+            inputId: "demoMaritalStatus",
+            answerLabel: "",
+            answer: "",
+            answers: [
+                {
+                    id: "demoMaritalZenaty",
+                    label: "Ženatý/vdaná",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoMaritalSvobodny",
+                    label: "Svobodný/á",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoMaritalVdova",
+                    label: "Vdovec/vdova",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "demoMaritalRozvedeny",
+                    label: "Rozvedený/á",
+                    value: 0,
+                    checked: false
+                },
+            ],
+            question: {
+                id: 507
+            },
         }
     }
 }
