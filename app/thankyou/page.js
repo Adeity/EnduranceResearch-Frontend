@@ -1,7 +1,7 @@
 
 function ThankYouPage() {
     return (
-        <h3>Děkujeme za vyplnění dotazníku.</h3>
+        <h6>Děkujeme za vyplnění dotazníku.</h6>
     )
 }
 

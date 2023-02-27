@@ -14,8 +14,30 @@ import {processQuestionnareData} from "./dataProcessor/processor"
 import HoursInput from "./inputs/HoursInput";
 import HourRangeInput from "./inputs/HourRangeInput";
 import WholeNumberInput from "./inputs/WholeNumberInput";
+import {error} from "next/dist/build/output/log";
+import {redirect} from "next/navigation";
+import ErrorSendEmail from "./ErrorSendEmail";
 
-function submitQuestionnare(questionnareMap) {
+// Example POST method implementation:
+async function postData(url = "", data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function createPayload(questionnareMap) {
     const res = {}
     Object.entries(questionnareMap).forEach(([key, value]) => {
         res[key] = processQuestionnareData(key, value)
@@ -24,7 +46,7 @@ function submitQuestionnare(questionnareMap) {
     res['identifying'].hasResearchNumber = questionnareMap.id.id.isOptionOne
     res['identifying'].researchNumber = questionnareMap.id.id.optionOneInput
     res['identifying'].alternativeIdentifier = questionnareMap.id.id.optionTwoInput
-    console.log(res)
+    return res
 }
 
 function QuestionnareComponent(props) {
@@ -110,7 +132,7 @@ function QuestionnareComponent(props) {
 
     function submit(e) {
         e.preventDefault()
-        submitQuestionnare(questionnareMap)
+        createPayload(questionnareMap)
     }
 
     function handleNextButtonClick(event) {
@@ -128,16 +150,31 @@ function QuestionnareComponent(props) {
         }
 
         buttonIsEnabled.current = false;
-
-        setTimeout(function () {
-            removeAllValidityClasses(currentQuestion)
-            if (currentQuestion.questionType === "dzsYesNoSkip") {
-                incrementYesNoSkip(currentQuestion.answer)
-            } else {
-                incrementCurrentSlideNumber()
-            }
+        if (currentSlideGlobal.current === props.totalNumberOfQuestions - 1) {
+          const payload = createPayload(questionnareMap)
+          postData("//127.0.0.1:8080/form-submit", payload).then((data) => {
+              if (data === 1) {
+                  window.location.href = '/thankyou'
+              }
+              else {
+                  const s = JSON.stringify(data)
+                  setError(s)
+              }
+          }).catch(e => {
+              setError("Server je nedostupný.")
+          })
             buttonIsEnabled.current = true;
-        }, 1000)
+        } else {
+            setTimeout(function () {
+                removeAllValidityClasses(currentQuestion)
+                if (currentQuestion.questionType === "dzsYesNoSkip") {
+                    incrementYesNoSkip(currentQuestion.answer)
+                } else {
+                    incrementCurrentSlideNumber()
+                }
+                buttonIsEnabled.current = true;
+            }, 1000)
+        }
     }
 
     function previousSlide(e) {
@@ -299,6 +336,7 @@ function QuestionnareComponent(props) {
 
     const allQuestionnareKeys = useRef(Object.keys(props.questionnares))
 
+
     const [currentQuestionnareKey, setCurrentQuestionnareKey] = React.useState(allQuestionnareKeys.current[0])
     const allQuestionsKeys = useRef(Object.keys(props.questionnares[currentQuestionnareKey]))
     const [currentQuestionKey, setCurrentQuestionKey] = React.useState(allQuestionsKeys.current[0])
@@ -317,6 +355,10 @@ function QuestionnareComponent(props) {
     const buttonText = lastQuestion ? "Dokončit" : "Další otázka"
     const buttonClass = lastQuestion ? "btn btn-secondary" : "btn btn-outline-secondary"
 
+    const [error, setError] = React.useState(null)
+    if (error !== null) {
+        return <ErrorSendEmail errorMessage={error} />
+    }
 
     let keysInfoText = []
     for (let i = 0; i < allQuestionnareKeys.current.length; i++) {
@@ -354,6 +396,7 @@ function QuestionnareComponent(props) {
             <div id={"fillerDiv"}>
             </div>
             <div className={"pt-3"}>
+                <p id={"submitError"} className={"text-danger"}></p>
                 <div className={"d-flex justify-content-center mt-auto"}>
                     <button className={"btn btn-outline-secondary me-3"}
                             onClick={(e) => previousSlide(e)}>{"<-"}</button>
