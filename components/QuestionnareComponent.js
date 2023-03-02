@@ -155,11 +155,10 @@ function QuestionnareComponent(props) {
             postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
                 if (data === 1) {
                     console.log("ok")
-                    // window.location.href = '/thankyou'
+                    window.location.href = '/thankyou'
                 } else {
                     const s = JSON.stringify(data)
-                    console.error(s)
-                    // setError(s)
+                    setError(s)
                 }
             }).catch(e => {
                 setError("Server je nedostupný.")
