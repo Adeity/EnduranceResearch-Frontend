@@ -151,18 +151,19 @@ function QuestionnareComponent(props) {
 
         buttonIsEnabled.current = false;
         if (currentSlideGlobal.current === props.totalNumberOfQuestions - 1) {
-          const payload = createPayload(questionnareMap)
-          postData("//127.0.0.1:8080/form-submit", payload).then((data) => {
-              if (data === 1) {
-                  window.location.href = '/thankyou'
-              }
-              else {
-                  const s = JSON.stringify(data)
-                  setError(s)
-              }
-          }).catch(e => {
-              setError("Server je nedostupný.")
-          })
+            const payload = createPayload(questionnareMap)
+            postData(process.env.NEXT_PUBLIC_SERVER_HOST, payload).then((data) => {
+                if (data === 1) {
+                    console.log("ok")
+                    // window.location.href = '/thankyou'
+                } else {
+                    const s = JSON.stringify(data)
+                    console.error(s)
+                    // setError(s)
+                }
+            }).catch(e => {
+                setError("Server je nedostupný.")
+            })
             buttonIsEnabled.current = true;
         } else {
             setTimeout(function () {
@@ -318,11 +319,11 @@ function QuestionnareComponent(props) {
                 updateAnswer={updateAnswer}/>
         } else if (currentQuestion.questionType === "hourRangeInput") {
             return <HourRangeInput
-                    min={currentQuestion.minHour}
-                    totalHours={currentQuestion.numberOfHours}
-                    inputId={currentQuestion.inputId}
-                    value={currentQuestion.answer}
-                    update={updateAnswer}/>
+                min={currentQuestion.minHour}
+                totalHours={currentQuestion.numberOfHours}
+                inputId={currentQuestion.inputId}
+                value={currentQuestion.answer}
+                update={updateAnswer}/>
         } else if (currentQuestion.questionType === "wholeNumber") {
             return <WholeNumberInput
                 inputId={currentQuestion.inputId}
@@ -357,7 +358,7 @@ function QuestionnareComponent(props) {
 
     const [error, setError] = React.useState(null)
     if (error !== null) {
-        return <ErrorSendEmail errorMessage={error} />
+        return <ErrorSendEmail errorMessage={error}/>
     }
 
     let keysInfoText = []
