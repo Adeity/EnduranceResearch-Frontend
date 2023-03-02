@@ -1,5 +1,5 @@
-import {getJointQuestions} from "../../components/questionsKeeper";
-import QuestionnareComponent from "../../components/QuestionnareComponent";
+import {getJointQuestions} from "../../../components/questionsKeeper";
+import QuestionnareComponent from "../../../components/QuestionnareComponent";
 
 function Questionnare(props) {
     const questionnairesArray = props.searchParams.q

@@ -152,7 +152,7 @@ function QuestionnareComponent(props) {
         buttonIsEnabled.current = false;
         if (currentSlideGlobal.current === props.totalNumberOfQuestions - 1) {
             const payload = createPayload(questionnareMap)
-            postData(process.env.NEXT_PUBLIC_SERVER_HOST, payload).then((data) => {
+            postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
                 if (data === 1) {
                     console.log("ok")
                     // window.location.href = '/thankyou'
