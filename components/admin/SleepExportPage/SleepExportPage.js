@@ -60,7 +60,6 @@ class SleepExportPage extends React.Component{
     getResearchNumbers() {
         sendGetActiveResearchNumbersRequest()
             .then((res) => {
-                console.log(res)
                 this.setResearchNumbersFromResponse(res.data)
             })
             .catch((e) => {
