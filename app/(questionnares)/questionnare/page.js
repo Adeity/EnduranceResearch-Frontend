@@ -1,11 +1,13 @@
 "use client"
-import {getJointQuestions} from "../../../components/questionsKeeper";
 import QuestionnareComponent from "../../../components/QuestionnareComponent";
+import useJointQuestions from "../../../hooks/uesJointQuestions";
+import {useSearchParams} from "next/navigation";
 
 function Questionnare(props) {
-    const questionnairesArray = props.searchParams.q
-    const {totalNumberOfQuestions, valid, jointQuestions, error: errorMessage} = getJointQuestions(questionnairesArray)
-    if (valid !== true) {
+    const questionnairesArray = useSearchParams().get('q')
+    const {totalNumberOfQuestions, valid, jointQuestions, errorMessage} = useJointQuestions(questionnairesArray)
+    console.log("valid: ", valid, "errorMessage: ", errorMessage, "totalNumberOfQs: ", totalNumberOfQuestions)
+    if (valid !== 'undefined' && valid !== true) {
         return (
                 <span className={"text-danger"}>{errorMessage}</span>
         )

@@ -15,6 +15,7 @@ import HoursInput from "./inputs/HoursInput";
 import HourRangeInput from "./inputs/HourRangeInput";
 import WholeNumberInput from "./inputs/WholeNumberInput";
 import ErrorSendEmail from "./ErrorSendEmail";
+import MyRecaptcha from "./MyRecaptcha";
 
 // Example POST method implementation:
 async function postData(url = "", data = {}) {
@@ -128,9 +129,29 @@ function QuestionnareComponent(props) {
         setCurrentQuestionnareKey(newQuestionnareKey)
     }
 
-    function submit(e) {
+    function submitE(e) {
         e.preventDefault()
-        createPayload(questionnareMap)
+        submit()
+    }
+
+    function submit() {
+        if (lastQuestion && !finishButtonEnabled) {
+            return
+        }
+        const payload = createPayload(questionnareMap)
+        postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
+            if (data === 1) {
+                console.log("ok")
+                setTimeout(function () {
+                    window.location.href = '/thankyou'
+                }, 1000)
+            } else {
+                const s = JSON.stringify(data)
+                setError(s)
+            }
+        }).catch(e => {
+            setError("Server je nedostupný.")
+        })
     }
 
     function handleNextButtonClick(event) {
@@ -149,19 +170,7 @@ function QuestionnareComponent(props) {
 
         buttonIsEnabled.current = false;
         if (currentSlideGlobal.current === props.totalNumberOfQuestions - 1) {
-            const payload = createPayload(questionnareMap)
-            console.log(payload)
-            postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
-                if (data === 1) {
-                    console.log("ok")
-                    window.location.href = '/thankyou'
-                } else {
-                    const s = JSON.stringify(data)
-                    setError(s)
-                }
-            }).catch(e => {
-                setError("Server je nedostupný.")
-            })
+            submit()
             buttonIsEnabled.current = true;
         } else {
             setTimeout(function () {
@@ -333,9 +342,14 @@ function QuestionnareComponent(props) {
         return <div>no input</div>
     }
 
+    function enableFinishButton() {
+        setFininshButtonEnabled(true)
+    }
+
     const allQuestionnareKeys = useRef(Object.keys(props.questionnares))
 
 
+    const [finishButtonEnabled, setFininshButtonEnabled] = React.useState(false)
     const [currentQuestionnareKey, setCurrentQuestionnareKey] = React.useState(allQuestionnareKeys.current[0])
     const allQuestionsKeys = useRef(Object.keys(props.questionnares[currentQuestionnareKey]))
     const [currentQuestionKey, setCurrentQuestionKey] = React.useState(allQuestionsKeys.current[0])
@@ -396,11 +410,12 @@ function QuestionnareComponent(props) {
             </div>
             <div className={"pt-3"}>
                 <p id={"submitError"} className={"text-danger"}></p>
+                <MyRecaptcha show={lastQuestion} enableFinishButton={enableFinishButton}/>
                 <div className={"d-flex justify-content-center mt-auto"}>
                     {/*<button className={"btn btn-outline-secondary me-3"}*/}
                     {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
-                    <button className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
-                    {/*<button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>*/}
+                    <button disabled={!finishButtonEnabled && lastQuestion} className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
+                    {/*<button className={buttonClass} onClick={(e) => submitE(e)}>Odeslat</button>*/}
                     {/*<button className={"btn btn-outline-secondary ms-3"}*/}
                     {/*        onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
                 </div>
