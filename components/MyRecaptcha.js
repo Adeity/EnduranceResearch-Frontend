@@ -1,3 +1,4 @@
+"use client"
 import Recaptcha from "react-recaptcha";
 
 function MyRecaptcha(props) {
@@ -6,7 +7,6 @@ function MyRecaptcha(props) {
     const className = show ? "d-flex" : "d-none"
 
     function handleVerify(value) {
-        console.log("samo se to vyhodnotilo")
         if (value) {
             props.enableFinishButton()
         }

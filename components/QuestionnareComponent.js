@@ -349,7 +349,7 @@ function QuestionnareComponent(props) {
     const allQuestionnareKeys = useRef(Object.keys(props.questionnares))
 
 
-    const [finishButtonEnabled, setFininshButtonEnabled] = React.useState(false)
+    const [finishButtonEnabled, setFininshButtonEnabled] = React.useState(true)
     const [currentQuestionnareKey, setCurrentQuestionnareKey] = React.useState(allQuestionnareKeys.current[0])
     const allQuestionsKeys = useRef(Object.keys(props.questionnares[currentQuestionnareKey]))
     const [currentQuestionKey, setCurrentQuestionKey] = React.useState(allQuestionsKeys.current[0])
@@ -410,7 +410,7 @@ function QuestionnareComponent(props) {
             </div>
             <div className={"pt-3"}>
                 <p id={"submitError"} className={"text-danger"}></p>
-                <MyRecaptcha show={lastQuestion} enableFinishButton={enableFinishButton}/>
+                <MyRecaptcha show={!finishButtonEnabled && lastQuestion} enableFinishButton={enableFinishButton}/>
                 <div className={"d-flex justify-content-center mt-auto"}>
                     {/*<button className={"btn btn-outline-secondary me-3"}*/}
                     {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
