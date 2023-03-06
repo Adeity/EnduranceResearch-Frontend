@@ -1,4 +1,4 @@
-export default function SubmitErrorPage() {
+export default function SubmitErrorPage(props) {
     const questionnairesArray = props.searchParams.message
     return (
         <>

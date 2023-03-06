@@ -5,12 +5,9 @@ import './UserPage.css'
 import {sendLogoutRequest} from "../AxiosRequestor/AxiosRequestor";
 import useSessionStorage from "../../../hooks/useSessionStorage";
 
-class UserPageComponnet extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+function UserPageComponnet(props) {
 
-    async handleLogoutButtonClick() {
+    async function handleLogoutButtonClick() {
         await sendLogoutRequest()
             .then((res) => {
                 if (!res.loggedIn) {
@@ -20,24 +17,25 @@ class UserPageComponnet extends React.Component {
             .catch((e) => {
                 console.error(e)
             })
-        sessionStorage.setItem("loggedUser", null)
-        window.location.href = '/admin/login'
+        if (typeof window !== 'undefined') {
+            sessionStorage.setItem("loggedUser", null)
+            window.location.href = '/admin/login'
+        }
     }
 
+    const loggedUserName = useSessionStorage("loggedUser")
 
-    render () {
-        return (
-            <div className="UserPage form-signin">
-                        <h4>Uživatelská stránka</h4>
-                        <p>Přihlášen jako: {sessionStorage.getItem("loggedUser")}</p>
-                        <ChangePasswordCard />
-                        <h6 className={"pt-3"}>Odhlášení</h6>
-                        <div className={"d-flex justify-content-center"}>
-                            <input type={"button"} className={"btn btn-primary"} onClick={() => this.handleLogoutButtonClick()} value={"Odhlásit se"}/>
-                        </div>
-            </div>
-        )
-    }
+    return (
+        <div className="UserPage form-signin">
+                    <h4>Uživatelská stránka</h4>
+                    <p>Přihlášen jako: {loggedUserName}</p>
+                    <ChangePasswordCard />
+                    <h6 className={"pt-3"}>Odhlášení</h6>
+                    <div className={"d-flex justify-content-center"}>
+                        <input type={"button"} className={"btn btn-primary"} onClick={() => this.handleLogoutButtonClick()} value={"Odhlásit se"}/>
+                    </div>
+        </div>
+    )
 }
 
 export default UserPageComponnet
