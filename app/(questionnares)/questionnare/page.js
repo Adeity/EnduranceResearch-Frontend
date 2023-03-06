@@ -1,3 +1,4 @@
+"use client"
 import {getJointQuestions} from "../../../components/questionsKeeper";
 import QuestionnareComponent from "../../../components/QuestionnareComponent";
 
