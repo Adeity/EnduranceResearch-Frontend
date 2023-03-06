@@ -142,7 +142,6 @@ function getDzsQuestions() {
     let counter = 0;
     druhyOtazek.forEach(e => {
         for (let i = 0; i < 7; i++) {
-            console.log(getQuestion(e, i, counter, dzsLabels[counter]))
             counter++
         }
     })

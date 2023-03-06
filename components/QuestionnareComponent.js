@@ -14,8 +14,6 @@ import {processQuestionnareData} from "./dataProcessor/processor"
 import HoursInput from "./inputs/HoursInput";
 import HourRangeInput from "./inputs/HourRangeInput";
 import WholeNumberInput from "./inputs/WholeNumberInput";
-import {error} from "next/dist/build/output/log";
-import {redirect} from "next/navigation";
 import ErrorSendEmail from "./ErrorSendEmail";
 
 // Example POST method implementation:
@@ -152,6 +150,7 @@ function QuestionnareComponent(props) {
         buttonIsEnabled.current = false;
         if (currentSlideGlobal.current === props.totalNumberOfQuestions - 1) {
             const payload = createPayload(questionnareMap)
+            console.log(payload)
             postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
                 if (data === 1) {
                     console.log("ok")
@@ -398,12 +397,12 @@ function QuestionnareComponent(props) {
             <div className={"pt-3"}>
                 <p id={"submitError"} className={"text-danger"}></p>
                 <div className={"d-flex justify-content-center mt-auto"}>
-                    <button className={"btn btn-outline-secondary me-3"}
-                            onClick={(e) => previousSlide(e)}>{"<-"}</button>
+                    {/*<button className={"btn btn-outline-secondary me-3"}*/}
+                    {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
                     <button className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
-                    <button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>
-                    <button className={"btn btn-outline-secondary ms-3"}
-                            onClick={(e) => nextSlide(e)}>{"->"}</button>
+                    {/*<button className={buttonClass} onClick={(e) => submit(e)}>Odeslat</button>*/}
+                    {/*<button className={"btn btn-outline-secondary ms-3"}*/}
+                    {/*        onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
                 </div>
                 <div className={"row text-center mt-3"}>
                 </div>

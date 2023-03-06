@@ -671,29 +671,235 @@ export const psqi = {
         }
 }
 
+const wdPre = "Pracovní dny: "
+const fdPre = "Volné dny: "
 export const mctq = {
-    mctq: [
-        {
-            questionType: "minutes",
-
-            label: "jak dlohou v minutach mctq 1",
-
-            inputId: "asleepTimeMinutes",
-            answers: [],
-            actualAnswer: "",
-            actualanswer: ""
-        },
-        {
+    mctq: {
+        btw: {
             questionType: "hhmm",
-
-            label: "jak dlohou v minutach mctq 2",
-
-            inputId: "gmtHhmm",
-            answers: [],
-            actualAnswer: "",
-            actualanswer: ""
+            label: wdPre + "V kolik hodin chodíte do postele?",
+            inputId: "mctqBTwInputId",
+            answer: "",
+            question: {
+                id: 601
+            },
         },
-    ]
+        sprepw: {
+            questionType: "hhmm",
+            label: wdPre + "V kolik hodin jste připravený usnout? (vemte v úvahu, jak dlouho vám trvá usnout)",
+            inputId: "mctqSPrepwInputId",
+            answer: "",
+            question: {
+                id: 602
+            },
+        },
+        slatw: {
+            questionType: "minutes",
+            label: wdPre + "Kolik minut Vám po ulehnutí trvá, než usnete?",
+            inputId: "mctqSLatw",
+            answer: "",
+            question: {
+                id: 603
+            },
+        },
+        sew: {
+            questionType: "hhmm",
+            label: wdPre + "V kolik hodin se probouzíte?",
+            inputId: "mctqSPrepwInputId",
+            answer: "",
+            question: {
+                id: 604
+            },
+        },
+        alarmw:{
+            questionType: "multipleChoice",
+            label: wdPre + "Vstáváte s budíkem, či nikoli?",
+            inputId: "mctqAlarmwInputId",
+            answers: [
+                {
+                    id: "mctqAlarmwCh1",
+                    label: "Vstávám s budíkem",
+                    value: true,
+                    checked: false
+                },
+                {
+                    id: "mctqAlarmwCh2",
+                    label: "Vstávám bez budíku",
+                    value: false,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 605
+            },
+        },
+        siw: {
+            questionType: "minutes",
+            label: wdPre + "Kolik minut po probuzení vstávate z postele?",
+            inputId: "mctqSIw",
+            answer: "",
+            question: {
+                id: 606
+            },
+        },
+        wd: {
+            questionType: "multipleChoice",
+            label: wdPre + "Kolik dnů v týdnu pracujete?",
+            inputId: "mctqWDInputId",
+            answers: [
+                {
+                    id: "mctqWd0",
+                    label: "0",
+                    value: 0,
+                    checked: false
+                },
+                {
+                    id: "mctqWd1",
+                    label: "1",
+                    value: 1,
+                    checked: false
+                },
+                {
+                    id: "mctqWd2",
+                    label: "2",
+                    value: 2,
+                    checked: false
+                },
+                {
+                    id: "mctqWd3",
+                    label: "3",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "mctqWd4",
+                    label: "4",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "mctqWd5",
+                    label: "5",
+                    value: 5,
+                    checked: false
+                },
+                {
+                    id: "mctqWd6",
+                    label: "6",
+                    value: 6,
+                    checked: false
+                },
+                {
+                    id: "mctqWd7",
+                    label: "7",
+                    value: 7,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 606
+            },
+        },
+        lew: {
+            questionType: "hhmm",
+            label: wdPre + "Kolik průměrně trávíte během dne času na denním světle (bez střechy nad hlavou)?",
+            inputId: "mctqLEwInputId",
+            answer: "",
+            question: {
+                id: 607
+            },
+        },
+
+        btf: {
+            questionType: "hhmm",
+            label: fdPre + "V kolik hodin chodíte do postele?",
+            inputId: "mctqBTfInputId",
+            answer: "",
+            question: {
+                id: 608
+            },
+        },
+
+        sprepf: {
+            questionType: "hhmm",
+            label: fdPre + "V kolik hodin jste připravený usnout? (vemte v úvahu, jak dlouho vám trvá usnout)",
+            inputId: "mctqSPrepfInputId",
+            answer: "",
+            question: {
+                id: 609
+            },
+        },
+
+        slatf: {
+            questionType: "minutes",
+            label: fdPre + "Kolik potřebujete minut na to, abyste usnul?",
+            inputId: "mctqSLatf",
+            answer: "",
+            question: {
+                id: 610
+            },
+        },
+
+        sef: {
+            questionType: "hhmm",
+            label: fdPre + "V kolik hodin se probouzíte?",
+            inputId: "mctqSPrepfInputId",
+            answer: "",
+            question: {
+                id: 611
+            },
+        },
+
+        alarmf:{
+            questionType: "multipleChoice",
+            label: fdPre + "Vstáváte s budíkem, či nikoli?",
+            inputId: "mctqAlarmfInputId",
+            answers: [
+                {
+                    id: "mctqAlarmfCh1",
+                    label: "Vstávám s budíkem",
+                    value: true,
+                    checked: false
+                },
+                {
+                    id: "mctqAlarmfCh2",
+                    label: "Vstávám bez budíku",
+                    value: false,
+                    checked: false
+                },
+            ],
+            answerLabel: "",
+            answer: "",
+            question: {
+                id: 612
+            },
+        },
+
+        sif: {
+            questionType: "minutes",
+            label: fdPre + "Kolik minut po probuzení vstávate z postele?",
+            inputId: "mctqSIf",
+            answer: "",
+            question: {
+                id: 613
+            },
+        },
+
+        lef: {
+            questionType: "hhmm",
+            label: fdPre + "Kolik průměrně trávíte během dne času na denním světle (bez střechy nad hlavou)?",
+            inputId: "mctqLEfInputId",
+            answer: "",
+            question: {
+                id: 614
+            },
+        },
+    }
+
 }
 
 const meq = {

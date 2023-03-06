@@ -15,11 +15,11 @@ function QuestionnaresList(props) {
                     description: '',
                     code:"meq"
                 },
-                // {id: 1,
-                //     name: 'MCTQ',
-                //     description: '',
-                //     code: "mctq"
-                // },
+                {id: 1,
+                    name: 'MCTQ',
+                    description: '',
+                    code: "mctq"
+                },
                 {
                     id: 1,
                     name: 'Dotazník životní spokojenosti',
