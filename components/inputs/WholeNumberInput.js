@@ -8,8 +8,9 @@ export default function WholeNumberInput(props){
                 type="number"
                 className="form-control"
                 value={props.value}
+                data-test={"wholenumber-input"}
                 placeholder={props.placeholder} required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
                 Prosím zadejte celočiselnou hodnotu.
             </div>
         </>
