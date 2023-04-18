@@ -10,8 +10,8 @@ export default function RootLayout({children}) {
         <head/>
         <body className={"container"}>
         <main className={"h-100"}>
-            {/*{children}*/}
-            <h3>Aplikace je momentálně nedostupná</h3>
+            {children}
+            {/*<h3>Aplikace je momentálně nedostupná</h3>*/}
         </main>
         <Footer/>
         </body>
