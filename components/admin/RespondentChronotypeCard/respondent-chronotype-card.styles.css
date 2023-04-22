@@ -1,0 +1,8 @@
+.subfield {
+    display: flex;
+    flex-direction: row;
+}
+
+.halfWidth {
+    width: 50%;
+}

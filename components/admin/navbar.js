@@ -11,6 +11,7 @@ export default function Navbar() {
             <ul className="nav nav-pills">
                 <li className={"nav-item"}><Link href="/admin/export-sleep" className={"nav-link"}>Export z wearables</Link></li>
                 <li className={"nav-item"}><Link className="nav-link" href="/admin/participants/all">Seznam</Link></li>
+                <li className={"nav-item"}><Link className="nav-link" href="/admin/computations-reports">Výpočty a Reporty</Link></li>
                 <li className={"nav-item"}><Link className="nav-link" href="/admin/participants/number-check">Kontrola V.Č.</Link></li>
                 <li className={"nav-item"}><Link className="nav-link" href="/admin/user">Uživatel</Link></li>
             </ul>

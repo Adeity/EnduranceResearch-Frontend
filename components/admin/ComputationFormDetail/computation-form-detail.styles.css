@@ -1,0 +1,51 @@
+.subfield {
+    display: flex;
+    flex-direction: row;
+}
+
+.short-value {
+    margin-top: 0.5em;
+    height: 90%;
+    align-self: flex-start;
+    margin-left: 1em;
+    margin-bottom: 0.2em;
+    width: 4.5em;
+    text-align: right;
+}
+
+.edit-line-label {
+    margin-top: 1em;
+    align-self: center;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+}
+
+.sleep-divider {
+    padding-bottom: 1em;
+    margin-top: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 95%;
+}
+
+.save-button {
+    /* margin-left: 65%; */
+    width: auto;
+    display: block;
+}
+
+.thresholdText {
+    margin-top: 0.5em;
+    height: 90%;
+    align-self: flex-start;
+    margin-left: 1em;
+    margin-bottom: 0.2em;
+}
+
+.checkbox {
+    margin-top: 0.8em;
+    text-align: top;
+}

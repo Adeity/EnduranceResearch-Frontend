@@ -1,0 +1,22 @@
+.clickable {
+    cursor: pointer;
+}
+
+.button-like {
+    border-radius: 8px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    margin-left: 0.2em;
+    text-align: center;
+}
+
+.button-like:hover {
+    opacity: 0.8;
+}
+
+.accordion-button {
+    height: 2.5em;
+}
+
+.accordion-margin {
+    margin-bottom: 0.1em;
+}

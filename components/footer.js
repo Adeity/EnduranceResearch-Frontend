@@ -8,7 +8,7 @@ export default function Footer() {
                     {/*    <use xlink:href="#bootstrap"/>*/}
                     {/*</svg>*/}
                 </a>
-                <span className="mb-3 mb-md-0 text-muted">&copy; 2023 Patrik Pavelka</span>
+                <span className="mb-3 mb-md-0 text-muted">&copy; 2023 Patrik Pavelka, David Kula</span>
             </div>
 
             <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
