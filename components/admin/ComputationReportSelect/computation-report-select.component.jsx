@@ -86,7 +86,7 @@ const ComputationReportSelectComponent = ({ data, valueSelectHandler }) => {
                                 <Form.Check className='centered-checkbox' checked={selectedToExport[participant.id].checked} onChange={(e) => onPersonSelect(participant.id, e.target.checked)}/>
                             </Col>
                             <Col>
-                                <ParticipantCard personData={participant} valueSelectHandler={valueSelectHandler}></ParticipantCard>
+                                <ParticipantCard participantData={participant} valueSelectHandler={valueSelectHandler}></ParticipantCard>
                             </Col>
                         </Row>
                     )

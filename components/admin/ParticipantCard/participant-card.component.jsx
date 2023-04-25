@@ -1,10 +1,10 @@
 import { Row, Col, Accordion } from 'react-bootstrap';
 import { exportToExcel } from '/services/excel.service'
-import './participant-card.styles.css'
 import { formatTimeWithYear } from '/utils/time-format.js'
 
+import './participant-card.styles.css'
 
-const ParticipantCard = ( {personData: participantData, valueSelectHandler}) => {
+const ParticipantCard = ( {participantData, valueSelectHandler}) => {
 
 
     return (
@@ -37,19 +37,36 @@ const ParticipantCard = ( {personData: participantData, valueSelectHandler}) => 
                 <Accordion.Body>
                     <Row>
                         <Col><p>Title</p></Col>
+                        <Col><p>Verze</p></Col>
+                        <Col><p>Přepočítání</p></Col>
                         <Col><p>Uploaded</p></Col>
                         <Col><p>Last Modified</p></Col>
                     </Row>
                     <hr className='divider'/>
                     {
-                        participantData.reports.map(report =>  
-                            <Row key={report.id} onClick={() => valueSelectHandler(report)} className="clickable">
-                                <Col><p>{ report.title } </p></Col>
-                                <Col><p>{ formatTimeWithYear(report.uploaded).toString() } </p></Col>
-                                <Col><p>{ formatTimeWithYear(report.lastModified).toString() } </p></Col>
+                        participantData.formComputations.map(computation =>  
+                            <Row key={computation.id} onClick={() => valueSelectHandler(computation)} className="clickable">
+                                <Col><p>{ computation.title } </p></Col>
+                                <Col><p>{ computation.version }</p></Col>
+                                <Col><p>{ computation.recalculations === 0 ? "-" : computation.recalculations }</p></Col>
+                                <Col><p>{ formatTimeWithYear(computation.uploaded).toString() } </p></Col>
+                                <Col><p>{ formatTimeWithYear(computation.lastModified).toString() } </p></Col>
                             </Row>
                         )
-                    }                
+                    }          
+                    <hr className='divider'/>
+                    {
+                        participantData.deviceComputations.map(computation =>  
+                            <Row key={computation.id} onClick={() => valueSelectHandler(computation)} className="clickable">
+                                <Col><p>{ computation.title } </p></Col>
+                                <Col><p>{ computation.version }</p></Col>
+                                <Col><p>{ computation.recalculations === 0 ? "-" : computation.recalculations }</p></Col>
+                                <Col><p>{ formatTimeWithYear(computation.uploaded).toString() } </p></Col>
+                                <Col><p>{ formatTimeWithYear(computation.lastModified).toString() } </p></Col>
+                            </Row>
+                        )
+                    }  
+      
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>

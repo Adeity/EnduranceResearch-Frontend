@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react';
 import { formatTimeWithYear, formatTime } from '/utils/time-format.js'
 import { getRespondentComputationData } from '/services/respondent-data.service.js'
 import { getChronoVsRythmValueText } from '/model/chrono-vs-rythm'
-import { getChronotype, getChronotypeTitle } from '/model/chronotype-enum'
 
 import RespondentChronotypeCardComponent from '../RespondentChronotypeCard/respondent-chronotype-card.component';
-import './computation-form-detail.styles.css'
+import './computation-device-detail.styles.css'
 
-
-const ComputationFormDetailComponent = ({ computation, backClickHandler, saveClickedHandler, respDataUpdateHandler }) => {
+const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHandler, respDataUpdateHandler }) => {
 
     const [ socJetlagThreshold, setSocJetlagThreshold ] = useState("01:00")
     const [ latencyFaThreshold, setLatencyFaThreshold ] = useState(30)
@@ -29,7 +27,7 @@ const ComputationFormDetailComponent = ({ computation, backClickHandler, saveCli
                 setLatencyFaThreshold(response.latencyFaThreshold);
             })
     }, [])
-
+    
     const onSaveComputationClick = () => {
         computation = structuredClone(currentReportValueState) 
         saveClickedHandler(computation)
@@ -41,7 +39,6 @@ const ComputationFormDetailComponent = ({ computation, backClickHandler, saveCli
     }
 
     return(
-        
         <Form>
             <Row>
                 <Col>   
@@ -63,11 +60,17 @@ const ComputationFormDetailComponent = ({ computation, backClickHandler, saveCli
                 </Col>
                 <Col>
                     <Form.Group className="mb-3">
-                        <Form.Label><b>Chronotyp vs Rytmus - vstávání:</b> { getChronoVsRythmValueText(computation.wakingRythm)} </Form.Label>
-                        <Form.Control type="text" defaultValue={computation.wakingRythmText} onChange={(e) => {currentReportValueState.wakingRythmText = e.target.value}}/>
+                        <Form.Label><b>Chronotyp vs Rytmus volné dny - vstávání:</b> { getChronoVsRythmValueText(computation.wakingRythmFreeDays)} </Form.Label>
+                        <Form.Control type="text" defaultValue={computation.wakingRythmFreeDaysText} onChange={(e) => {currentReportValueState.wakingRythmFreeDaysText = e.target.value}}/>
 
-                        <Form.Label><b>Chronotyp vs Rytmus - usínání:</b> { getChronoVsRythmValueText(computation.fallingAsleepRythm) }</Form.Label>
-                        <Form.Control type="text" defaultValue={computation.fallingAsleepRythmText} onChange={(e) => {currentReportValueState.fallingAsleepRythmText = e.target.value}}/>
+                        <Form.Label><b>Chronotyp vs Rytmus volné dny - usínání:</b> { getChronoVsRythmValueText(computation.fallingAsleepRythmFreeDays) }</Form.Label>
+                        <Form.Control type="text" defaultValue={computation.fallingAsleepRythmFreeDaysText} onChange={(e) => {currentReportValueState.fallingAsleepRythmFreeDaysText = e.target.value}}/>
+                        
+                        <Form.Label><b>Chronotyp vs Rytmus pracovní dny - vstávání:</b> { getChronoVsRythmValueText(computation.wakingRythmWorkDays)} </Form.Label>
+                        <Form.Control type="text" defaultValue={computation.wakingRythmWorkDaysText} onChange={(e) => {currentReportValueState.wakingRythmWorkDaysText = e.target.value}}/>
+
+                        <Form.Label><b>Chronotyp vs Rytmus pracovní dny - usínání:</b> { getChronoVsRythmValueText(computation.fallingAsleepRythmWorkDays) }</Form.Label>
+                        <Form.Control type="text" defaultValue={computation.fallingAsleepRythmWorkDaysText} onChange={(e) => {currentReportValueState.fallingAsleepRythmWorkDaysText = e.target.value}}/>
 
                         <div className='subfield'>
                             {/* <Form.Label className='edit-line-label'>Latence usnutí je větší než:</Form.Label> */}
@@ -97,4 +100,4 @@ const ComputationFormDetailComponent = ({ computation, backClickHandler, saveCli
     )
 }
 
-export default ComputationFormDetailComponent;
+export default ComputationDeviceDetail;

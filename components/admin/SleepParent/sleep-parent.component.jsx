@@ -4,9 +4,10 @@ import { SleepScreens } from '/model/sleep-screen-selection';
 import { getPeopleDataSleep } from '/services/people.service';
 import { getGlobalSleepData, updateGlobalSleepData } from '/services/sleep-global-data.service';
 import { updateRespondentComputationData } from '/services/respondent-data.service'
-import { updateReport } from '/services/report.service';
+import { updateFormComputation, updateDeviceComputation } from '/services/report.service';
 
 import ComputationFormDetailComponent from '../ComputationFormDetail/computation-form-detail.component';
+import ComputationDeviceDetailComponent from '../ComputationDeviceDetail/computation-device-detail.component';
 import ComputationReportSelectComponent from '../ComputationReportSelect/computation-report-select.component';
 import GlobalChronotypeValuesEdit from '../GlobalChronotypeValuesEdit/global-chronotype-values-edit.component'
 import CustomToast from '../CustomToast/custom-toast.component'
@@ -16,7 +17,7 @@ const SleepParentComponent = ({ queryString }) => {
 
     const [selectedScreen, setSelectedScreen] = useState(SleepScreens.personSelect);
     const [respondentData, setRespondentData] = useState([]);
-    const [filteredPeopleData, setFilteredPeopleData] = useState([]);
+    const [filteredRespondentData, setFilteredRespondentData] = useState([]);
     const [selectedComputation, setSelectedComputation] = useState(undefined);
     const [chronoData, setChronoData] = useState([])
     const [ toast, setToast] = useState({
@@ -40,9 +41,8 @@ const SleepParentComponent = ({ queryString }) => {
 
     // filter respondents according to queryString
     useEffect(() => {
-        setFilteredPeopleData(respondentData.filter(respondent => respondent.id.toLowerCase().includes(queryString)));
+        setFilteredRespondentData(respondentData.filter(respondent => respondent.id.toLowerCase().includes(queryString)));
     }, [respondentData, queryString])
-
 
     const chronoDataUpdateTrigger = (updatedChronoData) => {
         setChronoData(updatedChronoData)
@@ -50,8 +50,8 @@ const SleepParentComponent = ({ queryString }) => {
         .then(response => setRespondentData(response));
     }
 
-    const onReportSelect = (report) => {
-        setSelectedComputation(report);
+    const onReportSelect = (computation) => {
+        setSelectedComputation(computation);
         setSelectedScreen(SleepScreens.reportEditValue);
     }
 
@@ -60,8 +60,42 @@ const SleepParentComponent = ({ queryString }) => {
         setSelectedComputation(undefined);
     }
 
-    const onSaveClicked = async (report) => {
-        return updateReport(report)
+    const onFormSaveClicked = async (computation) => {
+        return updateFormComputation(computation)
+        .then(response => {
+            response.forEach(respData => {
+                respData.reports.forEach(r => {
+                    if(r.id === selectedComputation.id) {
+                        setSelectedComputation(r)
+                    }
+                })
+            })
+            return response;
+        })
+        .then(response => setRespondentData(response))
+        .then(_ => setToast({ 
+            show: true,
+            title: 'Úspěch',
+            message: 'Data úspěšně uložena',
+            variant: 'Success'
+        }))
+        .catch(error => {
+            setToast({ 
+                show: true,
+                title: 'Chyba',
+                message: error,
+                variant: 'Danger'
+            })
+        })
+        .finally(() =>  setToast({ 
+            show: false,
+            title: '',
+            message: ''
+        }))
+    }
+
+    const onDeviceSaveClicked = async (computation) => {
+        return updateDeviceComputation(computation)
         .then(response => {
             response.forEach(respData => {
                 respData.reports.forEach(r => {
@@ -122,7 +156,7 @@ const SleepParentComponent = ({ queryString }) => {
 
         switch(selectedScreen) {
             case(SleepScreens.personSelect):
-                return <ComputationReportSelectComponent data={filteredPeopleData} valueSelectHandler={onReportSelect} />;
+                return <ComputationReportSelectComponent data={filteredRespondentData} valueSelectHandler={onReportSelect} />;
             case(SleepScreens.reportEditValue):
                 return <Fragment>
                             <Row>
@@ -139,12 +173,24 @@ const SleepParentComponent = ({ queryString }) => {
                                 }
                                 <hr className='sleep-divider'/>
                             </Row>
-                            <ComputationFormDetailComponent 
-                                backClickHandler={onBackClicked} 
-                                computation={selectedComputation} 
-                                saveClickedHandler={onSaveClicked}
-                                respDataUpdateHandler = { onRespDataUpdate }
-                            />
+                            {
+                                selectedComputation.source === "forms" ? (
+                                    <ComputationFormDetailComponent 
+                                        backClickHandler={onBackClicked} 
+                                        computation={selectedComputation} 
+                                        saveClickedHandler={onFormSaveClicked}
+                                        respDataUpdateHandler = { onRespDataUpdate }
+                                    />                                
+                                ) : (
+                                    <ComputationDeviceDetailComponent
+                                        backClickHandler={onBackClicked} 
+                                        computation={selectedComputation} 
+                                        saveClickedHandler={onDeviceSaveClicked}
+                                        respDataUpdateHandler = { onRespDataUpdate }
+                                    />
+                                )
+                            }
+
                             <CustomToast title={toast.title} message={toast.message} trigger={toast.show} variant={toast.variant } />
 
                 </Fragment>

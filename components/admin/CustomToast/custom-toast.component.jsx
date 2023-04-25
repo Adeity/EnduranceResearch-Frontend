@@ -8,13 +8,12 @@ import './custom-toast.styles.css'
 const CustomToast = ({title,  message, trigger, smallText, variant}) => {
 
   useEffect(() => {
-    // if (trigger)
-      setShow(trigger)
+    setShow(trigger)
   }, [trigger]);
 
   const [show, setShow] = useState(trigger);
-  console.log(show)
-    return(
+
+  return(
         <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide bg={variant?.toLowerCase()} className='toast'>
           <Toast.Header>
             {/* <img
