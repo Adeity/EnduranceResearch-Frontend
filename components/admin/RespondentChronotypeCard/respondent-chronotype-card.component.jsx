@@ -14,7 +14,6 @@ const RespondentChronotypeCardComponent = ({computation, socJetlagThreshold, lat
             <p className='elevated'>Chodí spát od: <b>{formatTime(computation.chronoSleepFrom)}</b> do <b>{formatTime(computation.chronoSleepTo)}</b>.</p>
             <p className='elevated'>Latence usnutí <b>{ computation.latency }</b> (z dotazníku PSQI) je <b>{ computation.latencyFaGreater ? "VĚTŠÍ" : "MENŠÍ" }</b> než hranice <b>{latencyFaThreshold}</b>.</p>
             <p className='elevated'>Sociální jetlag <b>{ computation.socJetlag }</b> je <b>{ computation.jetlagBiggerThanX ? "VĚTŠÍ" : "MENŠÍ ROVNO" }</b> než hranice <b>{ socJetlagThreshold }</b>.</p>
-
         </Fragment>
     )
 }

@@ -11,6 +11,7 @@ import ComputationDeviceDetailComponent from '../ComputationDeviceDetail/computa
 import ComputationReportSelectComponent from '../ComputationReportSelect/computation-report-select.component';
 import GlobalChronotypeValuesEdit from '../GlobalChronotypeValuesEdit/global-chronotype-values-edit.component'
 import CustomToast from '../CustomToast/custom-toast.component'
+import { getPeopleDataSleepPage } from '../../../services/people.service';
 
 
 const SleepParentComponent = ({ queryString }) => {
@@ -25,11 +26,27 @@ const SleepParentComponent = ({ queryString }) => {
         title: '',
         message: ''
     })
+    const [ totalRespondentsNum, setRespondentsNum ] = useState(0);
+    const [ activePage, setActivePage ] = useState(1);
+
 
     // get computations data for all respondents
     useEffect(() => {
-        getPeopleDataSleep()
-            .then(response => setRespondentData(response))
+        // getPeopleDataSleep()
+        //     .then(response => setRespondentData(response))
+
+        const body = {
+            researchNumberQueryString: queryString,
+            method: undefined,
+            pageLimit: 5,
+            pageNum: 0,
+        }
+        getPeopleDataSleepPage(body)
+            .then(response => {
+                setRespondentsNum(response.totalRespondentNumber)
+                setRespondentData(response.respondentData)
+                setActivePage(response.activePage)
+            })
     }, [])
 
     // get global chronotype values, used for all users
@@ -43,6 +60,25 @@ const SleepParentComponent = ({ queryString }) => {
     useEffect(() => {
         setFilteredRespondentData(respondentData.filter(respondent => respondent.id.toLowerCase().includes(queryString)));
     }, [respondentData, queryString])
+
+    const onPageSwitch = (pageNum, pageSize) => {
+        const body = {
+            researchNumberQueryString: queryString,
+            method: undefined,
+            pageLimit: pageSize,
+            pageNum: pageNum - 1,
+        }
+        console.log("getting page number " + pageNum)
+        getPeopleDataSleepPage(body)
+            .then(response => {
+                setRespondentsNum(response.totalRespondentNumber)
+                setRespondentData(response.respondentData)
+            })
+    }
+
+    useEffect(() => {
+        console.log('initial parent mount')
+    }, [])
 
     const chronoDataUpdateTrigger = (updatedChronoData) => {
         setChronoData(updatedChronoData)
@@ -156,7 +192,15 @@ const SleepParentComponent = ({ queryString }) => {
 
         switch(selectedScreen) {
             case(SleepScreens.personSelect):
-                return <ComputationReportSelectComponent data={filteredRespondentData} valueSelectHandler={onReportSelect} respDataUpdateHandler={onRespDataUpdate} />;
+                return <ComputationReportSelectComponent 
+                data={filteredRespondentData} 
+                valueSelectHandler={onReportSelect} 
+                respDataUpdateHandler={onRespDataUpdate} 
+                totalRespondentsNum={totalRespondentsNum}
+                onPageSwitch={onPageSwitch}
+                activePage={activePage}
+                setActivePage={setActivePage}
+                />;
             case(SleepScreens.reportEditValue):
                 return <Fragment>
                             <Row>

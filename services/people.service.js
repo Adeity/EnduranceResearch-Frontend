@@ -7,6 +7,27 @@ export function getPeopleDataSleep() {
         .then(data => extractPeopleDataSleep(data))
 }
 
+export function getPeopleDataSleepPage(body) {
+
+    const options =  {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      };
+
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/sleep-respondent-data-pageable`, options)
+        .then(response => response.json())
+        .then(data => {
+            return {
+                totalRespondentNumber: data.respondentsNum,
+                activePage: data.activePage + 1,
+                respondentData: extractPeopleDataSleep(data.respondentData)
+            }
+        })
+}
+
 export function extractPeopleDataSleep(people) {
 
     const srData = [];
