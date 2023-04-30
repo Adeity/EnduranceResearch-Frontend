@@ -1,11 +1,12 @@
-import { Row, Col, Accordion } from 'react-bootstrap';
+import { useState } from 'react';
+import { Row, Col, Accordion, Form, Button } from 'react-bootstrap';
 import { exportToExcel } from '/services/excel.service'
 import { formatTimeWithYear } from '/utils/time-format.js'
 
+import ComputationUserDataEdit from '../ComputationUserDataEdit/computation-user-data-edit.component';
 import './participant-card.styles.css'
 
-const ParticipantCard = ( {participantData, valueSelectHandler}) => {
-
+const ParticipantCard = ( {participantData, valueSelectHandler, respDataUpdateHandler}) => {
 
     return (
         <Accordion className='accordion-margin'>
@@ -35,6 +36,15 @@ const ParticipantCard = ( {participantData, valueSelectHandler}) => {
                 </Accordion.Header>
 
                 <Accordion.Body>
+                    <Row>
+                        <ComputationUserDataEdit 
+                            researchNumber={participantData.id}
+                            sjlThreshold={participantData.socJetlagThreshold} 
+                            latThreshold={participantData.latencyFaThreshold}
+                            respDataUpdateHandler={respDataUpdateHandler}
+                            />
+                    </Row>
+                    <hr className='divider'/>
                     <Row>
                         <Col><p>Title</p></Col>
                         <Col><p>Verze</p></Col>

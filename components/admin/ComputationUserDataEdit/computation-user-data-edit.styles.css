@@ -1,0 +1,18 @@
+/* .user-data-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+} */
+
+.user-data-short-value {
+    margin-top: -0.5em;
+    height: 90%;
+    text-align: right;
+}
+
+.user-data-button {
+    margin-top: -0.5em;
+    text-align: center;
+    margin-bottom: 0.2em; 
+
+}

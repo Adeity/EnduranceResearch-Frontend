@@ -33,6 +33,7 @@
 
 .save-button {
     /* margin-left: 65%; */
+    float: right;
     width: auto;
     display: block;
 }

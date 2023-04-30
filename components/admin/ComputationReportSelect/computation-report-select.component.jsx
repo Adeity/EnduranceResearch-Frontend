@@ -6,7 +6,7 @@ import { useState, useCallback } from 'react';
 import { exportSelectedToExcel} from '/services/excel.service'
 
 
-const ComputationReportSelectComponent = ({ data, valueSelectHandler }) => {
+const ComputationReportSelectComponent = ({ data, valueSelectHandler, respDataUpdateHandler }) => {
 
     const getSelectedFromData = (peopleData) => {
         const selectedList = {}
@@ -86,7 +86,7 @@ const ComputationReportSelectComponent = ({ data, valueSelectHandler }) => {
                                 <Form.Check className='centered-checkbox' checked={selectedToExport[participant.id].checked} onChange={(e) => onPersonSelect(participant.id, e.target.checked)}/>
                             </Col>
                             <Col>
-                                <ParticipantCard participantData={participant} valueSelectHandler={valueSelectHandler}></ParticipantCard>
+                                <ParticipantCard participantData={participant} valueSelectHandler={valueSelectHandler} respDataUpdateHandler = {respDataUpdateHandler} />
                             </Col>
                         </Row>
                     )

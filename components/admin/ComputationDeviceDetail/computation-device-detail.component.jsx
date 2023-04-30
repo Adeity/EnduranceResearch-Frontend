@@ -9,8 +9,8 @@ import './computation-device-detail.styles.css'
 
 const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHandler, respDataUpdateHandler }) => {
 
-    const [ socJetlagThreshold, setSocJetlagThreshold ] = useState("01:00")
-    const [ latencyFaThreshold, setLatencyFaThreshold ] = useState(30)
+    const [ socJetlagThreshold, setSocJetlagThreshold ] = useState(computation.socJetlagThreshold)
+    const [ latencyFaThreshold, setLatencyFaThreshold ] = useState(computation.latencyFaThreshold)
     const [ userId, setUserId ] = useState(undefined)
 
     let currentReportValueState = structuredClone(computation);
@@ -19,14 +19,14 @@ const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHa
         currentReportValueState = structuredClone(computation);
     }, [computation]);
 
-    useEffect(() => {
-        getRespondentComputationData(computation.personId)
-            .then(response => {
-                setUserId(response.userId);
-                setSocJetlagThreshold(response.socJetlagThreshold);
-                setLatencyFaThreshold(response.latencyFaThreshold);
-            })
-    }, [])
+    // useEffect(() => {
+    //     getRespondentComputationData(computation.personId)
+    //         .then(response => {
+    //             setUserId(response.userId);
+    //             setSocJetlagThreshold(response.socJetlagThreshold);
+    //             setLatencyFaThreshold(response.latencyFaThreshold);
+    //         })
+    // }, [])
     
     const onSaveComputationClick = () => {
         computation = structuredClone(currentReportValueState) 
@@ -56,7 +56,7 @@ const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHa
             </Row>
             <Row>
                 <Col>
-                    <RespondentChronotypeCardComponent computation={computation}/>
+                    <RespondentChronotypeCardComponent computation={computation} socJetlagThreshold={socJetlagThreshold} latencyFaThreshold={latencyFaThreshold}/>
                 </Col>
                 <Col>
                     <Form.Group className="mb-3">
@@ -71,29 +71,13 @@ const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHa
 
                         <Form.Label><b>Chronotyp vs Rytmus pracovní dny - usínání:</b> { getChronoVsRythmValueText(computation.fallingAsleepRythmWorkDays) }</Form.Label>
                         <Form.Control type="text" defaultValue={computation.fallingAsleepRythmWorkDaysText} onChange={(e) => {currentReportValueState.fallingAsleepRythmWorkDaysText = e.target.value}}/>
-
-                        <div className='subfield'>
-                            {/* <Form.Label className='edit-line-label'>Latence usnutí je větší než:</Form.Label> */}
-                            <Form.Check className="checkbox" type="checkbox" label="Latence usnutí je větší než:" defaultChecked={computation.latency} onChange={(e) => {currentReportValueState.latency = e.target.checked}}/>
-                            <Form.Control type="text" className='short-value' value={latencyFaThreshold} onChange={(e) => setLatencyFaThreshold(e.target.value)}/>
-                            <Form.Control type="text" className='thresholdText' defaultValue={computation.latencyText} onChange={(e) => {currentReportValueState.latencyText = e.target.value}}/>
-                        </div>
-
-                        <div className='subfield'>
-                            <Form.Check className="checkbox" type="checkbox" label="Sociální jetlag je větší než:" defaultChecked={computation.jetlagBiggerThanX} onChange={(e) => {currentReportValueState.jetlagBiggerThanX = e.target.checked}}/>
-                            <Form.Control type="text" className='short-value' value={ socJetlagThreshold } onChange={(e) => setSocJetlagThreshold(e.target.value) }/>
-                            <Form.Control type="text" className='thresholdText' defaultValue={computation.jetlagBiggerThanXText} onChange={(e) => {currentReportValueState.jetlagBiggerThanXText = e.target.value}}/>
-                        </div>
                     </Form.Group>
                 </Col>
             </Row>
             <Row>
                 <Col xs={9} />
                 <Col>
-                    <Button className="save-button" onClick={onSaveComputationClick}>Uložit Výpočet</Button>
-                </Col>
-                <Col>
-                    <Button className="save-button" onClick={onSaveDataClick}>Uložit Data</Button>
+                    <Button className="save-button" onClick={onSaveComputationClick}>Uložit Texty</Button>
                 </Col>
             </Row>
         </Form>

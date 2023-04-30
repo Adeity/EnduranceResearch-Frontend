@@ -19,8 +19,13 @@ export function extractPeopleDataSleep(people) {
         respondent.formComputations?.forEach(element => formComputations.push(computationResultFromDto(element, respondent)))
         respondent.deviceComputations?.forEach(element => deviceComputations.push(deviceComputationResultFromDto(element, respondent)))
 
+        formComputations.sort( (a, b) =>  a.version !== b.version ? a.version - b.version : a.recalculations - b.recalculations)
+        deviceComputations.sort( (a, b) => a.version !== b.version ? a.version - b.version : a.recalculations - b.recalculations)
+
         srData.push({
             id: respondent.id,
+            socJetlagThreshold: respondent.socJetlagThreshold,
+            latencyFaThreshold: respondent.latencyFaThreshold,
             formComputations: formComputations,
             deviceComputations: deviceComputations
         })
@@ -44,7 +49,11 @@ export function formComputationResultToDto(computation) {
         chronoFaText: computation.fallingAsleepRythmText,
         chronoWaText: computation.wakingRythmText,
         socJetlagGreater: computation.jetlagBiggerThanX,
-        latencyFAGreater: computation.latency,
+        latency: computation.latency,
+        socJetlag: computation.socJetlag,
+        latencyFAGreater: computation.latencyFaGreater,
+        latencyFaThreshold: computation.latencyFaThreshold,
+        socJetlagThreshold: computation.socJetlagThreshold,
         awakeFrom: formatTime(computation.chronoAwakeFrom),
         awakeTo: formatTime(computation.chronoAwakeTo),
         sleepFrom: formatTime(computation.chronoSleepFrom),
@@ -67,7 +76,7 @@ export function computationResultFromDto(element, respondent) {
 
         personId: respondent.id,
         chronotype: element.chronotype,
-        latency: element.latencyFAGreater,
+        latencyFaGreater: element.latencyFAGreater,
         latencyText: element.latencyFAGreaterText,
         wakingRythm: element.chronoWa,
         wakingRythmText: element.chronoWaText,
@@ -75,6 +84,10 @@ export function computationResultFromDto(element, respondent) {
         fallingAsleepRythmText: element.chronoFaText,
         jetlagBiggerThanX: element.socJetlagGreater,
         jetlagBiggerThanXText: element.socJetlagGreaterText,
+        latency: element.latency,
+        socJetlag: element.socJetlag,
+        latencyFaThreshold: element.latencyFaThreshold,
+        socJetlagThreshold: element.socJetlagThreshold,
 
         chronoAwakeFrom: formatTimeOnlyHoursToJson(element.awakeFrom),
         chronoAwakeTo: formatTimeOnlyHoursToJson(element.awakeTo),
@@ -96,7 +109,7 @@ export function deviceComputationResultFromDto(element, respondent) {
 
         personId: respondent.id,
         chronotype: element.chronotype,
-        latency: element.latencyFAGreater,
+        latencyFAGreater: element.latencyFAGreater,
         latencyText: element.latencyFAGreaterText,
         wakingRythmFreeDays: element.chronoWaFreeDays,
         wakingRythmFreeDaysText: element.chronoWaTextFreeDays,
@@ -106,13 +119,18 @@ export function deviceComputationResultFromDto(element, respondent) {
         wakingRythmWorkDaysText: element.chronoWaTextWorkDays,
         fallingAsleepRythmWorkDays: element.chronoFaWorkDays,
         fallingAsleepRythmWorkDaysText: element.chronoFaTextWorkDays,
+        latency: element.latency,
+        socJetlag: element.socJetlag,
         jetlagBiggerThanX: element.socJetlagGreater,
         jetlagBiggerThanXText: element.socJetlagGreaterText,
 
         chronoAwakeFrom: formatTimeOnlyHoursToJson(element.awakeFrom),
         chronoAwakeTo: formatTimeOnlyHoursToJson(element.awakeTo),
         chronoSleepFrom: formatTimeOnlyHoursToJson(element.sleepFrom),
-        chronoSleepTo: formatTimeOnlyHoursToJson(element.sleepTo)
+        chronoSleepTo: formatTimeOnlyHoursToJson(element.sleepTo),
+
+        latencyFaThreshold: element.latencyFaThreshold,
+        socJetlagThreshold: element.socJetlagThreshold,
     }
 }
 
@@ -137,12 +155,17 @@ export function deviceComputationResultToDto(computation) {
         chronoWaTextFreeDays: computation.wakingRythmFreeDaysText,
         chronoFaTextWorkDays: computation.fallingAsleepRythmWorkDaysText,
         chronoWaTextWorkDays: computation.wakingRythmWorkDaysText,
+        latency: computation.latency,
+        socJetlag: computation.socJetlag,
         socJetlagGreater: computation.jetlagBiggerThanX,
-        latencyFAGreater: computation.latency,
+        latencyFAGreater: computation.latencyFAGreater,
 
         awakeFrom: formatTime(computation.chronoAwakeFrom),
         awakeTo: formatTime(computation.chronoAwakeTo),
         sleepFrom: formatTime(computation.chronoSleepFrom),
-        sleepTo: formatTime(computation.chronoSleepTo)
+        sleepTo: formatTime(computation.chronoSleepTo),
+
+        latencyFaThreshold: computation.latencyFaThreshold,
+        socJetlagThreshold: computation.socJetlagThreshold,
     }
 }

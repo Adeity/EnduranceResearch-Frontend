@@ -156,7 +156,7 @@ const SleepParentComponent = ({ queryString }) => {
 
         switch(selectedScreen) {
             case(SleepScreens.personSelect):
-                return <ComputationReportSelectComponent data={filteredRespondentData} valueSelectHandler={onReportSelect} />;
+                return <ComputationReportSelectComponent data={filteredRespondentData} valueSelectHandler={onReportSelect} respDataUpdateHandler={onRespDataUpdate} />;
             case(SleepScreens.reportEditValue):
                 return <Fragment>
                             <Row>
