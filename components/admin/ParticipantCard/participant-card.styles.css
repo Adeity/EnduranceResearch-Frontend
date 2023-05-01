@@ -20,3 +20,19 @@
 .accordion-margin {
     margin-bottom: 0.1em;
 }
+
+.clickable-respondent:hover {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(240, 240, 240);
+    border-style: solid;
+    background-color: rgb(250, 250, 250);
+}
+
+.margin-right {
+    margin-right: 1em;
+}
+
+.margin-top {
+    margin-top: 2000.2em;
+}

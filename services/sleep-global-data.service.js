@@ -1,5 +1,5 @@
 import { formatTimeOnlyHoursToJson, formatTime } from '../utils/time-format'
-import { extractPeopleDataSleep } from './people.service'
+import { extractRespondentsResponseDto } from './people.service'
 
 export function getGlobalSleepData() {
 
@@ -21,15 +21,13 @@ export function getGlobalSleepData() {
             chronoData.sort(function(a, b) { return a.id - b.id})
             return chronoData;
         });
-
-    // return Promise.resolve(CHRONO_DATA);
 }
 
-export function updateGlobalSleepData(data) {
+export function updateGlobalSleepData(data, pageInfo) {
 
-    const body = []
+    const chonoVals = []
     data.forEach(value => {
-        body.push(
+        chonoVals.push(
             {
                 id: value.id,
                 title: value.title,
@@ -41,6 +39,11 @@ export function updateGlobalSleepData(data) {
         )
     })
 
+    const body = {
+        data: chonoVals,
+        pageInfo: pageInfo
+    }
+
     return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/update-global-data`, {
         method: 'POST',
         headers: {
@@ -49,7 +52,6 @@ export function updateGlobalSleepData(data) {
         body: JSON.stringify(body)
       })
         .then(response => response.json())
-        // .then(data => console.log(data))
-        .then(data => extractPeopleDataSleep(data))
+        .then(data => extractRespondentsResponseDto(data))
         .catch(error => console.error(error));
 }

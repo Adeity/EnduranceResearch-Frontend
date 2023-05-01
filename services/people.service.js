@@ -19,13 +19,15 @@ export function getPeopleDataSleepPage(body) {
 
     return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/sleep-respondent-data-pageable`, options)
         .then(response => response.json())
-        .then(data => {
-            return {
-                totalRespondentNumber: data.respondentsNum,
-                activePage: data.activePage + 1,
-                respondentData: extractPeopleDataSleep(data.respondentData)
-            }
-        })
+        .then(data => extractRespondentsResponseDto(data))
+}
+
+export function extractRespondentsResponseDto(dto) {
+    return {
+        totalRespondentNumber: dto.respondentsNum,
+        activePage: dto.activePage + 1,
+        respondentData: extractPeopleDataSleep(dto.respondentData)
+    }
 }
 
 export function extractPeopleDataSleep(people) {
@@ -60,6 +62,7 @@ export function formComputationResultToDto(computation) {
         person_id: computation.personId,
         version: computation.version,
         recalculations: computation.recalculations,
+        compComparison: computation.compComparison,
         chronoFa: computation.fallingAsleepRythm,
         chronoWa: computation.wakingRythm,
         chronotype: computation.chronotype,
@@ -75,6 +78,8 @@ export function formComputationResultToDto(computation) {
         latencyFAGreater: computation.latencyFaGreater,
         latencyFaThreshold: computation.latencyFaThreshold,
         socJetlagThreshold: computation.socJetlagThreshold,
+        avgLaydownTime: computation.avgLaydownTime,
+        avgWakingTime: computation.avgWakingTime,
         awakeFrom: formatTime(computation.chronoAwakeFrom),
         awakeTo: formatTime(computation.chronoAwakeTo),
         sleepFrom: formatTime(computation.chronoSleepFrom),
@@ -110,6 +115,8 @@ export function computationResultFromDto(element, respondent) {
         latencyFaThreshold: element.latencyFaThreshold,
         socJetlagThreshold: element.socJetlagThreshold,
 
+        avgLaydownTime: element.avgLaydownTime,
+        avgWakingTime: element.avgWakingTime,
         chronoAwakeFrom: formatTimeOnlyHoursToJson(element.awakeFrom),
         chronoAwakeTo: formatTimeOnlyHoursToJson(element.awakeTo),
         chronoSleepFrom: formatTimeOnlyHoursToJson(element.sleepFrom),
@@ -144,6 +151,10 @@ export function deviceComputationResultFromDto(element, respondent) {
         socJetlag: element.socJetlag,
         jetlagBiggerThanX: element.socJetlagGreater,
         jetlagBiggerThanXText: element.socJetlagGreaterText,
+        avgFallAsleepTimeWorkDays: element.avgFallAsleepTimeWorkDays,
+        avgWakingTimeWorkDays: element.avgWakingTimeWorkDays,
+        avgFallAsleepTimeFreeDays: element.avgFallAsleepTimeFreeDays,
+        avgWakingTimeFreeDays: element.avgWakingTimeFreeDays,
 
         chronoAwakeFrom: formatTimeOnlyHoursToJson(element.awakeFrom),
         chronoAwakeTo: formatTimeOnlyHoursToJson(element.awakeTo),
@@ -157,16 +168,18 @@ export function deviceComputationResultFromDto(element, respondent) {
 
 export function deviceComputationResultToDto(computation) {
 
+    console.log(computation)
     return {
         id: computation.id,
         version: computation.version,
         researchParticipantResearchNumber: computation.personId,
         recalculations: computation.recalculations,
+        compComparison: computation.compComparison,
 
         chronoFaFreeDays: computation.fallingAsleepRythmFreeDays,
-        chronoWaFreeDays: computation.wakingRythmRythmFreeDays,
+        chronoWaFreeDays: computation.wakingRythmFreeDays,
         chronoFaWorkDays: computation.fallingAsleepRythmWorkDays,
-        chronoWaWorkDays: computation.wakingRythmWorWorkDays,
+        chronoWaWorkDays: computation.wakingRythmWorkDays,
         chronotype: computation.chronotype,
         created: computation.uploaded,
         modified: computation.lastModified,
@@ -180,6 +193,10 @@ export function deviceComputationResultToDto(computation) {
         socJetlag: computation.socJetlag,
         socJetlagGreater: computation.jetlagBiggerThanX,
         latencyFAGreater: computation.latencyFAGreater,
+        avgFallAsleepTimeWorkDays: computation.avgFallAsleepTimeWorkDays,
+        avgWakingTimeWorkDays: computation.avgWakingTimeWorkDays,
+        avgFallAsleepTimeFreeDays: computation.avgFallAsleepTimeFreeDays,
+        avgWakingTimeFreeDays: computation.avgWakingTimeFreeDays,
 
         awakeFrom: formatTime(computation.chronoAwakeFrom),
         awakeTo: formatTime(computation.chronoAwakeTo),

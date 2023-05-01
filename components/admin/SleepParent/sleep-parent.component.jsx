@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import { Row, Accordion } from 'react-bootstrap';
 import { SleepScreens } from '/model/sleep-screen-selection';
-import { getPeopleDataSleep } from '/services/people.service';
+import { getPeopleDataSleepPage } from '/services/people.service';
 import { getGlobalSleepData, updateGlobalSleepData } from '/services/sleep-global-data.service';
 import { updateRespondentComputationData } from '/services/respondent-data.service'
 import { updateFormComputation, updateDeviceComputation } from '/services/report.service';
@@ -11,14 +11,13 @@ import ComputationDeviceDetailComponent from '../ComputationDeviceDetail/computa
 import ComputationReportSelectComponent from '../ComputationReportSelect/computation-report-select.component';
 import GlobalChronotypeValuesEdit from '../GlobalChronotypeValuesEdit/global-chronotype-values-edit.component'
 import CustomToast from '../CustomToast/custom-toast.component'
-import { getPeopleDataSleepPage } from '../../../services/people.service';
 
 
-const SleepParentComponent = ({ queryString }) => {
+const SleepParentComponent = ({ queryString, method }) => {
 
     const [selectedScreen, setSelectedScreen] = useState(SleepScreens.personSelect);
     const [respondentData, setRespondentData] = useState([]);
-    const [filteredRespondentData, setFilteredRespondentData] = useState([]);
+    // const [filteredRespondentData, setFilteredRespondentData] = useState([]);
     const [selectedComputation, setSelectedComputation] = useState(undefined);
     const [chronoData, setChronoData] = useState([])
     const [ toast, setToast] = useState({
@@ -29,15 +28,11 @@ const SleepParentComponent = ({ queryString }) => {
     const [ totalRespondentsNum, setRespondentsNum ] = useState(0);
     const [ activePage, setActivePage ] = useState(1);
 
-
-    // get computations data for all respondents
+    // get computations data for filtered all respondents
     useEffect(() => {
-        // getPeopleDataSleep()
-        //     .then(response => setRespondentData(response))
-
         const body = {
             researchNumberQueryString: queryString,
-            method: undefined,
+            method: method,
             pageLimit: 5,
             pageNum: 0,
         }
@@ -47,7 +42,7 @@ const SleepParentComponent = ({ queryString }) => {
                 setRespondentData(response.respondentData)
                 setActivePage(response.activePage)
             })
-    }, [])
+    }, [method, queryString])
 
     // get global chronotype values, used for all users
     useEffect(() => {
@@ -57,18 +52,18 @@ const SleepParentComponent = ({ queryString }) => {
 
 
     // filter respondents according to queryString
-    useEffect(() => {
-        setFilteredRespondentData(respondentData.filter(respondent => respondent.id.toLowerCase().includes(queryString)));
-    }, [respondentData, queryString])
+    // useEffect(() => {
+    //     setFilteredRespondentData(respondentData.filter(respondent => respondent.id.toLowerCase().includes(queryString)));
+    //     // setFilteredRespondentData(respondentData);
+    // }, [respondentData, queryString])
 
     const onPageSwitch = (pageNum, pageSize) => {
         const body = {
             researchNumberQueryString: queryString,
-            method: undefined,
+            method: method,
             pageLimit: pageSize,
             pageNum: pageNum - 1,
         }
-        console.log("getting page number " + pageNum)
         getPeopleDataSleepPage(body)
             .then(response => {
                 setRespondentsNum(response.totalRespondentNumber)
@@ -76,14 +71,22 @@ const SleepParentComponent = ({ queryString }) => {
             })
     }
 
-    useEffect(() => {
-        console.log('initial parent mount')
-    }, [])
-
     const chronoDataUpdateTrigger = (updatedChronoData) => {
+
+        const pageInfo = {
+            researchNumberQueryString: queryString,
+            method: method,
+            pageLimit: 5,
+            pageNum: 0,
+        }
+
         setChronoData(updatedChronoData)
-        updateGlobalSleepData(updatedChronoData)
-        .then(response => setRespondentData(response));
+        updateGlobalSleepData(updatedChronoData, pageInfo)
+        .then(response => {
+            setRespondentsNum(response.totalRespondentNumber)
+            setRespondentData(response.respondentData)
+            setActivePage(response.activePage)
+        })
     }
 
     const onReportSelect = (computation) => {
@@ -97,10 +100,18 @@ const SleepParentComponent = ({ queryString }) => {
     }
 
     const onFormSaveClicked = async (computation) => {
-        return updateFormComputation(computation)
+
+        const pageInfo = {
+            researchNumberQueryString: queryString,
+            method: method,
+            pageLimit: 5,
+            pageNum: 0,
+        }
+
+        return updateFormComputation(computation, pageInfo)
         .then(response => {
-            response.forEach(respData => {
-                respData.reports.forEach(r => {
+            response.respondentData.forEach(respData => {
+                respData.formComputations.forEach(r => {
                     if(r.id === selectedComputation.id) {
                         setSelectedComputation(r)
                     }
@@ -108,7 +119,11 @@ const SleepParentComponent = ({ queryString }) => {
             })
             return response;
         })
-        .then(response => setRespondentData(response))
+        .then(response => {
+            setRespondentsNum(response.totalRespondentNumber)
+            setRespondentData(response.respondentData)
+            setActivePage(response.activePage)
+        })
         .then(_ => setToast({ 
             show: true,
             title: 'Úspěch',
@@ -123,18 +138,26 @@ const SleepParentComponent = ({ queryString }) => {
                 variant: 'Danger'
             })
         })
-        .finally(() =>  setToast({ 
+        .finally(() =>  setTimeout( () => setToast({ 
             show: false,
             title: '',
             message: ''
-        }))
+        }), 4000))
     }
 
     const onDeviceSaveClicked = async (computation) => {
-        return updateDeviceComputation(computation)
+
+        const pageInfo = {
+            researchNumberQueryString: queryString,
+            method: method,
+            pageLimit: 5,
+            pageNum: 0,
+        }
+
+        return updateDeviceComputation(computation, pageInfo)
         .then(response => {
-            response.forEach(respData => {
-                respData.reports.forEach(r => {
+            response.respondentData.forEach(respData => {
+                respData.deviceComputations.forEach(r => {
                     if(r.id === selectedComputation.id) {
                         setSelectedComputation(r)
                     }
@@ -142,7 +165,11 @@ const SleepParentComponent = ({ queryString }) => {
             })
             return response;
         })
-        .then(response => setRespondentData(response))
+        .then(response => {
+            setRespondentsNum(response.totalRespondentNumber)
+            setRespondentData(response.respondentData)
+            setActivePage(response.activePage)
+        })        
         .then(_ => setToast({ 
             show: true,
             title: 'Úspěch',
@@ -157,16 +184,28 @@ const SleepParentComponent = ({ queryString }) => {
                 variant: 'Danger'
             })
         })
-        .finally(() =>  setToast({ 
+        .finally(() =>  setTimeout( () => setToast({ 
             show: false,
             title: '',
             message: ''
-        }))
+        }), 4000))
     }
 
     const onRespDataUpdate = (respCompData) => {
-        return updateRespondentComputationData(respCompData)
-        .then(response => setRespondentData(response))
+
+        const pageInfo = {
+            researchNumberQueryString: queryString,
+            method: method,
+            pageLimit: 5,
+            pageNum: 0,
+        }
+
+        return updateRespondentComputationData(respCompData, pageInfo)
+        .then(response => {
+            setRespondentsNum(response.totalRespondentNumber)
+            setRespondentData(response.respondentData)
+            setActivePage(response.activePage)
+        })
         .then(setToast({ 
                 show: true,
                 title: 'Úspěch',
@@ -193,14 +232,14 @@ const SleepParentComponent = ({ queryString }) => {
         switch(selectedScreen) {
             case(SleepScreens.personSelect):
                 return <ComputationReportSelectComponent 
-                data={filteredRespondentData} 
-                valueSelectHandler={onReportSelect} 
-                respDataUpdateHandler={onRespDataUpdate} 
-                totalRespondentsNum={totalRespondentsNum}
-                onPageSwitch={onPageSwitch}
-                activePage={activePage}
-                setActivePage={setActivePage}
-                />;
+                    data={respondentData} 
+                    valueSelectHandler={onReportSelect} 
+                    respDataUpdateHandler={onRespDataUpdate} 
+                    totalRespondentsNum={totalRespondentsNum}
+                    onPageSwitch={onPageSwitch}
+                    activePage={activePage}
+                    setActivePage={setActivePage}
+                    />;
             case(SleepScreens.reportEditValue):
                 return <Fragment>
                             <Row>
@@ -235,8 +274,6 @@ const SleepParentComponent = ({ queryString }) => {
                                 )
                             }
 
-                            <CustomToast title={toast.title} message={toast.message} trigger={toast.show} variant={toast.variant } />
-
                 </Fragment>
             default:
                 return <p>404 Not Found!</p>
@@ -246,6 +283,7 @@ const SleepParentComponent = ({ queryString }) => {
     return(
         <Fragment>
             <Conditional></Conditional>
+            <CustomToast title={toast.title} message={toast.message} trigger={toast.show} variant={toast.variant } />
         </Fragment>
     )
 }
