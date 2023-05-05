@@ -9,7 +9,7 @@ const RespondentChronotypeCardComponent = ({computation, socJetlagThreshold, lat
 
     return(
         <Fragment>
-            <h5 className='header'>Chronotyp:</h5>
+            <h4 className='header'>Chronotyp</h4>
             <p className='elevated'><b>{ getChronotypeTitle(computation.chronotype) }</b></p>
             <p className='elevated'>Vstává od <b>{formatTime(computation.chronoAwakeFrom)}</b> do <b>{formatTime(computation.chronoAwakeTo)}</b>.</p>
             <p className='elevated'>Chodí spát od: <b>{formatTime(computation.chronoSleepFrom)}</b> do <b>{formatTime(computation.chronoSleepTo)}</b>.</p>

@@ -1,6 +1,8 @@
 "use client"
 import { Fragment, useState } from 'react';
 import { exportAllToExcel} from '/services/excel.service'
+import { getMethods } from '/services/method.service'
+import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import SleepParentComponent from '../SleepParent/sleep-parent.component';
@@ -8,18 +10,25 @@ import './computations-reports.styles.css'
 
 const ComputationsReportsComponent = () => {
 
-    const [ method, setMethod ] = useState('spanek');
+    const [ methods, setMethods] = useState([]);
+    const [ method, setMethod ] = useState(undefined);
     const [ result, setResult ] = useState('');
 
     let queryString = result;
+
+    useEffect(() => {
+        getMethods()
+        .then(response => setMethods(response));
+    }, [])
 
     const onSearchClick = () => {
         setResult(queryString);
     }
 
     const onChangeHandlerSelect = (event) => {
-        const methodString = event.target.value.toLocaleLowerCase();
-        setMethod(methodString);
+
+        const selected = methods.find(option => option.id == event.target.value)
+        setMethod(structuredClone(selected));
     }
 
     const onChangeHandlerInput = (event) => {
@@ -30,20 +39,34 @@ const ComputationsReportsComponent = () => {
         exportAllToExcel();
     }
 
+    const onKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            event.stopPropagation()
+          // Enter key was pressed, execute the button's onClick function
+            onSearchClick();
+        }
+      };
+    
     return (
         <Fragment>
             <div className="container p-2">
                 <Form className="computations-formQuery">
                     <Form.Group className="mb-3">
-                        <Form.Label>ID účastníka</Form.Label>
-                        <Form.Control type="text" placeholder="Zadejte ID účastníka.." className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
+                        <Form.Label><b>ID účastníka</b></Form.Label>
+                        <Form.Control type="text" placeholder="Zadejte ID účastníka.." onKeyDown={onKeyDown} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Metoda</Form.Label>
+                        <Form.Label><b>Metoda</b></Form.Label>
                         <Form.Select className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerSelect }>
-                            <option value="spanek">Spánek</option>
-                            <option value="meditace">Meditace</option>
+                            {
+                                methods.map(m => 
+                                <option value={m.id} key={m.id}>
+                                    {m.title}
+                                </option>
+                            )}
+                            <option defaultValue value={{title: "None", id: NaN}}>Vše</option>
                         </Form.Select>
                     </Form.Group>
                     <Button variant="primary" className="computations-formButton" onClick={onSearchClick}>

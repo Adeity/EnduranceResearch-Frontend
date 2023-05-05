@@ -32,7 +32,6 @@
 }
 
 .save-button {
-    /* margin-left: 65%; */
     float: right;
     width: auto;
     display: block;
@@ -49,4 +48,8 @@
 .checkbox {
     margin-top: 0.8em;
     text-align: top;
+}
+
+.margin-right {
+    margin-right: 1em;
 }

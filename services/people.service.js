@@ -168,7 +168,6 @@ export function deviceComputationResultFromDto(element, respondent) {
 
 export function deviceComputationResultToDto(computation) {
 
-    console.log(computation)
     return {
         id: computation.id,
         version: computation.version,

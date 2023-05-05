@@ -9,12 +9,12 @@
 
 .header {
     padding-left: 1em;
+    text-align: center;
 }
 
 .elevated {
     padding-top: 1em;
     padding-left: 1em;
-    /* margin-bottom: 1.5em; */
     border-bottom: 1px solid grey;
     border-radius: 20px;
 }

@@ -2,11 +2,7 @@ import { formatTimeForExcel } from '../utils/time-format.js'
 
 
 export function exportToExcel(personId) {
-    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/export-to-xls/${personId}`, {
-        // headers: {
-        //     'Content-Type': 'application/vnd.ms-excel'
-        // }
-    })
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/export-to-xls/${personId}`, {})
     .then(res => res.blob())
     .then(data => {
       const url = window.URL.createObjectURL(new Blob([data]));

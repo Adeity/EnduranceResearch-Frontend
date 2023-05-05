@@ -8,6 +8,11 @@ import './participant-card.styles.css'
 
 const ParticipantCard = ( {participantData, valueSelectHandler, respDataUpdateHandler}) => {
 
+    const onComputationSelect = (computation) => {
+        valueSelectHandler(computation)
+        setOpenedParticipant(participantData.id)
+    }
+
     return (
         <Accordion className='accordion-margin'>
             <Accordion.Item eventKey="0">
