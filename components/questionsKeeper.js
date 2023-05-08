@@ -630,7 +630,7 @@ export const psqi = {
             },
             freeDaysGnt: {
                 questionType: "hhmm",
-                label: "O volných dnech chodím spát v (hh:mm)",
+                label: "O volných dnech usínám v (hh:mm)",
                 inputId: "psqiFdGnt",
                 answer: "",
                 question: {
@@ -650,7 +650,7 @@ export const psqi = {
             },
             workDaysGnt: {
                 questionType: "hhmm",
-                label: "O pracovních dnech chodím spát v (hh:mm)",
+                label: "O pracovních dnech usínám v (hh:mm)",
                 inputId: "psqiWdGnt",
                 answer: "",
                 question: {
