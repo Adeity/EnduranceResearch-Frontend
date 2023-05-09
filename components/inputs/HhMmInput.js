@@ -10,8 +10,9 @@ export default function HhMmInput(props){
                 type="text"
                 className="form-control"
                 value={props.value}
+                data-test={"hhmm-input"}
                 placeholder="Zadejte hh:mm" required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
                 Prosím napište hh:mm vstup.
             </div>
         </>

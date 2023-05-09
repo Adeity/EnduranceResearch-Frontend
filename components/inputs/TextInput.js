@@ -10,8 +10,9 @@ export default function TextInput(props){
                 type="text"
                 className="form-control"
                 value={props.value}
+                data-test={"text-input"}
                 placeholder="Enter minutes" required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
 
             </div>
         </>
