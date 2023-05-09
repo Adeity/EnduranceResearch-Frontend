@@ -15,7 +15,7 @@ import CustomToast from '../CustomToast/custom-toast.component'
 import './sleep-parent.styles.css'
 
 
-const SleepParentComponent = ({ queryString, method }) => {
+const SleepParentComponent = ({ queryString, method, setDisabledFilter }) => {
 
     const [selectedScreen, setSelectedScreen] = useState(SleepScreens.personSelect);
     const [respondentData, setRespondentData] = useState([]);
@@ -99,7 +99,7 @@ const SleepParentComponent = ({ queryString, method }) => {
             researchNumberQueryString: queryString,
             method: method,
             pageLimit: pageLimit,
-            pageNum: activePage,
+            pageNum: activePage - 1,
         }
 
         setChronoData(updatedChronoData)
@@ -134,11 +134,13 @@ const SleepParentComponent = ({ queryString, method }) => {
     const onReportSelect = (computation) => {
         setSelectedComputation(computation);
         setSelectedScreen(SleepScreens.reportEditValue);
+        setDisabledFilter(true);
     }
 
     const onBackClicked = () => {
         setSelectedScreen(SleepScreens.personSelect);
         setSelectedComputation(undefined);
+        setDisabledFilter(false);
     }
 
     const onFormSaveClicked = async (computation) => {
@@ -147,7 +149,7 @@ const SleepParentComponent = ({ queryString, method }) => {
             researchNumberQueryString: queryString,
             method: method,
             pageLimit: 5,
-            pageNum: activePage,
+            pageNum: activePage - 1,
         }
 
         return updateFormComputation(computation, pageInfo)
@@ -193,7 +195,7 @@ const SleepParentComponent = ({ queryString, method }) => {
             researchNumberQueryString: queryString,
             method: method,
             pageLimit: 5,
-            pageNum: activePage,
+            pageNum: activePage - 1,
         }
 
         return updateDeviceComputation(computation, pageInfo)
@@ -239,7 +241,7 @@ const SleepParentComponent = ({ queryString, method }) => {
             researchNumberQueryString: queryString,
             method: method,
             pageLimit: 5,
-            pageNum: 0,
+            pageNum: activePage - 1,
         }
 
         return updateRespondentComputationData(respCompData, pageInfo)

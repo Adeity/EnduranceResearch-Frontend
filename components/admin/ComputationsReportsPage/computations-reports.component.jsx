@@ -13,6 +13,7 @@ const ComputationsReportsComponent = () => {
     const [ methods, setMethods] = useState([]);
     const [ method, setMethod ] = useState(undefined);
     const [ result, setResult ] = useState('');
+    const [ disabledFilter, setDisabledFilter ] = useState(false);
 
     let queryString = result;
 
@@ -54,12 +55,12 @@ const ComputationsReportsComponent = () => {
                 <Form className="computations-formQuery">
                     <Form.Group className="mb-3">
                         <Form.Label><b>ID účastníka</b></Form.Label>
-                        <Form.Control type="text" placeholder="Zadejte ID účastníka.." onKeyDown={onKeyDown} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
+                        <Form.Control disabled={disabledFilter} type="text" placeholder="Zadejte ID účastníka.." onKeyDown={onKeyDown} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
                         <Form.Label><b>Metoda</b></Form.Label>
-                        <Form.Select className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerSelect }>
+                        <Form.Select disabled={disabledFilter} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerSelect }>
                             {
                                 methods.map(m => 
                                 <option value={m.id} key={m.id}>
@@ -69,7 +70,7 @@ const ComputationsReportsComponent = () => {
                             <option defaultValue value={{title: "None", id: NaN}}>Vše</option>
                         </Form.Select>
                     </Form.Group>
-                    <Button variant="primary" className="computations-formButton" onClick={onSearchClick}>
+                    <Button disabled={disabledFilter} variant="primary" className="computations-formButton" onClick={onSearchClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                         </svg>
@@ -83,7 +84,7 @@ const ComputationsReportsComponent = () => {
                     </Button>
                 </Form>
                 <hr className='computations-divider'/>
-                <SleepParentComponent queryString={result} method={method}/>
+                <SleepParentComponent queryString={result} method={method} setDisabledFilter={setDisabledFilter}/>
 
             </div>
         </Fragment>

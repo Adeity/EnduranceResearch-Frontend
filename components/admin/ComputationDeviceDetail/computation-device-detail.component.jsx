@@ -52,25 +52,25 @@ const  ComputationDeviceDetail = ({ computation, backClickHandler, saveClickedHa
                 <Col>
                     <RespondentChronotypeCardComponent computation={computation} socJetlagThreshold={socJetlagThreshold} latencyFaThreshold={latencyFaThreshold}/>
                     
-                    <Form.Label>Latence usnutí <b>{ computation.latency }</b> (z dotazníku PSQI) je <b>{ computation.latencyFaGreater ? "VĚTŠÍ" : "MENŠÍ" }</b> než hranice <b>{latencyFaThreshold}</b>.</Form.Label>
+                    <Form.Label><b>Latence usnutí</b> { computation.latency } (z dotazníku PSQI) je { computation.latencyFaGreater ? "VĚTŠÍ" : "MENŠÍ" } než hranice {latencyFaThreshold}.</Form.Label>
                     <Form.Control type="text" defaultValue={computation.latencyText} onChange={(e) => {currentReportValueState.latencyText = e.target.value}}/>
 
-                    <Form.Label>Sociální jetlag <b>{ computation.socJetlag }</b> je <b>{ computation.jetlagBiggerThanX ? "VĚTŠÍ" : "MENŠÍ ROVNO" }</b> než hranice <b>{ socJetlagThreshold }</b>.</Form.Label>
+                    <Form.Label><b>Sociální jetlag</b> { computation.socJetlag } je { computation.jetlagBiggerThanX ? "VĚTŠÍ" : "MENŠÍ ROVNO" } než hranice { socJetlagThreshold }.</Form.Label>
                     <Form.Control type="text" defaultValue={computation.jetlagBiggerThanXText} onChange={(e) => {currentReportValueState.jetlagBiggerThanXText = e.target.value}}/>
 
                 </Col>
                 <Col>
                     <Form.Group className="mb-3">
-                        <Form.Label><b>Chronotyp vs Rytmus volné dny - vstávání:</b> {computation.avgWakingTimeFreeDays} { getChronoVsRythmValueText(computation.wakingRythmFreeDays)} </Form.Label>
+                        <Form.Label><b>Průměrný čas vstávání - volné dny:</b> {computation.avgWakingTimeFreeDays} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.wakingRythmFreeDays)} </Form.Label>
                         <Form.Control type="text" defaultValue={computation.wakingRythmFreeDaysText} onChange={(e) => {currentReportValueState.wakingRythmFreeDaysText = e.target.value}}/>
 
-                        <Form.Label><b>Chronotyp vs Rytmus volné dny - usínání:</b>  {computation.avgFallAsleepTimeFreeDays} { getChronoVsRythmValueText(computation.fallingAsleepRythmFreeDays) }</Form.Label>
+                        <Form.Label><b>Průměrný čas usínání - volné dny:</b>  {computation.avgFallAsleepTimeFreeDays} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.fallingAsleepRythmFreeDays) }</Form.Label>
                         <Form.Control type="text" defaultValue={computation.fallingAsleepRythmFreeDaysText} onChange={(e) => {currentReportValueState.fallingAsleepRythmFreeDaysText = e.target.value}}/>
                         
-                        <Form.Label><b>Chronotyp vs Rytmus pracovní dny - vstávání:</b> {computation.avgWakingTimeWorkDays} { getChronoVsRythmValueText(computation.wakingRythmWorkDays)} </Form.Label>
+                        <Form.Label><b>Průměrný čas vstávání - pracovní dny:</b> {computation.avgWakingTimeWorkDays} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.wakingRythmWorkDays)} </Form.Label>
                         <Form.Control type="text" defaultValue={computation.wakingRythmWorkDaysText} onChange={(e) => {currentReportValueState.wakingRythmWorkDaysText = e.target.value}}/>
 
-                        <Form.Label><b>Chronotyp vs Rytmus pracovní dny - usínání:</b> {computation.avgFallAsleepTimeWorkDays} { getChronoVsRythmValueText(computation.fallingAsleepRythmWorkDays) }</Form.Label>
+                        <Form.Label><b>Průměrný čas usínání - pracovní dny:</b> {computation.avgFallAsleepTimeWorkDays} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.fallingAsleepRythmWorkDays) }</Form.Label>
                         <Form.Control type="text" defaultValue={computation.fallingAsleepRythmWorkDaysText} onChange={(e) => {currentReportValueState.fallingAsleepRythmWorkDaysText = e.target.value}}/>
                     </Form.Group>
                 </Col>

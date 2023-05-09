@@ -57,16 +57,16 @@ const ComputationFormDetailComponent = ({ computation, backClickHandler, saveCli
                 </Col>
                 <Col>
                     <Form.Group className="mb-3">
-                        <Form.Label><b>Chronotyp vs Rytmus - vstávání:</b> {computation.avgWakingTime} { getChronoVsRythmValueText(computation.wakingRythm)} </Form.Label>
+                        <Form.Label><b>Průměrný čas vstávání:</b> {computation.avgWakingTime} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.wakingRythm)} </Form.Label>
                         <Form.Control type="text" defaultValue={computation.wakingRythmText} onChange={(e) => {currentReportValueState.wakingRythmText = e.target.value}}/>
 
-                        <Form.Label><b>Chronotyp vs Rytmus - usínání:</b> {computation.avgLaydownTime} { getChronoVsRythmValueText(computation.fallingAsleepRythm) }</Form.Label>
+                        <Form.Label><b>Průměrný čas usínání:</b> {computation.avgLaydownTime} <b>/ Vhledem k oknu</b>: { getChronoVsRythmValueText(computation.fallingAsleepRythm) }</Form.Label>
                         <Form.Control type="text" defaultValue={computation.fallingAsleepRythmText} onChange={(e) => {currentReportValueState.fallingAsleepRythmText = e.target.value}}/>
 
-                        <Form.Label>Latence usnutí <b>{ computation.latency }</b> (z dotazníku PSQI) je <b>{ computation.latencyFaGreater ? "VĚTŠÍ" : "MENŠÍ" }</b> než hranice <b>{latencyFaThreshold}</b>.</Form.Label>
+                        <Form.Label><b>Latence usnutí</b> { computation.latency } (z dotazníku PSQI) je { computation.latencyFaGreater ? "VĚTŠÍ" : "MENŠÍ" } než hranice {latencyFaThreshold}.</Form.Label>
                         <Form.Control type="text" defaultValue={computation.latencyText} onChange={(e) => {currentReportValueState.latencyText = e.target.value}}/>
 
-                        <Form.Label>Sociální jetlag <b>{ computation.socJetlag }</b> je <b>{ computation.jetlagBiggerThanX ? "VĚTŠÍ" : "MENŠÍ ROVNO" }</b> než hranice <b>{ socJetlagThreshold }</b>.</Form.Label>
+                        <Form.Label><b>Sociální jetlag</b> { computation.socJetlag } je { computation.jetlagBiggerThanX ? "VĚTŠÍ" : "MENŠÍ ROVNO" } než hranice { socJetlagThreshold }.</Form.Label>
                         <Form.Control type="text" defaultValue={computation.jetlagBiggerThanXText} onChange={(e) => {currentReportValueState.jetlagBiggerThanXText = e.target.value}}/>
 
                     </Form.Group>
