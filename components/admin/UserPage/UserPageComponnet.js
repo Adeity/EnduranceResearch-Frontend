@@ -32,7 +32,7 @@ function UserPageComponnet(props) {
                     <ChangePasswordCard />
                     <h6 className={"pt-3"}>Odhlášení</h6>
                     <div className={"d-flex justify-content-center"}>
-                        <input type={"button"} className={"btn btn-primary"} onClick={() => this.handleLogoutButtonClick()} value={"Odhlásit se"}/>
+                        <input type={"button"} className={"btn btn-primary"} onClick={() => handleLogoutButtonClick()} value={"Odhlásit se"}/>
                     </div>
         </div>
     )
