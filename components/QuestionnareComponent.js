@@ -16,6 +16,8 @@ import HourRangeInput from "./inputs/HourRangeInput";
 import WholeNumberInput from "./inputs/WholeNumberInput";
 import ErrorSendEmail from "./ErrorSendEmail";
 import MyRecaptcha from "./MyRecaptcha";
+import axios from "axios";
+import {isServerUp} from "./admin/AxiosRequestor/UrlConstantHolder";
 
 // Example POST method implementation:
 async function postData(url = "", data = {}) {
@@ -173,6 +175,13 @@ function QuestionnareComponent(props) {
             submit()
             buttonIsEnabled.current = true;
         } else {
+            if (currentSlideGlobal.current === 0) {
+                // if its the first question, check if the server is running
+                axios.get(isServerUp).then((res) => {
+                }).catch((e) => {
+                    setError("Server je nedostupný.")
+                })
+            }
             setTimeout(function () {
                 removeAllValidityClasses(currentQuestion)
                 if (currentQuestion.questionType === "dzsYesNoSkip") {
