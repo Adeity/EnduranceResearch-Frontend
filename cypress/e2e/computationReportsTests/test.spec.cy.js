@@ -21,11 +21,20 @@ describe('Computations and reports page', () => {
 
         cy.get('body > main > form > button').click()
 
+        cy.fixture('computationReportsFixtures/exampleGlobalChronoValues.json').as('globalChronoValues').then( (globalChronoValues) => {
+            cy.intercept('GET', 'comps/global-chrono', globalChronoValues).as('getGlobalChrono')
+        })
+
         cy.fixture('computationReportsFixtures/exampleRespondentData.json').as('respData').then( (userData) => {
             cy.intercept('POST','comps/sleep-respondent-data-pageable', userData).as('getRespData')
         })
 
+        cy.fixture('computationReportsFixtures/exampleMethods.json').as('methods').then( (methods) => {
+            cy.intercept('GET','comps/get-methods', methods).as('getMethods')
+        })
+
         cy.get('body > header > ul > li:nth-child(3) > a').click()
+        cy.wait('@getRespData')
     })
 
     it('should disable filter panel when displaying a computation detail', () => {
