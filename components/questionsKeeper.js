@@ -630,7 +630,7 @@ export const psqi = {
             },
             freeDaysGnt: {
                 questionType: "hhmm",
-                label: "O volných dnech chodím spát v (hh:mm)",
+                label: "O volných dnech usínám v (hh:mm)",
                 inputId: "psqiFdGnt",
                 answer: "",
                 question: {
@@ -650,7 +650,7 @@ export const psqi = {
             },
             workDaysGnt: {
                 questionType: "hhmm",
-                label: "O pracovních dnech chodím spát v (hh:mm)",
+                label: "O pracovních dnech usínám v (hh:mm)",
                 inputId: "psqiWdGnt",
                 answer: "",
                 question: {
@@ -902,6 +902,115 @@ export const mctq = {
 
 }
 
+const showcase = {
+    showcase: {
+        q1: {
+            questionType: "hourRangeInput",
+            minHour: 5,
+            numberOfHours: 7,
+            label: "Vezmete-li v úvahu pouze to, při jakém denním rytmu se cítíte nejlépe, v kolik hodin byste " +
+                "vstávali, pokud byste si mohli zcela svobodně naplánovat svůj den?",
+            inputId: "showcaseQ1",
+            answer: "",
+            question: {
+                id: 401
+            },
+        },
+        q2: {
+            questionType: "multipleChoice",
+            label: "Pokud ráno musíte vstávat v určitou dobu, do jaké míry jste závislý/á na zvonění budíku?",
+            inputId: "showcaseQ2",
+            answers: [
+                {
+                    id: "showcaseQ2MCH1",
+                    label: "Zcela nezávislý/á",
+                    value: 4,
+                    checked: false
+                },
+                {
+                    id: "showcaseQ2MCH2",
+                    label: "Spíše nezávislý/á",
+                    value: 3,
+                    checked: false
+                },
+                {
+                    id: "showcaseQ2MCH3",
+                    label: "Spíše závislý/á",
+                    value: 2,
+                    checked: false
+                }
+            ],
+            answerLabel: "",
+            answer: "",
+        },
+        q3: {
+            questionType: "hhmm",
+            label: "V kolik hodin jste připravený usnout? (vemte v úvahu, jak dlouho vám trvá usnout)",
+            inputId: "showcaseQ3",
+            answer: "",
+            question: {
+                id: 602
+            },
+        },
+        q4: {
+            questionType: "minutes",
+            label: wdPre + "Kolik minut Vám po ulehnutí trvá, než usnete?",
+            inputId: "showcaseQ4",
+            answer: "",
+            question: {
+                id: 603
+            },
+        },
+        q5: {
+            questionType: "wholeNumber",
+            label: "Zadejte prosím svůj věk.",
+            description: "Zadejte celé číslo znázorňující Váš věk.",
+            placeholder: "Např. 25",
+            inputId: "showcaseQ5",
+            answer: "",
+            question: {
+                id: 501
+            },
+        },
+        q6: {
+            questionType: "twoChoiceWithText",
+            label: "Jste převážně student, nebo převážně pracující?",
+            inputId: "showcaseQ6",
+            answers: [
+                {
+                    id: "demoProfessionStudent",
+                    label: "Student",
+                    value: true,
+                    checked: false
+                },
+                {
+                    id: "demoProfessionWorking",
+                    label: "Pracující",
+                    value: false,
+                    checked: false
+                },
+            ],
+            optionOneUppercase: false,
+            optionOneLabel: "Napišťe ročník, obor a školu.",
+            optionOneLabelHint: "Zadejte ročník, obor a školu.",
+            optionOnePlaceholder: "Např. 2., medicína, Univerzita Karlova",
+            optionOneRegex: ".+",
+            optionOneInvalidFeedback: "Zadejte neprázdný vstup",
+            optionTwoLabel: "Napišťe profesi.",
+            optionTwoLabelHint: "Zadejte svou profesi.",
+            optionTwoPlaceholder: "Např. lékař.",
+            optionTwoInvalidFeedback: "Zadejte neprázdný vstup.",
+            optionTwoRegex: ".+",
+            optionOneInput: "",
+            optionTwoInput: "",
+            textValue: "",
+            isOptionOne: null,
+            question: {
+                id: 503
+            },
+        },
+    }
+}
 const meq = {
     meq: {
         q1: {
@@ -1518,8 +1627,6 @@ const pss = {
                 id: 300
             },
         },
-
-
         q2: {
             questionType: "multipleChoice",
             label: "Jak často jste v posdlením měsíci měl/a pocit, že nemáte kontrolu nad důležitými věcmi ve svém životě?",
@@ -1562,8 +1669,6 @@ const pss = {
                 id: 301
             },
         },
-
-
         q3: {
             questionType: "multipleChoice",
             label: "Jak často jste se v posledním měsíci cítil/a nervózní a ve stresu?",
@@ -1606,8 +1711,6 @@ const pss = {
                 id: 302
             },
         },
-
-
         q4: {
             questionType: "multipleChoice",
             label: "Jak často jste v posledním měsíci věřil/a, že dokážete sebejistě zvládat své osobní problémy?",
@@ -1650,8 +1753,6 @@ const pss = {
                 id: 303
             },
         },
-
-
         q5: {
             questionType: "multipleChoice",
             label: "Jak často Vam v posledním měsíci přišlo, že jdou věci podle plánu?",
@@ -1694,8 +1795,6 @@ const pss = {
                 id: 304
             },
         },
-
-
         q6: {
             questionType: "multipleChoice",
             label: "Jak často jste v posledním měsíci zjistil/a, že nezvládáte všechny věci, které musíte udělat?",
@@ -1738,8 +1837,6 @@ const pss = {
                 id: 305
             },
         },
-
-
         q7: {
             questionType: "multipleChoice",
             label: "Jak často jste v posledním měsíci cítil/a, že dokážete kontrolovat nepříjemné situace ve svém životě?",
@@ -1782,8 +1879,6 @@ const pss = {
                 id: 306
             },
         },
-
-
         q8: {
             questionType: "multipleChoice",
             label: "Jak často jste v posledním měsíci cítil/a, že máte věci pod kontrolou?",
@@ -1826,8 +1921,6 @@ const pss = {
                 id: 307
             },
         },
-
-
         q9: {
             questionType: "multipleChoice",
             label: "Jak často jste byl/a v posledním měsíci rozzlobený/á kvůli věcem, které jste nemohl/a ovlivnit?",
@@ -1870,8 +1963,6 @@ const pss = {
                 id: 308
             },
         },
-
-
         q10: {
             questionType: "multipleChoice",
             label: "Jak často jste v posledním měsíci cítil/a, že se potíže hromadí tak moc, že je nedokážete zvládnout?",
@@ -1914,7 +2005,6 @@ const pss = {
                 id: 309
             },
         },
-
     }
 }
 
@@ -1976,8 +2066,6 @@ const dzs = {
                     id: 200
                 },
             },
-
-
             healthQ1: {
                 questionType: "multipleChoice",
                 label: "Se svou duševní kondicí jsem...",
@@ -2032,8 +2120,6 @@ const dzs = {
                     id: 201
                 },
             },
-
-
             healthQ2: {
                 questionType: "multipleChoice",
                 label: "Se svou tělesnou kondicí jsem...",
@@ -2088,8 +2174,6 @@ const dzs = {
                     id: 202
                 },
             },
-
-
             healthQ3: {
                 questionType: "multipleChoice",
                 label: "Se svou duševní výkonností jsem...",
@@ -2144,8 +2228,6 @@ const dzs = {
                     id: 203
                 },
             },
-
-
             healthQ4: {
                 questionType: "multipleChoice",
                 label: "Se svou obranyschopností proti nemoci jsem...",
@@ -2200,8 +2282,6 @@ const dzs = {
                     id: 204
                 },
             },
-
-
             healthQ5: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak často mám bolesti, jsem...",
@@ -2256,8 +2336,6 @@ const dzs = {
                     id: 205
                 },
             },
-
-
             healthQ6: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak často jsem až dosud byl(a) nemocný(á), jsem...",
@@ -2312,8 +2390,6 @@ const dzs = {
                     id: 206
                 },
             },
-
-
             workQ0: {
                 questionType: "multipleChoice",
                 label: "Se svým postavením na pracovišti jsem...",
@@ -2368,8 +2444,6 @@ const dzs = {
                     id: 207
                 },
             },
-
-
             workQ1: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak jistá je moje budoucnost v zaměstnání, jsem...",
@@ -2424,8 +2498,6 @@ const dzs = {
                     id: 208
                 },
             },
-
-
             workQ2: {
                 questionType: "multipleChoice",
                 label: "S úspěchy, které mám v zaměstnání, jsem...",
@@ -2480,8 +2552,6 @@ const dzs = {
                     id: 209
                 },
             },
-
-
             workQ3: {
                 questionType: "multipleChoice",
                 label: "S možnostmi postupu, které mám v zaměstnání, jsem...",
@@ -2536,8 +2606,6 @@ const dzs = {
                     id: 210
                 },
             },
-
-
             workQ4: {
                 questionType: "multipleChoice",
                 label: "S atmosférou na pracovišti jsem...",
@@ -2592,8 +2660,6 @@ const dzs = {
                     id: 211
                 },
             },
-
-
             workQ5: {
                 questionType: "multipleChoice",
                 label: "Co se týká mých pracovních povinností a zátěže, jsem...",
@@ -2648,8 +2714,6 @@ const dzs = {
                     id: 212
                 },
             },
-
-
             workQ6: {
                 questionType: "multipleChoice",
                 label: "S pestrostí, kterou mi nabízí mé zaměstnání, jsem...",
@@ -2704,8 +2768,6 @@ const dzs = {
                     id: 213
                 },
             },
-
-
             financesQ0: {
                 questionType: "multipleChoice",
                 label: "Se svým příjmem/platem jsem...",
@@ -2760,8 +2822,6 @@ const dzs = {
                     id: 214
                 },
             },
-
-
             financesQ1: {
                 questionType: "multipleChoice",
                 label: "S tím, co vlastním, jsem...",
@@ -2816,8 +2876,6 @@ const dzs = {
                     id: 215
                 },
             },
-
-
             financesQ2: {
                 questionType: "multipleChoice",
                 label: "Se svým životním standardem jsem...",
@@ -2872,8 +2930,6 @@ const dzs = {
                     id: 216
                 },
             },
-
-
             financesQ3: {
                 questionType: "multipleChoice",
                 label: "S hmotným zajištěním své existence jsem...",
@@ -2928,8 +2984,6 @@ const dzs = {
                     id: 217
                 },
             },
-
-
             financesQ4: {
                 questionType: "multipleChoice",
                 label: "Se svými budoucími možnostmi výdělku jsem...",
@@ -2984,8 +3038,6 @@ const dzs = {
                     id: 218
                 },
             },
-
-
             financesQ5: {
                 questionType: "multipleChoice",
                 label: "S možnostmi, které mohu vzhledem ke své finanční situaci nabídnout své rodině jsem...",
@@ -3040,8 +3092,6 @@ const dzs = {
                     id: 219
                 },
             },
-
-
             financesQ6: {
                 questionType: "multipleChoice",
                 label: "Se svým budoucím očekávaným (finančním) zajištěním ve stáří jsem...",
@@ -3096,8 +3146,6 @@ const dzs = {
                     id: 220
                 },
             },
-
-
             freeTimeQ0: {
                 questionType: "multipleChoice",
                 label: "S délkou své každoroční dovolené jsem...",
@@ -3152,8 +3200,6 @@ const dzs = {
                     id: 221
                 },
             },
-
-
             freeTimeQ1: {
                 questionType: "multipleChoice",
                 label: "S množstvím svého volného času po práci a o víkendech jsem...",
@@ -3208,8 +3254,6 @@ const dzs = {
                     id: 222
                 },
             },
-
-
             freeTimeQ2: {
                 questionType: "multipleChoice",
                 label: "S kvalitou odpočinku, který mi přináší dovolená, jsem...",
@@ -3264,8 +3308,6 @@ const dzs = {
                     id: 223
                 },
             },
-
-
             freeTimeQ3: {
                 questionType: "multipleChoice",
                 label: "S kvalitou odpočinku, který mi přináší volný čas po práci a víkendy, jsem...",
@@ -3320,8 +3362,6 @@ const dzs = {
                     id: 224
                 },
             },
-
-
             freeTimeQ4: {
                 questionType: "multipleChoice",
                 label: "S množstvím času, které mám k dispozici pro své koníčky, jsem...",
@@ -3376,8 +3416,6 @@ const dzs = {
                     id: 225
                 },
             },
-
-
             freeTimeQ5: {
                 questionType: "multipleChoice",
                 label: "S časem, který mohu věnovat blízkým osobám jsem...",
@@ -3432,8 +3470,6 @@ const dzs = {
                     id: 226
                 },
             },
-
-
             freeTimeQ6: {
                 questionType: "multipleChoice",
                 label: "S pestrostí svého volného času jsem...",
@@ -3488,7 +3524,6 @@ const dzs = {
                     id: 227
                 },
             },
-
             hasPartner: {
                 questionType: "dzsYesNoSkip",
                 label: "Máte v současné době stálého partnera/partnerku?",
@@ -3568,8 +3603,6 @@ const dzs = {
                     id: 228
                 },
             },
-
-
             partnershipQ1: {
                 questionType: "multipleChoice",
                 label: "S našimi společnými aktivitami jsem...",
@@ -3624,8 +3657,6 @@ const dzs = {
                     id: 229
                 },
             },
-
-
             partnershipQ2: {
                 questionType: "multipleChoice",
                 label: "S upřímností a otevřeností svého partnera/partnerky jsem...",
@@ -3680,8 +3711,6 @@ const dzs = {
                     id: 230
                 },
             },
-
-
             partnershipQ3: {
                 questionType: "multipleChoice",
                 label: "S pochopením, která má pro mne můj partner/partnerka, jsem..",
@@ -3736,8 +3765,6 @@ const dzs = {
                     id: 231
                 },
             },
-
-
             partnershipQ4: {
                 questionType: "multipleChoice",
                 label: "S něžností a náklonností, kterou mi můj partner/partnerka projevuje jsem...",
@@ -3792,8 +3819,6 @@ const dzs = {
                     id: 232
                 },
             },
-
-
             partnershipQ5: {
                 questionType: "multipleChoice",
                 label: "S bezpečím, které mi poskytne můj partner/partnerka, jsem...",
@@ -3848,8 +3873,6 @@ const dzs = {
                     id: 233
                 },
             },
-
-
             partnershipQ6: {
                 questionType: "multipleChoice",
                 label: "S ochotou pomoci, kterou mi projevuje můj partner/partnerka, jsem...",
@@ -3904,8 +3927,6 @@ const dzs = {
                     id: 234
                 },
             },
-
-
             hasKids: {
                 questionType: "dzsYesNoSkip",
                 label: "Máte vlastní děti?",
@@ -3985,8 +4006,6 @@ const dzs = {
                     id: 235
                 },
             },
-
-
             childrenQ1: {
                 questionType: "multipleChoice",
                 label: "Když myslím na úspěchy svých dětí ve škole a zaměstnání, jsem...",
@@ -4041,8 +4060,6 @@ const dzs = {
                     id: 236
                 },
             },
-
-
             childrenQ2: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, kolik radosti mám ze svých dětí, jsem...",
@@ -4097,8 +4114,6 @@ const dzs = {
                     id: 237
                 },
             },
-
-
             childrenQ3: {
                 questionType: "multipleChoice",
                 label: "Když myslím na námahu a výdaje, které mě mé děti stály, jsem...",
@@ -4153,8 +4168,6 @@ const dzs = {
                     id: 238
                 },
             },
-
-
             childrenQ4: {
                 questionType: "multipleChoice",
                 label: "S vlivem, který mám na své děti, jsem...",
@@ -4209,8 +4222,6 @@ const dzs = {
                     id: 239
                 },
             },
-
-
             childrenQ5: {
                 questionType: "multipleChoice",
                 label: "S uznáním, kterého se mi od mých dětí dostává jsem...",
@@ -4265,8 +4276,6 @@ const dzs = {
                     id: 240
                 },
             },
-
-
             childrenQ6: {
                 questionType: "multipleChoice",
                 label: "S našimi společnými aktivitami jsem...",
@@ -4321,8 +4330,6 @@ const dzs = {
                     id: 241
                 },
             },
-
-
             personalityQ0: {
                 questionType: "multipleChoice",
                 label: "Se svými schopnostmi a dovednostmi jsem...",
@@ -4377,8 +4384,6 @@ const dzs = {
                     id: 242
                 },
             },
-
-
             personalityQ1: {
                 questionType: "multipleChoice",
                 label: "Se způsobem, jak jsem až doposud žil, jsem...",
@@ -4433,8 +4438,6 @@ const dzs = {
                     id: 243
                 },
             },
-
-
             personalityQ2: {
                 questionType: "multipleChoice",
                 label: "Se svým vnějším vzhledem jsem...",
@@ -4489,8 +4492,6 @@ const dzs = {
                     id: 244
                 },
             },
-
-
             personalityQ3: {
                 questionType: "multipleChoice",
                 label: "Se svým sebevědomím a sebejistotou jsem...",
@@ -4545,8 +4546,6 @@ const dzs = {
                     id: 245
                 },
             },
-
-
             personalityQ4: {
                 questionType: "multipleChoice",
                 label: "Se svým charakterem (povahou) jsem...",
@@ -4601,8 +4600,6 @@ const dzs = {
                     id: 246
                 },
             },
-
-
             personalityQ5: {
                 questionType: "multipleChoice",
                 label: "Se svou vitalitou (tzn. s radostí ze života a životní energií) jsem...",
@@ -4657,8 +4654,6 @@ const dzs = {
                     id: 247
                 },
             },
-
-
             personalityQ6: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak vycházím s ostatními lidmi, jsem...",
@@ -4713,8 +4708,6 @@ const dzs = {
                     id: 248
                 },
             },
-
-
             sexualityQ0: {
                 questionType: "multipleChoice",
                 label: "Se svou tělesnou přitažlivostí jsem...",
@@ -4769,8 +4762,6 @@ const dzs = {
                     id: 249
                 },
             },
-
-
             sexualityQ1: {
                 questionType: "multipleChoice",
                 label: "Se svou sexuální výkonností jsem...",
@@ -4825,8 +4816,6 @@ const dzs = {
                     id: 250
                 },
             },
-
-
             sexualityQ2: {
                 questionType: "multipleChoice",
                 label: "S častostí svých sexuálních kontaktů jsem...",
@@ -4881,8 +4870,6 @@ const dzs = {
                     id: 251
                 },
             },
-
-
             sexualityQ3: {
                 questionType: "multipleChoice",
                 label: "S tím, jak často se mi můj partner/má partnerka tělesně věnuje (dotýká se mne, hladí mne), jsem...",
@@ -4937,8 +4924,6 @@ const dzs = {
                     id: 252
                 },
             },
-
-
             sexualityQ4: {
                 questionType: "multipleChoice",
                 label: "Se svými sexuálními reakcemi jsem...",
@@ -4993,8 +4978,6 @@ const dzs = {
                     id: 253
                 },
             },
-
-
             sexualityQ5: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak otevřeně mohu mluvit o sexuální oblasti, jsem...",
@@ -5049,8 +5032,6 @@ const dzs = {
                     id: 254
                 },
             },
-
-
             sexualityQ6: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak se k sobě s partnerem hodíme, jsem...",
@@ -5105,8 +5086,6 @@ const dzs = {
                     id: 255
                 },
             },
-
-
             friendsQ0: {
                 questionType: "multipleChoice",
                 label: "Když myslím na okruh svých přátel a známých, jsem...",
@@ -5161,8 +5140,6 @@ const dzs = {
                     id: 256
                 },
             },
-
-
             friendsQ1: {
                 questionType: "multipleChoice",
                 label: "S kontakty se svými příbuznými jsem...",
@@ -5217,8 +5194,6 @@ const dzs = {
                     id: 257
                 },
             },
-
-
             friendsQ2: {
                 questionType: "multipleChoice",
                 label: "S kontaktem se svými sousedy jsem...",
@@ -5273,8 +5248,6 @@ const dzs = {
                     id: 258
                 },
             },
-
-
             friendsQ3: {
                 questionType: "multipleChoice",
                 label: "S pomocí a podporou, kterou mi poskytují přátelé a známí, jsem...",
@@ -5329,8 +5302,6 @@ const dzs = {
                     id: 259
                 },
             },
-
-
             friendsQ4: {
                 questionType: "multipleChoice",
                 label: "Se svým veřejnými a spolkovými aktivitami jsem...",
@@ -5385,8 +5356,6 @@ const dzs = {
                     id: 260
                 },
             },
-
-
             friendsQ5: {
                 questionType: "multipleChoice",
                 label: "Se svou společenskou angažovaností jsem...",
@@ -5441,8 +5410,6 @@ const dzs = {
                     id: 261
                 },
             },
-
-
             friendsQ6: {
                 questionType: "multipleChoice",
                 label: "Když myslím na to, jak často se dostanu mezi lidi, jsem...",
@@ -5497,8 +5464,6 @@ const dzs = {
                     id: 262
                 },
             },
-
-
             habitationQ0: {
                 questionType: "multipleChoice",
                 label: "S velikostí svého bytu jsem...",
@@ -5553,8 +5518,6 @@ const dzs = {
                     id: 263
                 },
             },
-
-
             habitationQ1: {
                 questionType: "multipleChoice",
                 label: "Se stavem svého bytu jsem...",
@@ -5609,8 +5572,6 @@ const dzs = {
                     id: 264
                 },
             },
-
-
             habitationQ2: {
                 questionType: "multipleChoice",
                 label: "S výdaji za svůj byt (nájem, příp. splátky) jsem...",
@@ -5665,8 +5626,6 @@ const dzs = {
                     id: 265
                 },
             },
-
-
             habitationQ3: {
                 questionType: "multipleChoice",
                 label: "S polohou svého bytu jsem...",
@@ -5721,8 +5680,6 @@ const dzs = {
                     id: 266
                 },
             },
-
-
             habitationQ4: {
                 questionType: "multipleChoice",
                 label: "S dosažitelností dopravních prostředků jsem...",
@@ -5777,8 +5734,6 @@ const dzs = {
                     id: 267
                 },
             },
-
-
             habitationQ5: {
                 questionType: "multipleChoice",
                 label: "Když myslím na míru zátěže hlukem ve vlastním bytě...",
@@ -5833,8 +5788,6 @@ const dzs = {
                     id: 268
                 },
             },
-
-
             habitationQ6: {
                 questionType: "multipleChoice",
                 label: "Se standardem svého bytu jsem...",
@@ -5889,7 +5842,6 @@ const dzs = {
                     id: 269
                 },
             },
-
         }
 
 }
@@ -6119,6 +6071,8 @@ export function mapQuestionnareCodeToName(code) {
             return "Demografický dotazník"
         case 'id':
             return "Identifikační část"
+        case 'showcase':
+            return "Showcase typů vstupů"
         default:
             break;
     }
@@ -6153,6 +6107,7 @@ function getJointQuestionsLul(params, isArray) {
     let pssBool = false
     let dzsBool = false
     let demoBool = false
+    let showcaseBool = false
     const res = {}
     Object.assign(res, id)
     if (isArray) {
@@ -6200,6 +6155,13 @@ function getJointQuestionsLul(params, isArray) {
                     }
                     Object.assign(res, demo)
                     demoBool = true
+                    break
+                case 'showcase':
+                    if (showcaseBool) {
+                        break;
+                    }
+                    Object.assign(res, showcase)
+                    showcaseBool = true
                     break
                 default:
                     break;
@@ -6249,6 +6211,13 @@ function getJointQuestionsLul(params, isArray) {
                 Object.assign(res, demo)
                 demoBool = true
                 break
+            case 'showcase':
+                if (showcaseBool) {
+                    break;
+                }
+                Object.assign(res, showcase)
+                showcaseBool = true
+                break
         }
     }
     let totalNumberOfQuestions = 0;
@@ -6261,7 +6230,7 @@ function getJointQuestionsLul(params, isArray) {
     };
 }
 
-const qs = ['psqi', 'mctq', 'meq', 'pss', 'dzs', 'demo']
+const qs = ['psqi', 'mctq', 'meq', 'pss', 'dzs', 'demo', 'showcase']
 
 function parametersAreValid(params) {
     let valid = true;

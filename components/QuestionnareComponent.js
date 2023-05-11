@@ -16,6 +16,8 @@ import HourRangeInput from "./inputs/HourRangeInput";
 import WholeNumberInput from "./inputs/WholeNumberInput";
 import ErrorSendEmail from "./ErrorSendEmail";
 import MyRecaptcha from "./MyRecaptcha";
+import axios from "axios";
+import {isServerUp} from "./admin/AxiosRequestor/UrlConstantHolder";
 
 // Example POST method implementation:
 async function postData(url = "", data = {}) {
@@ -173,6 +175,13 @@ function QuestionnareComponent(props) {
             submit()
             buttonIsEnabled.current = true;
         } else {
+            if (currentSlideGlobal.current === 0) {
+                // if its the first question, check if the server is running
+                axios.get(isServerUp).then((res) => {
+                }).catch((e) => {
+                    setError("Server je nedostupný.")
+                })
+            }
             setTimeout(function () {
                 removeAllValidityClasses(currentQuestion)
                 if (currentQuestion.questionType === "dzsYesNoSkip") {
@@ -390,19 +399,20 @@ function QuestionnareComponent(props) {
 
     return (
         <form className={styles.customForm}>
-            <small className={"pb-2"}>{keysInfoText}</small>
+            <small className={"pb-2"} data-test={"questionnare-info"} >{keysInfoText}</small>
+
             <div id={"answerCard"} className={"card"}>
                 <div className={"card-header"}>
                     <div
-                        className={"col-12 text-center"}>Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
+                        className={"col-12 text-center"}
+                        data-test={"question-number-info"}
+                        >
+                        Otázka {currentSlideGlobal.current + 1} / {props.totalNumberOfQuestions}</div>
                 </div>
                 <div className={"card-body"}>
-                    <h5>{getCurrentQuestion(questionnareMap).label}</h5>
+                    <h5 data-test={"current-question-label"}>{getCurrentQuestion(questionnareMap).label}</h5>
                     <div id={"answer"} className="form-group">
-                        {/*<label htmlFor="exampleInputEmail1">{currentQuestion.label}</label>*/}
                         {getCurrentInput()}
-                        <small id="emailHelp" className="form-text text-muted"></small>
-                        <div id={"emptyForm"} className={"d-none"}>Vyplňte aspoň nečo</div>
                     </div>
                 </div>
             </div>
@@ -414,10 +424,10 @@ function QuestionnareComponent(props) {
                 <div className={"d-flex justify-content-center mt-auto"}>
                     {/*<button className={"btn btn-outline-secondary me-3"}*/}
                     {/*        onClick={(e) => previousSlide(e)}>{"<-"}</button>*/}
-                    <button disabled={!finishButtonEnabled && lastQuestion} className={buttonClass} onClick={(e) => handleNextButtonClick(e)}>{buttonText}</button>
+                    <button disabled={!finishButtonEnabled && lastQuestion} className={buttonClass} onClick={(e) => handleNextButtonClick(e)} data-test={"next-question-button"}>{buttonText}</button>
                     {/*<button className={buttonClass} onClick={(e) => submitE(e)}>Odeslat</button>*/}
-                    {/*<button className={"btn btn-outline-secondary ms-3"}*/}
-                    {/*        onClick={(e) => nextSlide(e)}>{"->"}</button>*/}
+                    <button id={"next-slide-button"} className={"d-none btn btn-outline-secondary ms-3"}
+                            onClick={(e) => nextSlide(e)}>{"->"}</button>
                 </div>
                 <div className={"row text-center mt-3"}>
                 </div>

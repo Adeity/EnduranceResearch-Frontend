@@ -11,6 +11,7 @@ const exportSleepsUrl = baseUrl + "/garmin/sleeps/export"
 const participantsInformation = baseUrl + "/device/info"
 const invalidParticipants = baseUrl + "/device/invalid-number-candidates"
 const updateResearchNumber = baseUrl + "/device/update-research-number"
+const isServerUp = baseUrl + "/is-up"
 
 export {
     loginUrl,
@@ -23,5 +24,6 @@ export {
     exportSleepsUrl,
     participantsInformation,
     invalidParticipants,
-    updateResearchNumber
+    updateResearchNumber,
+    isServerUp
 }

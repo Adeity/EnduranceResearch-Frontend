@@ -10,8 +10,9 @@ export default function HoursInput(props){
                 type="number"
                 className="form-control"
                 value={props.value}
+                data-test={"hours-input"}
                 placeholder="Např.: 7.5" required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
                 Prosím zadejte číselnou hodnotu.
             </div>
         </>
