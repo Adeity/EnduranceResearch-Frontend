@@ -1,9 +1,13 @@
 import ComputationsReportsComponent from '../../../../components/admin/ComputationsReportsPage/computations-reports.component'
+import RestrictedRoute from "../../../../components/admin/RestrictedRootComponent/RestrictedRoute";
+
 
 const ComputationsReportsPage = () => {
 
     return (
-        <ComputationsReportsComponent />
+        <RestrictedRoute>
+            <ComputationsReportsComponent />
+        </RestrictedRoute>
     )
 }
 
