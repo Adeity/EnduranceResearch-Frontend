@@ -13,11 +13,15 @@
 
 .computations-formButton {
     height: 2.8em;
-    margin-top: 15px;
-    align-self: center;
+    margin-top: 1.8em;
+    align-self: top;
     margin-right: 0.5em;
 }
 
 .computations-divider {
     padding-bottom: 1em;
+}
+
+.error-text {
+    color: red
 }

@@ -3,6 +3,11 @@ export const formatTime = ({hours, minutes}) => {
 }
 
 export const fromString = (text) => {
+
+    if(text.length != 5) {
+        return {hours: NaN, minutes: NaN}
+    }
+
     let index = text.indexOf(":");
     let hours = Number(text.substring(index-2, index))
     let minutes = Number(text.substring(index+1, index+3))
@@ -24,4 +29,9 @@ export const formatTimeOnlyHoursToJson = (time) => {
         hours: Number(time.slice(0, 2)), 
         minutes: Number(time.slice(3, 5)) 
     }
+}
+
+export const isValidHHMM = (time) => {
+    const regex = /^(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])$/
+    return regex.test(time)
 }

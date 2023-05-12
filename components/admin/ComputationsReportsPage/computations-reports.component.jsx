@@ -14,6 +14,7 @@ const ComputationsReportsComponent = () => {
     const [ method, setMethod ] = useState(undefined);
     const [ result, setResult ] = useState('');
     const [ disabledFilter, setDisabledFilter ] = useState(false);
+    const [ valid, setValid ] = useState(true);
 
     let queryString = result;
 
@@ -23,7 +24,13 @@ const ComputationsReportsComponent = () => {
     }, [])
 
     const onSearchClick = () => {
-        setResult(queryString);
+        if(validateInput(queryString)) {
+            setValid(true)
+            setResult(queryString);
+        }
+        else {
+            setValid(false)
+        }
     }
 
     const onChangeHandlerSelect = (event) => {
@@ -33,8 +40,17 @@ const ComputationsReportsComponent = () => {
     }
 
     const onChangeHandlerInput = (event) => {
+
+        if(validateInput(event.target.value)) {
+            setValid(true)
+        }
         queryString = event.target.value.toLocaleLowerCase();
     }
+
+    const validateInput = (inputValue) => {
+        const regex = /^[a-zA-Z0-9_]{0,7}$/;
+        return regex.test(inputValue);
+      };
 
     const exportAllToXlsx = () => {
         exportAllToExcel();
@@ -55,7 +71,9 @@ const ComputationsReportsComponent = () => {
                 <Form className="computations-formQuery">
                     <Form.Group className="mb-3">
                         <Form.Label><b>ID účastníka</b></Form.Label>
-                        <Form.Control disabled={disabledFilter} type="text" placeholder="Zadejte ID účastníka.." onKeyDown={onKeyDown} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
+                        <Form.Control isInvalid={!valid} disabled={disabledFilter} type="text" placeholder="Zadejte ID účastníka.." onKeyDown={onKeyDown} className="form-control computations-edit-val-form-control" onChange={ onChangeHandlerInput }/>
+                        {!valid && <p className='error-text'>Dovoleny pouze písmena, číslice a _! Maximální délka 7 znaků.</p>}
+
                     </Form.Group>
 
                     <Form.Group className="mb-3">
@@ -83,6 +101,7 @@ const ComputationsReportsComponent = () => {
                         Export všeho
                     </Button>
                 </Form>
+
                 <hr className='computations-divider'/>
                 <SleepParentComponent queryString={result} method={method} setDisabledFilter={setDisabledFilter}/>
 
