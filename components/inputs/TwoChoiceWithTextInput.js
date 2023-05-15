@@ -26,7 +26,8 @@ export default function TwoChoiceWithTextInput(props){
     const b = disabled ? <div className={"placeholder no-circle form-text w-100 mb-2"}>...</div> : <div className={"form-text mb-2"}>{instructionText}</div>
     return (
         <>
-            <div className={"form-text pb-2"}>Vyberte jednu z možností.</div>
+            <div
+                className={"form-text pb-2"}>Vyberte jednu z možností.</div>
             {
                 props.choices.map((choice, index) => {
                     return (
@@ -56,10 +57,11 @@ export default function TwoChoiceWithTextInput(props){
                 type="text"
                 disabled={disabled}
                 className="form-control"
+                data-test={"twochoice-text"}
                 value={textInputValue}
                 placeholder={textInputPlaceholder}
                 required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
                 {textInputInvalidFeedback}
             </div>
         </>

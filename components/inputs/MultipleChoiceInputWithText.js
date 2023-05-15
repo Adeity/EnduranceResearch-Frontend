@@ -9,12 +9,15 @@ export default function MultipleChoiceInputWithText(props){
                 onChange={(e) => props.updateText(e.target.value)}
                 type="text"
                 className="form-control"
+                data-test={"mchoice-text-input"}
                 placeholder="Popište slovy" required={true}/>
-            <div className="invalid-feedback">
+            <div className="invalid-feedback" data-test={"invalid-feedback-text"}>
                 Prosím, vyplňte toto políčko.
             </div>
             <h5 className={""}>A jak často?</h5>
-            <div className={"form-text pb-2"}>{props.secondDescription}</div>
+            <div
+                data-test={"mchoice-choices"}
+                className={"form-text pb-2"}>{props.secondDescription}</div>
             {
                 props.choices.map((choice, index) => {
                     return (
