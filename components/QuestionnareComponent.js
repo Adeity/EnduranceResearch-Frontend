@@ -175,13 +175,13 @@ function QuestionnareComponent(props) {
             submit()
             buttonIsEnabled.current = true;
         } else {
-            if (currentSlideGlobal.current === 0) {
-                // if its the first question, check if the server is running
-                axios.get(isServerUp).then((res) => {
-                }).catch((e) => {
-                    setError("Server je nedostupný.")
-                })
-            }
+            // if (currentSlideGlobal.current === 0) {
+            //     // if its the first question, check if the server is running
+            //     axios.get(isServerUp).then((res) => {
+            //     }).catch((e) => {
+            //         setError("Server je nedostupný.")
+            //     })
+            // }
             setTimeout(function () {
                 removeAllValidityClasses(currentQuestion)
                 if (currentQuestion.questionType === "dzsYesNoSkip") {
