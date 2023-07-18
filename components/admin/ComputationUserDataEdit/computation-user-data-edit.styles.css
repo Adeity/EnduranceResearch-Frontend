@@ -1,0 +1,32 @@
+.user-data-container {
+    display: flex;
+}
+
+
+.user-data-short-value {
+    margin-top: -0.2em;
+    height: 2em;
+    text-align: right;
+}
+
+.user-data-button {
+    margin-top: -0.5em;
+    text-align: center;
+    margin-bottom: 0.2em; 
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.error-text {
+  color: red
+}

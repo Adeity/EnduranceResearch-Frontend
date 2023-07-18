@@ -2,7 +2,7 @@
 
 describe('Testing slider question', () => {
     beforeEach(() => {
-        cy.visit(Cypress.env('base_url') + '/questionnare?q=showcase')
+        cy.visit('/questionnare?q=showcase')
         cy.get('[data-test="next-question-button"]', {timeout: 10000}).should('be.visible');
         cy.get('[data-test="next-question-button"]').as('next-question-btn')
         cy.get('#next-slide-button').click({force: true})

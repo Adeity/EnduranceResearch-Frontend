@@ -1,0 +1,9 @@
+.footer-row {
+    position: relative;
+    top: 1em;
+    vertical-align: bottom;
+}
+
+.align-bottom {
+    margin-top: 0.8em;
+}

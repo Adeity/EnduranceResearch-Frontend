@@ -1,0 +1,38 @@
+.clickable {
+    cursor: pointer;
+}
+
+.button-like {
+    border-radius: 8px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    margin-left: 0.2em;
+    text-align: center;
+}
+
+.button-like:hover {
+    opacity: 0.8;
+}
+
+.accordion-button {
+    height: 2.5em;
+}
+
+.accordion-margin {
+    margin-bottom: 0.1em;
+}
+
+.clickable-respondent:hover {
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(240, 240, 240);
+    border-style: solid;
+    background-color: rgb(250, 250, 250);
+}
+
+.margin-right {
+    margin-right: 1em;
+}
+
+.margin-top {
+    margin-top: 2000.2em;
+}

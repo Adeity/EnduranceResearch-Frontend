@@ -1,0 +1,42 @@
+[
+    {
+       "id":2,
+       "awakeFrom":"05:00:00",
+       "awakeTo":"07:00:00",
+       "sleepFrom":"21:30:00",
+       "sleepTo":"22:30:00",
+       "title":"Nevyhraněný typ"
+    },
+    {
+       "id":3,
+       "awakeFrom":"06:00:00",
+       "awakeTo":"08:00:00",
+       "sleepFrom":"22:30:00",
+       "sleepTo":"23:30:00",
+       "title":"Spíše večerní typ"
+    },
+    {
+       "id":0,
+       "awakeFrom":"04:00:00",
+       "awakeTo":"06:00:00",
+       "sleepFrom":"20:00:00",
+       "sleepTo":"21:00:00",
+       "title":"Výrazně ranní typ"
+    },
+    {
+       "id":4,
+       "awakeFrom":"06:30:00",
+       "awakeTo":"09:00:00",
+       "sleepFrom":"23:30:00",
+       "sleepTo":"00:30:00",
+       "title":"Výrazně večerní typ"
+    },
+    {
+       "id":1,
+       "awakeFrom":"05:00:00",
+       "awakeTo":"07:00:00",
+       "sleepFrom":"21:00:00",
+       "sleepTo":"21:30:00",
+       "title":"Spíše ranní typ"
+    }
+ ]

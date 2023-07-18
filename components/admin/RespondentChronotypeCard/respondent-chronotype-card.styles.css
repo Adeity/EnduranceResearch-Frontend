@@ -1,0 +1,20 @@
+.subfield {
+    display: flex;
+    flex-direction: row;
+}
+
+.halfWidth {
+    width: 50%;
+}
+
+.header {
+    padding-left: 1em;
+    text-align: center;
+}
+
+.elevated {
+    padding-top: 1em;
+    padding-left: 1em;
+    border-bottom: 1px solid grey;
+    border-radius: 20px;
+}

@@ -1,0 +1,12 @@
+.subfield {
+    display: flex;
+    flex-direction: row;
+}
+
+.halfwidth {
+    width: 50%;
+}
+
+.margin-left {
+    margin-left: 1em;
+}
