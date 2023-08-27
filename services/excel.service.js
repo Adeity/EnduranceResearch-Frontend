@@ -55,3 +55,23 @@ export function exportAllToExcel() {
     })
     .catch(err => console.error(err));
 }
+
+export function exportUnregisteredToExcel() {
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/export-unregistered`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+      }
+    )
+    .then(res => res.blob())
+    .then(data => {
+      const url = window.URL.createObjectURL(new Blob([data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', "reports_unregistered_" + formatTimeForExcel(new Date()) +  ".xlsx");
+      document.body.appendChild(link);
+      link.click();
+    })
+    .catch(err => console.error(err));
+}
