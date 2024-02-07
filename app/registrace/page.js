@@ -27,7 +27,7 @@ export default function App() {
             return;
         }
 
-        const url = process.env.BASE_URL + "/garmin/authorize?device_id=" + researchNumberInput
+        const url = process.env.NEXT_PUBLIC_BASE_URL + "/garmin/authorize?device_id=" + researchNumberInput
         fetch(url, {
             method: "GET",
             mode: "no-cors"

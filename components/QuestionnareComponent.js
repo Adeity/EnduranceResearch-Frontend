@@ -141,7 +141,7 @@ function QuestionnareComponent(props) {
             return
         }
         const payload = createPayload(questionnareMap)
-        postData(process.env.BASE_URL + "/form-submit", payload).then((data) => {
+        postData(process.env.NEXT_PUBLIC_BASE_URL + "/form-submit", payload).then((data) => {
             if (data === 1) {
                 console.log("ok")
                 setTimeout(function () {

@@ -3,7 +3,7 @@ import { extractRespondentsResponseDto } from './people.service'
 
 export function getGlobalSleepData() {
 
-    return fetch(`${process.env.BASE_URL}/comps/global-chrono`)
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/global-chrono`)
         .then(response => response.json())
         .then(response => {
             const chronoData = [];
@@ -44,7 +44,7 @@ export function updateGlobalSleepData(data, pageInfo) {
         pageInfo: pageInfo
     }
 
-    return fetch(`${process.env.BASE_URL}/comps/update-global-data`, {
+    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/update-global-data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
