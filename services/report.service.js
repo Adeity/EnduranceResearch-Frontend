@@ -25,7 +25,7 @@ function updateComputation(endpoint, computation_dto, pageInfo) {
     pageInfo: pageInfo
   }
 
-  return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/${endpoint}`, {
+  return fetch(`${process.env.BASE_URL}/comps/${endpoint}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

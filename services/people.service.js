@@ -2,7 +2,7 @@ import { formatTimeOnlyHoursToJson, formatTime } from '../utils/time-format'
 
 export function getPeopleDataSleep() {
 
-    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/sleep-respondent-data`)
+    return fetch(`${process.env.BASE_URL}/comps/sleep-respondent-data`)
         .then(response => response.json())
         .then(data => extractPeopleDataSleep(data))
 }
@@ -17,7 +17,7 @@ export function getPeopleDataSleepPage(body) {
         body: JSON.stringify(body)
       };
 
-    return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/comps/sleep-respondent-data-pageable`, options)
+    return fetch(`${process.env.BASE_URL}/comps/sleep-respondent-data-pageable`, options)
         .then(response => response.json())
         .then(data => extractRespondentsResponseDto(data))
 }
