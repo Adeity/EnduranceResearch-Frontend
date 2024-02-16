@@ -25,9 +25,9 @@ export const formatTimeForExcel = (date) => {
 }
 
 export const formatTimeOnlyHoursToJson = (time) => {
-    return { 
-        hours: Number(time.slice(0, 2)), 
-        minutes: Number(time.slice(3, 5)) 
+    return {
+        hours: Number(time[0]),
+        minutes: Number(time[1])
     }
 }
 
