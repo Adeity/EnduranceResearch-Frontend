@@ -20,12 +20,12 @@ function QuestionnaresList(props) {
                     description: '',
                     code: "mctq"
                 },
-                {
-                    id: 1,
-                    name: 'Dotazník životní spokojenosti',
-                    description: '',
-                    code: "dzs"
-                },
+                // {
+                //     id: 1,
+                //     name: 'Dotazník životní spokojenosti',
+                //     description: '',
+                //     code: "dzs"
+                // },
                 {
                     id: 1,
                     name: 'Škála vnímaného stresu',
